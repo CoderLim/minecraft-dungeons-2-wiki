@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/price')({
@@ -16,6 +16,15 @@ function Page() {
         { label: 'Game Pass', value: 'Launch-day availability announced for eligible plans' },
         { label: 'Regional pricing', value: 'Check the current platform storefront' },
       ]} />
+      <Section title="Official game art">
+        <OfficialImage
+          src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/key-art/Dungeons-II_Card-H_Trailer-2_760x450.png"
+          alt="Official Minecraft Dungeons II promotional art"
+          caption="Official Minecraft Dungeons II promotional art used alongside launch information."
+          sourceLabel="Minecraft.net"
+          sourceHref="https://www.minecraft.net/en-us/about-dungeons-ii"
+        />
+      </Section>
       <Section title="Standard vs Deluxe"><p>The Standard Edition is the base game. The Deluxe Edition adds cosmetic rewards and DLC-related content identified in official store/promo material. The exact bundle should always be checked against the current platform listing.</p></Section>
       <Section title="Why prices are labeled by storefront"><p>Currency, tax and regional pricing differ. A U.S. Xbox price should not be silently reused as a Steam, Nintendo or Taiwan price.</p></Section>
       <SourceList sources={[
