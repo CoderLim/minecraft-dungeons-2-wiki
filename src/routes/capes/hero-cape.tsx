@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/capes/hero-cape')({
@@ -17,6 +17,15 @@ function Page() {
         { label: 'Account', value: 'Use the same Microsoft Account across the games' },
         { label: 'Java / Bedrock', value: 'Unlocks after Dungeons II entitlement is confirmed' },
       ]} />
+      <Section title="Official Hero Cape image">
+        <OfficialImage
+          src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_Hero.jpg"
+          alt="Hero Cape from Minecraft Dungeons II"
+          caption="Official Hero Cape asset."
+          sourceLabel="Minecraft.net"
+          sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+        />
+      </Section>
       <Section title="Hero Cape requirements"><p>Mojang's instructions are straightforward: play Minecraft Dungeons I, then log into Minecraft Dungeons II before December 31, 2026. The same Microsoft Account must be used across the games.</p></Section>
       <Section title="How to unlock the Hero Cape in Java and Bedrock"><p>First wait until Dungeons II shows that the Hero Cape can be equipped. Then log into Minecraft Java and/or Bedrock Edition with the same Microsoft Account to unlock the cape there as well.</p></Section>
       <Section title="Does couch co-op count?"><p>The official promo explicitly says the same-account rule applies whether playing solo or joining a friend's couch co-op session.</p></Section>
