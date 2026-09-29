@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/platforms/xbox')({
@@ -16,6 +16,15 @@ function Page() {
         { label: 'Standard US price', value: '$29.99 in launch research' },
         { label: 'Deluxe US price', value: '$49.99 in launch research' },
       ]} />
+      <Section title="Xbox gameplay visual">
+        <OfficialImage
+          src="https://xboxwire.thesourcemediaassets.com/sites/2/2026/08/MCD2_Screenshot_Inventory_01_4K-3aa635a70b76a890cd96-1024x576.jpg"
+          alt="Minecraft Dungeons II inventory shown in official Xbox Wire coverage"
+          caption="Official Xbox Wire screenshot from the gamescom 2026 feature."
+          sourceLabel="Xbox Wire"
+          sourceHref="https://news.xbox.com/en-us/2026/08/26/minecraft-dungeons-ii-new-features-gamescom-2026/"
+        />
+      </Section>
       <Section title="Game Pass"><p>Xbox's September 2026 Wave 2 announcement lists Minecraft Dungeons II for September 29. Plan names and cloud/console availability should follow the live Xbox listing as subscriptions change over time.</p></Section>
       <Section title="Co-op"><p>Developer gameplay confirms up to four players, couch co-op and online multiplayer. A separate crossplay page tracks which claims are explicitly supported versus still platform-specific.</p></Section>
       <SourceList sources={[
