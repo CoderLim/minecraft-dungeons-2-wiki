@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/dungeons')({
-  head: () => pageHead('/dungeons', 'Minecraft Dungeons 2 Dungeons Guide', 'Minecraft Dungeons 2 dungeons guide covering procedural dungeon entrances, Echo Shards, rewards and the current verified dungeon data status.'),
+  head: () => pageHead('/dungeons', 'Minecraft Dungeons 2 Dungeons Guide', 'Minecraft Dungeons 2 dungeons guide covering procedural dungeon entrances, Echo Shards, rewards and the current verified dungeon data status.', { noindex: true }),
   component: Page,
 });
 
