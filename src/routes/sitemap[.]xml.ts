@@ -9,6 +9,8 @@ const paths = [
   '/pre-order',
   '/pre-order-bonus',
   '/gameplay',
+  '/builds',
+  '/tier-list',
   '/trailers',
   '/the-sift',
   '/capes',
@@ -16,6 +18,7 @@ const paths = [
   '/capes/corrupted-creeper-cape',
   '/redeem-code',
   '/note-block-code',
+  '/bosses',
   '/bosses/twisted-warden',
   '/bosses/copper-monstrosity',
   '/pets/blub',
@@ -33,7 +36,7 @@ export const Route = createFileRoute('/sitemap.xml')({
         const xml = [
           '<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-          ...paths.map((path) => `  <url><loc>${new URL(path, SITE.url).href}</loc><lastmod>2026-09-29</lastmod></url>`),
+          ...paths.map((path) => `  <url><loc>${new URL(path, SITE.url).href}</loc><lastmod>2026-09-30</lastmod></url>`),
           '</urlset>',
           '',
         ].join('\n');
