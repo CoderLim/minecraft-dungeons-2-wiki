@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/pre-order')({
@@ -17,6 +17,7 @@ function Page() {
         { label: 'Reward', value: '2 hero skins: Alex and Steve' },
         { label: 'Cape crossover', value: 'Twisted Cape also unlocks in Java / Bedrock after qualification' },
       ]} />
+      <Section title="Twisted Chicken official video"><VideoEmbed youtubeId="jHzr76AAbPk" title="STOP THE FOUL FOWL — official Twisted Chicken video" /></Section>
       <Section title="Can you still pre-order Minecraft Dungeons 2?"><p>No. The game launched on September 29, 2026. Current purchases are post-launch purchases unless a retailer is specifically describing an old physical pre-order entitlement.</p></Section>
       <Section title="What were the pre-order rewards?"><p>The official promotion lists two hero skins, the Twisted Cape and the Twisted Chicken pet. These are separate from Deluxe Edition rewards such as Blub and the Soul Cape.</p></Section>
       <Section title="How were digital rewards claimed?"><p>After launch, eligible players were instructed to sign into Minecraft Dungeons II with the Microsoft Account tied to the pre-order and confirm the acquired pre-order items.</p></Section>
