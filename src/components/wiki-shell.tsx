@@ -115,6 +115,36 @@ export function FactGrid({ items }: { items: { label: string; value: ReactNode }
   );
 }
 
+export function VideoEmbed({
+  youtubeId,
+  title,
+  start,
+}: {
+  youtubeId: string;
+  title: string;
+  start?: number;
+}) {
+  const src = `https://www.youtube-nocookie.com/embed/${youtubeId}${start ? `?start=${start}` : ''}`;
+  return (
+    <figure className="overflow-hidden border border-[var(--line)] bg-black">
+      <div className="aspect-video">
+        <iframe
+          className="h-full w-full"
+          src={src}
+          title={title}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
+      </div>
+      <figcaption className="border-t border-[var(--line)] bg-[var(--panel)] px-4 py-3 text-xs leading-5 text-[var(--muted)]">
+        {title}
+      </figcaption>
+    </figure>
+  );
+}
+
 export function SourceList({ sources }: { sources: { label: string; href: string }[] }) {
   return (
     <Section title="Sources">
