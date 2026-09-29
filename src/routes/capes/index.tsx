@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, MediaGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 const capes = [
@@ -25,6 +25,24 @@ function Page() {
         { label: 'Corrupted Creeper', value: 'Verified limited watch promotion' },
         { label: 'Special Cape', value: 'Appearance revealed; acquisition unresolved' },
       ]} />
+      <Section title="Cape visuals">
+        <MediaGrid>
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_CorruptedCreeper.jpg"
+            alt="Corrupted Creeper Cape cosmetic from Minecraft Dungeons II"
+            caption="Corrupted Creeper Cape, one of the officially announced Dungeons II capes."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          />
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/key-art/Dungeons-II_Card-H_Trailer-2_760x450.png"
+            alt="Minecraft Dungeons II heroes in official promotional art"
+            caption="Official Minecraft Dungeons II promotional art used alongside the game's cosmetic campaign."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/about-dungeons-ii"
+          />
+        </MediaGrid>
+      </Section>
       <Section title="Confirmed capes">
         <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2">
           {capes.map((cape) => (
