@@ -8,7 +8,7 @@ const bosses = [
 ] as const;
 
 export const Route = createFileRoute('/bosses/')({
-  head: () => pageHead('/bosses', 'Minecraft Dungeons 2 Bosses: Verified Boss List', 'Verified Minecraft Dungeons 2 boss index with evidence labels, locations, encounter context and clearly marked unknown fields.'),
+  head: () => pageHead('/bosses', 'Minecraft Dungeons 2 Bosses: Verified Boss List', 'Verified Minecraft Dungeons 2 boss index with evidence labels, locations, encounter context and clearly marked unknown fields.', { noindex: true }),
   component: Page,
 });
 
