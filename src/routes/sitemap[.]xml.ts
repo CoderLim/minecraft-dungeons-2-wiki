@@ -41,6 +41,7 @@ const paths = [
   '/capes/soul-cape',
   '/capes/corrupted-creeper-cape',
   '/capes/special-cape',
+  '/pets/blub',
   '/note-block',
   '/note-block-code',
   '/redeem-code',
