@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/controls')({
-  head: () => pageHead('/controls', 'Minecraft Dungeons 2 Controls: Jump, Inventory & More', 'Minecraft Dungeons 2 controls guide covering verified inputs and mechanics, including jumping, Mini Inventory and navigation aids.'),
+  head: () => pageHead('/controls', 'Minecraft Dungeons 2 Controls: Jump, Inventory & More', 'Minecraft Dungeons 2 controls guide covering verified inputs and mechanics, including jumping, Mini Inventory and navigation aids.', { noindex: true }),
   component: Page,
 });
 
