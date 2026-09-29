@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/pre-order-bonus')({
@@ -16,6 +16,7 @@ function Page() {
         { label: 'Hero skins', value: 'Alex and Steve' },
         { label: 'Availability', value: 'Original pre-order window ended' },
       ]} />
+      <Section title="Twisted Chicken official video"><VideoEmbed youtubeId="jHzr76AAbPk" title="STOP THE FOUL FOWL — official Twisted Chicken video" /></Section>
       <Section title="All verified pre-order rewards"><p>Mojang's promotion names the Twisted Cape, Twisted Chicken pet and two hero skins featuring Alex and Steve.</p></Section>
       <Section title="Twisted Cape"><p>The Twisted Cape is also eligible to appear in Minecraft Java and Bedrock after the Dungeons II entitlement is confirmed on the same Microsoft Account.</p></Section>
       <Section title="Twisted Chicken"><p>The Twisted Chicken is the pet tied to the pre-order bundle. It should not be confused with <Link to="/pets/blub" className="text-[var(--lime)] underline underline-offset-4">Blub</Link>, which belongs to the Deluxe Edition.</p></Section>
