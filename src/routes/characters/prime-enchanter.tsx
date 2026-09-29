@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/characters/prime-enchanter')({
-  head: () => pageHead('/characters/prime-enchanter', 'Prime Enchanter - Minecraft Dungeons 2', 'Prime Enchanter character page covering confirmed Illager High Council membership, verified story information and unresolved fields left unknown.'),
+  head: () => pageHead('/characters/prime-enchanter', 'Prime Enchanter - Minecraft Dungeons 2', 'Prime Enchanter character page covering confirmed Illager High Council membership, verified story information and unresolved fields left unknown.', { noindex: true }),
   component: Page,
 });
 
