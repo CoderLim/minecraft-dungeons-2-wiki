@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/echo-shards')({
-  head: () => pageHead('/echo-shards', 'Echo Shards in Minecraft Dungeons 2: How to Get & Use', 'Minecraft Dungeons 2 Echo Shards guide covering confirmed sources, Blacksmith rerolls, merchant upgrades and how shards fit the loot economy.'),
+  head: () => pageHead('/echo-shards', 'Echo Shards in Minecraft Dungeons 2: How to Get & Use', 'Minecraft Dungeons 2 Echo Shards guide covering confirmed sources, Blacksmith rerolls, merchant upgrades and how shards fit the loot economy.', { noindex: true }),
   component: Page,
 });
 
