@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, MediaGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/the-sift')({
@@ -18,6 +18,38 @@ function Page() {
         { label: 'Mobs', value: 'Unique companions and threats' },
         { label: 'Minecraft future', value: 'Announced for Java & Bedrock in 2027' },
       ]} />
+      <Section title="Official Sift screenshots">
+        <MediaGrid>
+          <OfficialImage
+            src="https://xboxwire.thesourcemediaassets.com/sites/2/2026/09/5-55752ac647c986ace32f-1024x576.jpg"
+            alt="Four Minecraft Dungeons II heroes exploring a bright area of the Sift"
+            caption="Official Sift reveal artwork showing the dimension's distinct palette and terrain."
+            sourceLabel="Xbox Wire"
+            sourceHref="https://news.xbox.com/en-us/2026/09/26/minecraft-new-dimension-sift-dungeons-2/"
+          />
+          <OfficialImage
+            src="https://xboxwire.thesourcemediaassets.com/sites/2/2026/09/4-9a0bfad28084570677eb-1024x576.jpg"
+            alt="Minecraft Dungeons II heroes exploring colorful Sift terrain with glowing blue vegetation"
+            caption="A Sift environment screenshot from Xbox's official reveal."
+            sourceLabel="Xbox Wire"
+            sourceHref="https://news.xbox.com/en-us/2026/09/26/minecraft-new-dimension-sift-dungeons-2/"
+          />
+          <OfficialImage
+            src="https://xboxwire.thesourcemediaassets.com/sites/2/2026/09/6-39213550e295b43545e1-1024x576.jpg"
+            alt="Minecraft Dungeons II combat encounter in a blue-toned Sift area"
+            caption="Combat inside one of the Sift's unfamiliar environments."
+            sourceLabel="Xbox Wire"
+            sourceHref="https://news.xbox.com/en-us/2026/09/26/minecraft-new-dimension-sift-dungeons-2/"
+          />
+          <OfficialImage
+            src="https://xboxwire.thesourcemediaassets.com/sites/2/2026/09/2-ecc8bb17b49e87f955bb-1024x576.jpg"
+            alt="Minecraft Dungeons II Sift gameplay screenshot"
+            caption="Another official view of the Sift used in Xbox's reveal gallery."
+            sourceLabel="Xbox Wire"
+            sourceHref="https://news.xbox.com/en-us/2026/09/26/minecraft-new-dimension-sift-dungeons-2/"
+          />
+        </MediaGrid>
+      </Section>
       <Section title="What is The Sift?"><p>The Sift is described by Mojang and Xbox as a distinct new dimension with a colorful ecosystem, new rules, new mobs and hazards rather than a normal Overworld region.</p></Section>
       <Section title="How do you enter The Sift?"><p>Minecraft LIVE's official recap states that rifts appear throughout the interconnected world and that entering one transports the player to The Sift. Exact quest-gating or story requirements can still vary by the point of progression and will be documented from launch gameplay.</p></Section>
       <Section title="Rifts"><p>Rifts are the transition points between the main world and The Sift. Because they are part of exploration rather than a simple menu option, their locations and unlock conditions belong in the future map/location database.</p></Section>
