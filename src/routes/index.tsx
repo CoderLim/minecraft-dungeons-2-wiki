@@ -65,6 +65,27 @@ function Home() {
           </div>
         </section>
 
+        <section className="mx-auto max-w-7xl px-4 pb-16 md:px-6">
+          <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">Launch guides</p>
+          <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold">
+            {[
+              ['/release-date', 'Release date'],
+              ['/price', 'Price'],
+              ['/editions', 'Standard vs Deluxe'],
+              ['/pre-order', 'Pre-order'],
+              ['/trailers', 'Trailers'],
+              ['/platforms/steam', 'Steam'],
+              ['/platforms/xbox', 'Xbox'],
+              ['/platforms/switch', 'Switch'],
+              ['/platforms/switch-2', 'Switch 2'],
+            ].map(([to, label]) => (
+              <Link key={to} to={to} className="border border-[var(--line)] bg-[var(--panel)] px-4 py-2 hover:border-[var(--emerald)] hover:text-[var(--lime)]">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className="mx-auto max-w-7xl px-4 pb-20 md:px-6">
           <div className="grid gap-6 border-y border-[var(--line)] py-10 md:grid-cols-3">
             <div><div className="text-3xl font-black">12</div><p className="mt-2 text-sm text-[var(--muted)]">combat gear slots confirmed in the sequel's expanded loadout system.</p></div>
