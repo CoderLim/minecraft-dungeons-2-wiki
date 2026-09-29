@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/map')({
-  head: () => pageHead('/map', 'Minecraft Dungeons 2 Map: Regions & Locations', 'Minecraft Dungeons 2 map guide covering the interconnected world, side-quest markers, navigation and the current verified location-data status.'),
+  head: () => pageHead('/map', 'Minecraft Dungeons 2 Map: Regions & Locations', 'Minecraft Dungeons 2 map guide covering the interconnected world, side-quest markers, navigation and the current verified location-data status.', { noindex: true }),
   component: Page,
 });
 
