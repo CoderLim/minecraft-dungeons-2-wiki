@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, OfficialImage, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/pets/blub')({
@@ -16,6 +16,15 @@ function Page() {
         { label: 'Combat', value: 'Does not fight' },
         { label: 'Role', value: 'Cosmetic companion' },
       ]} />
+      <Section title="Official Blub image">
+        <OfficialImage
+          src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Pet_Blub.jpg"
+          alt="Blub pet from Minecraft Dungeons II"
+          caption="Official Blub pet asset from the Deluxe Edition promotion."
+          sourceLabel="Minecraft.net"
+          sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+        />
+      </Section>
       <Section title="Blub in official footage"><VideoEmbed youtubeId="vBNE3bKMpu8" start={20} title="Minecraft Dungeons II official gameplay trailer — Blub-linked segment" /></Section>
       <Section title="What is Blub?"><p>Blub is a named companion included in the Deluxe Edition cosmetic bundle. The official promotion describes it as a squishy companion intended for appearance and companionship rather than combat.</p></Section>
       <Section title="How to get Blub"><p>Get the Minecraft Dungeons II Deluxe Edition. Blub is part of that edition's bundle rather than the historical pre-order bonus.</p></Section>
