@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/note-block')({
-  head: () => pageHead('/note-block', 'Minecraft Dungeons 2 Note Block: Story Role', 'Minecraft Dungeons 2 story Note Block, Copper Monstrosity connection and distinction from the Launcher note-block puzzle.'),
+  head: () => pageHead('/note-block', 'Minecraft Dungeons 2 Note Block: Story Role', 'Minecraft Dungeons 2 story Note Block, Copper Monstrosity connection and distinction from the Launcher note-block puzzle.', { noindex: true }),
   component: Page,
 });
 
