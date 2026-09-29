@@ -1,0 +1,64 @@
+# Dependencies
+node_modules
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Build outputs
+.output
+out
+dist
+build
+.vercel
+.turbo
+.vinxi
+.nitro
+
+# Cache
+.cache
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Database
+data
+*.db
+*.sqlite
+*.sqlite3
+drizzle
+
+# Generated files
+*.d.ts
+!src/**/*.d.ts
+src/routeTree.gen.ts
+src/paraglide
+
+# Public assets
+public
+
+# Config files that shouldn't be formatted
+.prettierrc
+.prettierrc.*
+prettier.config.*
+
+# Other
+coverage
+.DS_Store
+
+# Agent/skill files
+.claude
+.agents
+.codex
+.cursor
+
+# Research archives (scraped / large structured dumps — not app source)
+wow-forever-research/community/raw/
+wow-forever-phase2/transcripts/
+wow-forever-phase2/diff/
+wow-forever-phase2/data/
+
+# shadcn/ui components (auto-generated)
+src/components/ui
