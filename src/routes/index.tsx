@@ -20,12 +20,47 @@ export const Route = createFileRoute('/')({
 });
 
 function Home() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: SITE.name,
-    url: `${SITE.url}/`,
-  };
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: SITE.name,
+      url: `${SITE.url}/`,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'VideoGame',
+      name: 'Minecraft Dungeons II',
+      alternateName: 'Minecraft Dungeons 2',
+      gamePlatform: ['PC', 'Xbox Series X|S', 'PlayStation 5', 'Nintendo Switch', 'Nintendo Switch 2'],
+      genre: ['Action RPG', 'Dungeon crawler'],
+      datePublished: '2026-09-29',
+      publisher: { '@type': 'Organization', name: 'Xbox Game Studios' },
+      developer: { '@type': 'Organization', name: 'Mojang Studios' },
+      url: 'https://www.minecraft.net/en-us/about-dungeons-ii',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'When did Minecraft Dungeons II release?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Minecraft Dungeons II released on September 29, 2026.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is Minecraft Dungeons II the same as Minecraft Dungeons 2?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Yes. Mojang confirms Minecraft Dungeons II and Minecraft Dungeons 2 refer to the same game.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'How many players can play Minecraft Dungeons II?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Minecraft Dungeons II supports solo play and co-op for up to four players.' },
+        },
+      ],
+    },
+  ];
 
   return (
     <>
@@ -103,6 +138,18 @@ function Home() {
                 {label}
               </Link>
             ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-20 md:px-6">
+          <div className="border-t border-[var(--line)] pt-10">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">FAQ</p>
+            <h2 className="mt-2 text-3xl font-black">Frequently asked questions</h2>
+            <div className="mt-6 grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-3">
+              <div className="bg-[var(--panel)] p-5"><h3 className="font-black">When did Minecraft Dungeons II release?</h3><p className="mt-3 text-sm leading-6 text-[var(--muted)]">September 29, 2026.</p></div>
+              <div className="bg-[var(--panel)] p-5"><h3 className="font-black">Is Minecraft Dungeons II the same as Minecraft Dungeons 2?</h3><p className="mt-3 text-sm leading-6 text-[var(--muted)]">Yes. Mojang uses both names for the same game.</p></div>
+              <div className="bg-[var(--panel)] p-5"><h3 className="font-black">How many players can play?</h3><p className="mt-3 text-sm leading-6 text-[var(--muted)]">Solo or co-op with up to four players.</p></div>
+            </div>
           </div>
         </section>
 
