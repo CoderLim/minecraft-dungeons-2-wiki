@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, MediaGrid, OfficialImage, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/pre-order')({
@@ -17,6 +17,31 @@ function Page() {
         { label: 'Reward', value: '2 hero skins: Alex and Steve' },
         { label: 'Cape crossover', value: 'Twisted Cape also unlocks in Java / Bedrock after qualification' },
       ]} />
+      <Section title="Official pre-order rewards">
+        <MediaGrid>
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_Twisted.jpg"
+            alt="Twisted Cape pre-order reward in Minecraft Dungeons II"
+            caption="Twisted Cape, an official pre-order reward."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          />
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Pet_TwistedChicken.jpg"
+            alt="Twisted Chicken pet pre-order reward in Minecraft Dungeons II"
+            caption="Twisted Chicken, the pre-order pet."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          />
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Skin_Adventure.jpg"
+            alt="Alex and Steve adventure skins from the Minecraft Dungeons II pre-order promotion"
+            caption="The Alex and Steve hero skins included in the pre-order promotion."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          />
+        </MediaGrid>
+      </Section>
       <Section title="Twisted Chicken official video"><VideoEmbed youtubeId="jHzr76AAbPk" title="STOP THE FOUL FOWL — official Twisted Chicken video" /></Section>
       <Section title="Can you still pre-order Minecraft Dungeons 2?"><p>No. The game launched on September 29, 2026. Current purchases are post-launch purchases unless a retailer is specifically describing an old physical pre-order entitlement.</p></Section>
       <Section title="What were the pre-order rewards?"><p>The official promotion lists two hero skins, the Twisted Cape and the Twisted Chicken pet. These are separate from Deluxe Edition rewards such as Blub and the Soul Cape.</p></Section>
