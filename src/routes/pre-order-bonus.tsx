@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, MediaGrid, OfficialImage, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/pre-order-bonus')({
@@ -16,6 +16,31 @@ function Page() {
         { label: 'Hero skins', value: 'Alex and Steve' },
         { label: 'Availability', value: 'Original pre-order window ended' },
       ]} />
+      <Section title="Reward gallery">
+        <MediaGrid>
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_Twisted.jpg"
+            alt="Twisted Cape from the Minecraft Dungeons II pre-order bonus"
+            caption="Twisted Cape."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          />
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Pet_TwistedChicken.jpg"
+            alt="Twisted Chicken pet from the Minecraft Dungeons II pre-order bonus"
+            caption="Twisted Chicken pet."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          />
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Skin_Adventure.jpg"
+            alt="Alex and Steve skins from the Minecraft Dungeons II pre-order bonus"
+            caption="Alex and Steve pre-order hero skins."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          />
+        </MediaGrid>
+      </Section>
       <Section title="Twisted Chicken official video"><VideoEmbed youtubeId="jHzr76AAbPk" title="STOP THE FOUL FOWL — official Twisted Chicken video" /></Section>
       <Section title="All verified pre-order rewards"><p>Mojang's promotion names the Twisted Cape, Twisted Chicken pet and two hero skins featuring Alex and Steve.</p></Section>
       <Section title="Twisted Cape"><p>The Twisted Cape is also eligible to appear in Minecraft Java and Bedrock after the Dungeons II entitlement is confirmed on the same Microsoft Account.</p></Section>
