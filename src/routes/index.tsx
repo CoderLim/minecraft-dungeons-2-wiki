@@ -1,15 +1,16 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { Compass, Gamepad2, PackageOpen, Shield, Skull, Sparkles } from 'lucide-react';
 
 import { pageHead } from '@/lib/seo';
 import { SiteFooter, SiteHeader, EvidenceBadge } from '@/components/wiki-shell';
 
 const quickLinks = [
-  { to: '/the-sift', title: 'The Sift', text: 'New dimension, rifts, regions and verified reveal details.' },
-  { to: '/gear', title: 'Gear', text: '12 combat slots, four armor pieces, talismans and enchantment books.' },
-  { to: '/bosses', title: 'Bosses', text: 'Verified boss index with unknown fields left explicitly unresolved.' },
-  { to: '/capes', title: 'Capes', text: 'Hero, Twisted, Soul, Corrupted Creeper and the still-mysterious Special Cape.' },
-  { to: '/gameplay', title: 'Gameplay', text: 'Jump attacks, interconnected exploration, procedural dungeons and merchants.' },
-  { to: '/crossplay', title: 'Crossplay & Co-op', text: 'Four-player local/online co-op details from developer gameplay.' },
+  { to: '/the-sift', title: 'The Sift', text: 'New dimension, rifts, regions and verified reveal details.', icon: Compass },
+  { to: '/gear', title: 'Gear', text: '12 combat slots, four armor pieces, talismans and enchantment books.', icon: PackageOpen },
+  { to: '/bosses', title: 'Bosses', text: 'Verified boss index with unknown fields left explicitly unresolved.', icon: Skull },
+  { to: '/capes', title: 'Capes', text: 'Hero, Twisted, Soul, Corrupted Creeper and the still-mysterious Special Cape.', icon: Sparkles },
+  { to: '/gameplay', title: 'Gameplay', text: 'Jump attacks, interconnected exploration, procedural dungeons and merchants.', icon: Gamepad2 },
+  { to: '/crossplay', title: 'Crossplay & Co-op', text: 'Four-player local/online co-op details from developer gameplay.', icon: Shield },
 ] as const;
 
 export const Route = createFileRoute('/')({
@@ -30,7 +31,7 @@ function Home() {
       <SiteHeader />
       <main className="wiki-grid">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <section className="mx-auto max-w-7xl px-4 pb-16 pt-16 md:px-6 md:pb-24 md:pt-24">
+        <section className="mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-12 md:px-6 md:pb-24 md:pt-20 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
           <div className="max-w-4xl">
             <div className="flex flex-wrap items-center gap-3">
               <EvidenceBadge level="Official confirmed" />
@@ -45,6 +46,20 @@ function Home() {
               <Link to="/gameplay" className="border border-[var(--line)] bg-[var(--panel)] px-5 py-3 text-sm font-bold">Gameplay systems</Link>
             </div>
           </div>
+          <figure className="overflow-hidden border border-[var(--line)] bg-[var(--panel)]">
+            <img
+              src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/key-art/Dungeons-II_FullBleedA_Art01_Tablet_768x600.jpg"
+              alt="Official Minecraft Dungeons II key art showing heroes fighting through a colorful landscape"
+              width={768}
+              height={600}
+              fetchPriority="high"
+              className="h-full min-h-[360px] w-full object-cover"
+            />
+            <figcaption className="border-t border-[var(--line)] px-4 py-3 text-xs leading-5 text-[var(--muted)]">
+              Official Minecraft Dungeons II key art.{' '}
+              <a className="text-[var(--lime)] underline underline-offset-4" href="https://www.minecraft.net/en-us/about-dungeons-ii" target="_blank" rel="noreferrer">Source: Minecraft.net</a>
+            </figcaption>
+          </figure>
         </section>
 
         <section className="mx-auto max-w-7xl px-4 pb-20 md:px-6">
@@ -55,13 +70,17 @@ function Home() {
             </div>
           </div>
           <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2 lg:grid-cols-3">
-            {quickLinks.map((item) => (
+            {quickLinks.map((item) => {
+              const Icon = item.icon;
+              return (
               <Link key={item.to} to={item.to} className="group bg-[var(--panel)] p-6 hover:bg-[var(--panel-2)]">
+                <Icon className="mb-5 size-6 text-[var(--emerald)]" aria-hidden="true" />
                 <h3 className="text-xl font-black group-hover:text-[var(--lime)]">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
                 <span className="mt-5 inline-block text-xs font-bold uppercase tracking-[.14em] text-[var(--emerald)]">Open guide →</span>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </section>
 
