@@ -1,9 +1,24 @@
 import { useEffect, useId, useState, type ReactNode } from 'react';
-import { Link } from '@tanstack/react-router';
+import { Link, useRouterState } from '@tanstack/react-router';
+import { ChevronDown } from 'lucide-react';
 
-import { NAV, SITE } from '@/lib/site';
+import { NAV, SITE, type NavItem } from '@/lib/site';
 
 export type EvidenceLevel = 'Official confirmed' | 'Gameplay observed' | 'Community reported' | 'Verification pending';
+
+function isExactPath(pathname: string, href: string) {
+  return pathname === href || pathname === `${href}/`;
+}
+
+function isActivePath(pathname: string, href: string) {
+  if (href === '/') return pathname === '/';
+  return isExactPath(pathname, href) || pathname.startsWith(`${href}/`);
+}
+
+function isGroupActive(pathname: string, item: NavItem) {
+  if (item.href && isActivePath(pathname, item.href)) return true;
+  return Boolean(item.children?.some((child) => isActivePath(pathname, child.href)));
+}
 
 export function EvidenceBadge({ level }: { level: EvidenceLevel }) {
   return (
@@ -16,6 +31,7 @@ export function EvidenceBadge({ level }: { level: EvidenceLevel }) {
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const menuId = useId();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
 
   useEffect(() => {
     if (!open) return;
@@ -51,12 +67,74 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-5 text-sm text-[var(--muted)] lg:flex" aria-label="Primary">
-          {NAV.map((item) => (
-            <Link key={item.href} to={item.href} className="min-h-10 inline-flex items-center hover:text-[var(--text)]">
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-1 text-sm text-[var(--muted)] lg:flex" aria-label="Primary">
+          {NAV.map((item) => {
+            if (item.children?.length) {
+              const groupActive = isGroupActive(pathname, item);
+              const wide = item.children.length > 6;
+              return (
+                <div key={item.label} className="group relative">
+                  {item.href ? (
+                    <Link
+                      to={item.href}
+                      aria-haspopup="menu"
+                      aria-current={groupActive ? 'page' : undefined}
+                      className={`inline-flex min-h-10 items-center gap-1 px-2.5 hover:text-[var(--text)] ${groupActive ? 'font-semibold text-[var(--text)]' : ''}`}
+                    >
+                      {item.label}
+                      <ChevronDown className="size-3.5 transition-transform group-focus-within:rotate-180 group-hover:rotate-180" aria-hidden="true" />
+                    </Link>
+                  ) : (
+                    <button
+                      type="button"
+                      aria-haspopup="menu"
+                      aria-current={groupActive ? 'true' : undefined}
+                      className={`inline-flex min-h-10 items-center gap-1 px-2.5 hover:text-[var(--text)] ${groupActive ? 'font-semibold text-[var(--text)]' : ''}`}
+                    >
+                      {item.label}
+                      <ChevronDown className="size-3.5 transition-transform group-focus-within:rotate-180 group-hover:rotate-180" aria-hidden="true" />
+                    </button>
+                  )}
+                  <div
+                    className={`invisible absolute top-full left-1/2 z-50 -translate-x-1/2 pt-2 opacity-0 transition-[opacity,visibility] group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100 ${wide ? 'w-[420px]' : 'w-56'}`}
+                  >
+                    <div
+                      role="menu"
+                      className={`border border-[var(--line)] bg-[var(--panel)] p-2 shadow-lg ${wide ? 'grid grid-cols-2 gap-x-1' : ''}`}
+                    >
+                      {item.children.map((child) => {
+                        const active = isExactPath(pathname, child.href);
+                        return (
+                          <Link
+                            key={child.href}
+                            to={child.href}
+                            role="menuitem"
+                            aria-current={active ? 'page' : undefined}
+                            className={`block px-3 py-2 text-sm transition-colors hover:bg-[var(--panel-2)] hover:text-[var(--text)] ${active ? 'font-semibold text-[var(--lime)]' : 'text-[var(--muted)]'}`}
+                          >
+                            {child.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            if (!item.href) return null;
+            const active = isActivePath(pathname, item.href);
+            return (
+              <Link
+                key={item.label}
+                to={item.href}
+                aria-current={active ? 'page' : undefined}
+                className={`inline-flex min-h-10 items-center px-2.5 hover:text-[var(--text)] ${active ? 'font-semibold text-[var(--text)]' : ''}`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <button
@@ -80,20 +158,56 @@ export function SiteHeader() {
         <nav
           id={menuId}
           aria-label="Mobile"
-          className="border-t border-[var(--line)] bg-[var(--bg)] px-4 py-4 lg:hidden"
+          className="max-h-[min(70vh,32rem)] overflow-y-auto border-t border-[var(--line)] bg-[var(--bg)] px-4 py-4 lg:hidden"
         >
           <ul className="mx-auto flex max-w-7xl flex-col gap-1">
-            {NAV.map((item) => (
-              <li key={item.href}>
-                <Link
-                  to={item.href}
-                  className="flex min-h-11 items-center border border-transparent px-3 text-base font-semibold text-[var(--muted)] hover:border-[var(--line)] hover:bg-[var(--panel)] hover:text-[var(--text)]"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {NAV.map((item) => {
+              if (item.children?.length) {
+                const groupActive = isGroupActive(pathname, item);
+                return (
+                  <li key={item.label}>
+                    <details className="group/nav" open={groupActive || undefined}>
+                      <summary className={`flex min-h-11 cursor-pointer list-none items-center justify-between border border-transparent px-3 text-base font-semibold text-[var(--muted)] hover:border-[var(--line)] hover:bg-[var(--panel)] hover:text-[var(--text)] [&::-webkit-details-marker]:hidden ${groupActive ? 'text-[var(--text)]' : ''}`}>
+                        <span>{item.label}</span>
+                        <ChevronDown className="size-4 transition-transform group-open/nav:rotate-180" aria-hidden="true" />
+                      </summary>
+                      <ul className="mt-1 ml-3 space-y-1 border-l border-[var(--line)] pl-2">
+                        {item.children.map((child) => {
+                          const active = isExactPath(pathname, child.href);
+                          return (
+                            <li key={child.href}>
+                              <Link
+                                to={child.href}
+                                aria-current={active ? 'page' : undefined}
+                                className={`flex min-h-10 items-center px-3 text-sm hover:bg-[var(--panel)] hover:text-[var(--text)] ${active ? 'font-semibold text-[var(--lime)]' : 'text-[var(--muted)]'}`}
+                                onClick={() => setOpen(false)}
+                              >
+                                {child.label}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </details>
+                  </li>
+                );
+              }
+
+              if (!item.href) return null;
+              const active = isActivePath(pathname, item.href);
+              return (
+                <li key={item.label}>
+                  <Link
+                    to={item.href}
+                    aria-current={active ? 'page' : undefined}
+                    className={`flex min-h-11 items-center border border-transparent px-3 text-base font-semibold hover:border-[var(--line)] hover:bg-[var(--panel)] hover:text-[var(--text)] ${active ? 'text-[var(--text)]' : 'text-[var(--muted)]'}`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       ) : null}

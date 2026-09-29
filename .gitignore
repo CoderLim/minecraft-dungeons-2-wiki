@@ -75,3 +75,6 @@ wow-forever-phase2/frames/_video/
 # Site hero video (research *.mp4 dumps remain ignored)
 !public/videos/
 !public/videos/**
+
+# local GA id from auto-launch
+.auto-launch-ga-id
