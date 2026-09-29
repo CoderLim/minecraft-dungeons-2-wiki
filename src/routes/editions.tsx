@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/editions')({
@@ -18,6 +18,7 @@ function Page() {
         { label: 'Hero skins', value: 'Valorie, Kellen, Ren and Flores variants' },
         { label: 'DLC', value: 'DLC 1 & 2 as released' },
       ]} />
+      <Section title="Official gameplay trailer"><VideoEmbed youtubeId="vBNE3bKMpu8" title="Minecraft Dungeons II official gameplay trailer" /></Section>
       <Section title="Standard Edition"><p>The Standard Edition contains the base Minecraft Dungeons II game. Pricing varies by storefront and region.</p></Section>
       <Section title="Deluxe Edition"><p>Official promotion material identifies Blub, the Soul Cape and four dark-golden variations of Valorie, Kellen, Ren and Flores. The Xbox Deluxe listing also includes DLC 1 &amp; 2 as released.</p></Section>
       <Section title="Blub"><p><Link to="/pets/blub" className="text-[var(--lime)] underline underline-offset-4">Blub</Link> is a cosmetic companion. Mojang explicitly says Blub cannot fight battles.</p></Section>
