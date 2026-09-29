@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/capes/corrupted-creeper-cape')({
@@ -17,6 +17,16 @@ function Page() {
         { label: 'Twitch requirement', value: 'Watch a Minecraft-category live stream for at least 15 minutes' },
         { label: 'Current status', value: 'Original campaign ended' },
       ]} />
+      <Section title="Official cape image">
+        <OfficialImage
+          src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_CorruptedCreeper.jpg"
+          alt="Corrupted Creeper Cape from Minecraft Dungeons II"
+          caption="Official Corrupted Creeper Cape asset."
+          sourceLabel="Minecraft.net"
+          sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          objectPosition="center"
+        />
+      </Section>
       <Section title="How the TikTok reward worked"><p>During the promotion window, viewers had to watch an eligible Minecraft livestream with Game Rewards enabled for at least three minutes, then check TikTok notifications for the reward.</p></Section>
       <Section title="How the Twitch reward worked"><p>Viewers could watch a livestream in the Minecraft category on Twitch for at least fifteen minutes, then check their Twitch inventory.</p></Section>
       <Section title="How to redeem it"><p>After completing the watch requirement, the reward had to be redeemed for Minecraft Dungeons II through the promotion's account flow. The original campaign has ended.</p></Section>
