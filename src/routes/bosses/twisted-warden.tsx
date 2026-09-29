@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/bosses/twisted-warden')({
@@ -16,6 +16,15 @@ function Page() {
         { label: 'Combat description', value: 'Slow-moving but dangerous/high-damage framing appears in official recap material' },
         { label: 'Drops', value: 'Unknown / not yet verified' },
       ]} />
+      <Section title="Official Twisted Warden screenshot">
+        <OfficialImage
+          src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/screenshots/d2_systems_coop.jpg"
+          alt="Four Minecraft Dungeons II heroes fighting the Twisted Warden"
+          caption="The Twisted Warden encounter shown in Mojang's official gameplay systems article."
+          sourceLabel="Minecraft.net"
+          sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-gameplay-systems"
+        />
+      </Section>
       <Section title="Encounter context"><p>Official reveal coverage places Twisted Warden in the sequel's Deep Dark-related material. This wiki will add the exact quest/location chain only after the launch map and quest log are captured.</p></Section>
       <Section title="Attacks and phases"><p>Not yet documented as a complete mechanic list. Trailer or recap descriptions are not enough to infer phase thresholds, hitboxes or cooldowns.</p></Section>
       <Section title="Loot"><p>Unknown in the current evidence set. Any fan-wiki drop list remains discovery material rather than a confirmed table.</p></Section>
