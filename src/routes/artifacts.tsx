@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/artifacts')({
-  head: () => pageHead('/artifacts', 'Minecraft Dungeons 2 Artifacts: Verified List', 'Minecraft Dungeons 2 artifacts hub with an evidence-gated database, confirmed systems notes and fields that remain verification pending.'),
+  head: () => pageHead('/artifacts', 'Minecraft Dungeons 2 Artifacts: Verified List', 'Minecraft Dungeons 2 artifacts hub with an evidence-gated database, confirmed systems notes and fields that remain verification pending.', { noindex: true }),
   component: Page,
 });
 
