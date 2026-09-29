@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/capes/special-cape')({
@@ -15,6 +15,15 @@ function Page() {
         { label: 'Acquisition', value: 'Unknown / not yet verified' },
         { label: 'Status', value: 'Track official updates' },
       ]} />
+      <Section title="Official Special Cape image">
+        <OfficialImage
+          src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_Special.jpg"
+          alt="Special Cape from Minecraft Dungeons II"
+          caption="Official Special Cape asset; the acquisition method remains unverified."
+          sourceLabel="Minecraft.net"
+          sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+        />
+      </Section>
       <Section title="What is confirmed?"><p>The cape itself appears in official Minecraft Dungeons II promotion material, which is enough to treat it as a real entity.</p></Section>
       <Section title="How do you get it?"><p>Not yet verified in the evidence collected for this wiki. Community speculation is not promoted to an unlock method.</p></Section>
       <SourceList sources={[{ label: 'Official capes and promos page', href: 'https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos' }]} />
