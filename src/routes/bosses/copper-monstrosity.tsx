@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/bosses/copper-monstrosity')({
@@ -17,6 +17,7 @@ function Page() {
         { label: 'Attacks / phases', value: 'Needs frame-by-frame gameplay capture' },
         { label: 'Loot', value: 'Unknown / not yet verified' },
       ]} />
+      <Section title="Gameplay evidence"><VideoEmbed youtubeId="DE7Z6uIz8Pg" start={630} title="Copper Monstrosity sequence in developer gameplay" /></Section>
       <Section title="Story encounter"><p>At roughly 10:33–11:44 in the supplied developer gameplay, the group is described as looking for Supreme Evoker before Copper Monstrosity appears as the major story encounter.</p></Section>
       <Section title="What happens after the fight?"><p>At roughly 12:00–12:40 the group picks up a Note Block. The developers state that this object is important to the story, while deliberately withholding the full explanation.</p></Section>
       <Section title="Attacks and strategy"><p>The transcript proves the boss name and story context, but it is not enough to write a reliable phase/attack guide. Those fields remain open until the actual fight footage is reviewed frame by frame.</p></Section>
