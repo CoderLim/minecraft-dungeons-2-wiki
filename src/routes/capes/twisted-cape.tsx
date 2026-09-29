@@ -3,7 +3,7 @@ import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/compon
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/capes/twisted-cape')({
-  head: () => pageHead('/capes/twisted-cape', 'Twisted Cape: Minecraft Dungeons 2 Pre-Order Reward', 'Twisted Cape appearance, former pre-order acquisition, account requirements, current availability and how it relates to other MD2 capes.'),
+  head: () => pageHead('/capes/twisted-cape', 'Twisted Cape: Minecraft Dungeons 2 Pre-Order Reward', 'Twisted Cape appearance, former pre-order acquisition, account requirements, current availability and how it relates to other MD2 capes.', { noindex: true }),
   component: Page,
 });
 
