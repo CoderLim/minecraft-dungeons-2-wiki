@@ -7,10 +7,11 @@ export const SITE = {
 } as const;
 
 export const NAV = [
+  { href: '/world', label: 'World' },
   { href: '/the-sift', label: 'The Sift' },
   { href: '/gear', label: 'Gear' },
   { href: '/bosses', label: 'Bosses' },
+  { href: '/characters', label: 'Characters' },
   { href: '/capes', label: 'Capes' },
   { href: '/gameplay', label: 'Gameplay' },
-  { href: '/crossplay', label: 'Crossplay' },
 ] as const;
