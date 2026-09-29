@@ -210,6 +210,52 @@ export function VideoEmbed({
   );
 }
 
+export function OfficialImage({
+  src,
+  alt,
+  caption,
+  sourceLabel,
+  sourceHref,
+  objectPosition = 'center',
+}: {
+  src: string;
+  alt: string;
+  caption: string;
+  sourceLabel: string;
+  sourceHref: string;
+  objectPosition?: string;
+}) {
+  return (
+    <figure className="overflow-hidden border border-[var(--line)] bg-[var(--panel)]">
+      <div className="aspect-video overflow-hidden bg-black/30">
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover"
+          style={{ objectPosition }}
+        />
+      </div>
+      <figcaption className="border-t border-[var(--line)] px-4 py-3 text-xs leading-5 text-[var(--muted)]">
+        {caption}{' '}
+        <a
+          href={sourceHref}
+          target="_blank"
+          rel="noreferrer"
+          className="text-[var(--lime)] underline decoration-white/20 underline-offset-4"
+        >
+          Source: {sourceLabel}
+        </a>
+      </figcaption>
+    </figure>
+  );
+}
+
+export function MediaGrid({ children }: { children: ReactNode }) {
+  return <div className="grid gap-4 md:grid-cols-2">{children}</div>;
+}
+
 export function SourceList({ sources }: { sources: { label: string; href: string }[] }) {
   return (
     <Section title="Sources">
