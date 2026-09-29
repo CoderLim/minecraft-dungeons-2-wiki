@@ -9,17 +9,21 @@ export const Route = createFileRoute('/crossplay')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Multiplayer" title="Minecraft Dungeons 2 Crossplay & Co-op" description="Developer gameplay confirms up to four players, couch co-op, online play and a mixed local/online setup. Platform-by-platform cross-network requirements should still be checked against the current store/network rules.">
+    <WikiPage eyebrow="Multiplayer" title="Minecraft Dungeons 2 Crossplay & Co-op" description="Yes, Minecraft Dungeons II supports cross-platform multiplayer in the Xbox/PC ecosystem: the current Xbox Store explicitly lists Xbox cross-platform multiplayer and cross-platform co-op. Developer gameplay also confirms up to four players, couch co-op, online play and mixed local/online groups.">
       <FactGrid items={[
         { label: 'Max players', value: '4' },
         { label: 'Couch co-op', value: 'Confirmed' },
         { label: 'Online co-op', value: 'Confirmed' },
+        { label: 'Xbox cross-platform co-op', value: 'Explicitly listed by Xbox Store' },
+        { label: 'Xbox cross-platform multiplayer', value: 'Explicitly listed by Xbox Store' },
         { label: 'Mixed local + online', value: 'Confirmed in developer explanation' },
       ]} />
+      <Section title="Is Minecraft Dungeons 2 cross-platform?"><p>The Xbox Store lists both Xbox cross-platform multiplayer and Xbox cross-platform co-op for Minecraft Dungeons II. That directly supports cross-platform play across the Xbox/PC ecosystem.</p></Section>
       <Section title="Can local and online players mix?"><p>Yes in the demonstrated design: the developers describe filling a couch group locally and then bringing in another player online when there is an open slot.</p></Section>
-      <Section title="Does that automatically prove every platform can crossplay with every other platform?"><p>No. The mixed-mode statement confirms local plus online co-op behavior, but a platform-pair compatibility matrix must still be grounded in current platform documentation. This page will not convert a generic “online” statement into an unsupported all-platform claim.</p></Section>
-      <Section title="Co-op inventory and revives"><p>Mini Inventory exists partly to solve multiplayer friction: multiple players can manage equipment at once. Multiple teammates reviving a downed player also speed up the revive.</p></Section>
+      <Section title="What about every possible platform pair?"><p>The Xbox listing is strong evidence for Xbox/PC cross-platform capabilities, but this wiki does not automatically claim every PlayStation/Switch/Xbox/PC pairing until those platform combinations are documented by current first-party sources.</p></Section>
+      <Section title="Co-op inventory and revives"><p>Mini Inventory lets multiple players manage equipment without taking turns in a single full inventory. Multiple teammates reviving the same downed player also speed up the revive.</p></Section>
       <SourceList sources={[
+        { label: 'Xbox Store — capabilities', href: 'https://www.xbox.com/en-US/games/store/minecraft-dungeons-ii/9nsn56sl5hc0' },
         { label: 'Minecraft Dungeons II Exploration Gameplay', href: 'https://www.youtube.com/watch?v=DE7Z6uIz8Pg' },
         { label: 'Nintendo Switch store listing', href: 'https://www.nintendo.com/us/store/products/minecraft-dungeons-ii-switch/' },
       ]} />
