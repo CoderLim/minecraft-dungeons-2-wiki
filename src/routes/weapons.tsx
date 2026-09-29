@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/weapons')({
-  head: () => pageHead('/weapons', 'Minecraft Dungeons 2 Weapons: Verified List', 'Minecraft Dungeons 2 weapons hub for melee and ranged gear, effects, enchantments and verified item data with unknowns left explicitly unresolved.'),
+  head: () => pageHead('/weapons', 'Minecraft Dungeons 2 Weapons: Verified List', 'Minecraft Dungeons 2 weapons hub for melee and ranged gear, effects, enchantments and verified item data with unknowns left explicitly unresolved.', { noindex: true }),
   component: Page,
 });
 
