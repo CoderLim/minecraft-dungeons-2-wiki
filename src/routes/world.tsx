@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/world')({
-  head: () => pageHead('/world', 'Minecraft Dungeons 2 World & Exploration Guide', 'Minecraft Dungeons 2 world guide covering interconnected regions, side quests, procedural dungeons, navigation and fast-travel-related systems.'),
+  head: () => pageHead('/world', 'Minecraft Dungeons 2 World & Exploration Guide', 'Minecraft Dungeons 2 world guide covering interconnected regions, side quests, procedural dungeons, navigation and fast-travel-related systems.', { noindex: true }),
   component: Page,
 });
 
