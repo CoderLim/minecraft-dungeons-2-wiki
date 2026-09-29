@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/talismans')({
-  head: () => pageHead('/talismans', 'Minecraft Dungeons 2 Talismans Guide', 'Minecraft Dungeons 2 talismans explained: passive bonuses, leveling, Tasty Bone and the current verified talisman database status.'),
+  head: () => pageHead('/talismans', 'Minecraft Dungeons 2 Talismans Guide', 'Minecraft Dungeons 2 talismans explained: passive bonuses, leveling, Tasty Bone and the current verified talisman database status.', { noindex: true }),
   component: Page,
 });
 
