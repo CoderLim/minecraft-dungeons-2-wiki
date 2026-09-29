@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/platforms/switch-2')({
-  head: () => pageHead('/platforms/switch-2', 'Minecraft Dungeons 2 on Nintendo Switch 2', 'Minecraft Dungeons 2 Switch 2 release, multiplayer, editions and verified platform-specific notes.'),
+  head: () => pageHead('/platforms/switch-2', 'Minecraft Dungeons 2 on Nintendo Switch 2', 'Minecraft Dungeons 2 Switch 2 release, multiplayer, editions, performance notes and verified platform-specific details versus original Switch.'),
   component: Page,
 });
 

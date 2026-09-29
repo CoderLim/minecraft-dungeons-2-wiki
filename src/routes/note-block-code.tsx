@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/note-block-code')({
-  head: () => pageHead('/note-block-code', 'Minecraft Dungeons 2 Note Block Code & Launcher Puzzle', 'Minecraft Dungeons 2 Launcher note-block ARG, community-reported solution and how it differs from the story Note Block.'),
+  head: () => pageHead('/note-block-code', 'Minecraft Dungeons 2 Note Block Code & Launcher Puzzle', 'Minecraft Dungeons 2 Launcher note-block ARG guide: community-reported solution, how it differs from the story Note Block, and current verification status.'),
   component: Page,
 });
 

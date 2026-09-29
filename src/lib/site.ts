@@ -4,6 +4,8 @@ export const SITE = {
   url: import.meta.env.VITE_APP_URL || 'https://minecraftdungeons2wiki.online',
   description:
     'Unofficial, source-audited Minecraft Dungeons II wiki with verified guides for The Sift, gear, bosses, capes, platforms, co-op and launch updates.',
+  logo: '/logo.png',
+  logoMark: '/logo-128.png',
 } as const;
 
 export const NAV = [

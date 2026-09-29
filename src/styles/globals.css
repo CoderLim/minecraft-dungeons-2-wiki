@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+/* Dark-only wiki theme — no light mode toggle by design */
 :root {
   color-scheme: dark;
   --bg: #0d1114;
@@ -21,10 +22,23 @@ body {
     radial-gradient(circle at 20% 0%, rgba(64, 116, 78, .18), transparent 34rem),
     linear-gradient(180deg, #0b1012 0%, var(--bg) 34rem);
   color: var(--text);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* System stack only — avoid ~100KB render-blocking webfont on every page */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 a { color: inherit; text-decoration: none; }
 ::selection { background: rgba(184, 212, 106, .25); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .wiki-grid {
   background-image:

@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/capes/hero-cape')({
-  head: () => pageHead('/capes/hero-cape', 'Minecraft Dungeons 2 Hero Cape: How to Get It', 'Hero Cape requirements, December 31, 2026 deadline, same Microsoft Account steps and Java/Bedrock unlock details.'),
+  head: () => pageHead('/capes/hero-cape', 'Minecraft Dungeons 2 Hero Cape: How to Get It', 'Hero Cape requirements, December 31, 2026 deadline, same Microsoft Account steps and Java/Bedrock unlock details for Minecraft Dungeons 2 owners.'),
   component: Page,
 });
 

@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/capes/corrupted-creeper-cape')({
-  head: () => pageHead('/capes/corrupted-creeper-cape', 'Corrupted Creeper Cape: Minecraft Dungeons 2 Guide', 'Corrupted Creeper Cape promotion dates, former watch requirements, redemption and current availability.'),
+  head: () => pageHead('/capes/corrupted-creeper-cape', 'Corrupted Creeper Cape: Minecraft Dungeons 2 Guide', 'Corrupted Creeper Cape guide for Minecraft Dungeons 2: acquisition method, promotion window, account requirements and Java/Bedrock crossover notes.'),
   component: Page,
 });
 

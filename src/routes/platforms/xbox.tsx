@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/platforms/xbox')({
-  head: () => pageHead('/platforms/xbox', 'Minecraft Dungeons 2 on Xbox: Game Pass & Features', 'Minecraft Dungeons 2 Xbox guide covering Game Pass, editions, local co-op, online multiplayer and platform features.'),
+  head: () => pageHead('/platforms/xbox', 'Minecraft Dungeons 2 on Xbox: Game Pass & Features', 'Minecraft Dungeons 2 Xbox guide covering Game Pass, editions, local co-op, online multiplayer, cross-play notes and platform-specific features.'),
   component: Page,
 });
 

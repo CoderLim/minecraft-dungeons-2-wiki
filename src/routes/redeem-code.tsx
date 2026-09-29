@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/redeem-code')({
-  head: () => pageHead('/redeem-code', 'Minecraft Dungeons 2 Redeem Code Guide', 'Verified Minecraft Dungeons 2 redemption guide for official promo and platform codes, with fake-code warnings.'),
+  head: () => pageHead('/redeem-code', 'Minecraft Dungeons 2 Redeem Code Guide', 'Verified Minecraft Dungeons 2 redemption guide for official promo and platform codes, with fake-code warnings and storefront-specific steps.'),
   component: Page,
 });
 

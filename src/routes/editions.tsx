@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/editions')({
-  head: () => pageHead('/editions', 'Minecraft Dungeons 2 Editions: Standard vs Deluxe', 'Compare Minecraft Dungeons 2 Standard and Deluxe Editions, Soul Cape, Blub, four hero skins and DLC 1 & 2.'),
+  head: () => pageHead('/editions', 'Minecraft Dungeons 2 Editions: Standard vs Deluxe', 'Compare Minecraft Dungeons 2 Standard and Deluxe Editions, Soul Cape, Blub, four hero skins, DLC 1 & 2 access and storefront pricing differences.'),
   component: Page,
 });
 

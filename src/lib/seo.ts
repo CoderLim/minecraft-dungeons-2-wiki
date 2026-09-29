@@ -2,6 +2,8 @@ import { SITE } from './site';
 
 export function pageHead(path: string, title: string, description: string) {
   const url = new URL(path || '/', SITE.url).href;
+  // Prefer compressed square asset (~45KB) over full /logo.png (~500KB)
+  const image = new URL('/logo-128.png', SITE.url).href;
   return {
     meta: [
       { title },
@@ -11,9 +13,13 @@ export function pageHead(path: string, title: string, description: string) {
       { property: 'og:description', content: description },
       { property: 'og:url', content: url },
       { property: 'og:site_name', content: SITE.name },
-      { name: 'twitter:card', content: 'summary_large_image' },
+      { property: 'og:image', content: image },
+      { property: 'og:image:width', content: '128' },
+      { property: 'og:image:height', content: '128' },
+      { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: description },
+      { name: 'twitter:image', content: image },
     ],
     links: [{ rel: 'canonical', href: url }],
   };

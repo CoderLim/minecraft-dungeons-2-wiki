@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/release-date')({
-  head: () => pageHead('/release-date', 'Minecraft Dungeons 2 Release Date & Release Time', 'Minecraft Dungeons 2 release date, launch status, platforms, Game Pass availability and verified release-time notes.'),
+  head: () => pageHead('/release-date', 'Minecraft Dungeons 2 Release Date & Release Time', 'Minecraft Dungeons 2 release date, launch status, platforms, Game Pass availability and verified release-time notes for every supported storefront.'),
   component: Page,
 });
 

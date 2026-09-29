@@ -11,7 +11,7 @@ const capes = [
 ] as const;
 
 export const Route = createFileRoute('/capes/')({
-  head: () => pageHead('/capes', 'Minecraft Dungeons 2 Capes: Every Confirmed Cape', 'Browse every confirmed Minecraft Dungeons 2 cape, availability, unlock method, promotion window and crossover notes.'),
+  head: () => pageHead('/capes', 'Minecraft Dungeons 2 Capes: Every Confirmed Cape', 'Browse every confirmed Minecraft Dungeons 2 cape, availability windows, unlock methods, promotion dates and Minecraft Java/Bedrock crossover notes.'),
   component: Page,
 });
 
@@ -29,7 +29,7 @@ function Page() {
         <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2">
           {capes.map((cape) => (
             <Link key={cape.to} to={cape.to} className="bg-[var(--panel)] p-5 hover:bg-[var(--panel-2)]">
-              <h3 className="font-black text-white">{cape.name}</h3>
+              <h3 className="font-black text-[var(--text)]">{cape.name}</h3>
               <p className="mt-2 text-xs font-bold uppercase tracking-[.12em] text-[var(--emerald)]">{cape.status}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{cape.note}</p>
             </Link>

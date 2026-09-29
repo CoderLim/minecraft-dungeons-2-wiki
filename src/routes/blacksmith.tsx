@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/blacksmith')({
-  head: () => pageHead('/blacksmith', 'Minecraft Dungeons 2 Blacksmith Guide', 'Minecraft Dungeons 2 Blacksmith guide covering item-power upgrades, random-effect rerolls and Echo Shard use.'),
+  head: () => pageHead('/blacksmith', 'Minecraft Dungeons 2 Blacksmith Guide', 'Minecraft Dungeons 2 Blacksmith guide covering power upgrades, effect rerolls, Echo Shard costs and how merchant upgrades fit the gear loop.'),
   component: Page,
 });
 

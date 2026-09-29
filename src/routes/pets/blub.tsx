@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/pets/blub')({
-  head: () => pageHead('/pets/blub', 'Blub Pet in Minecraft Dungeons 2: How to Get It', 'Learn what Blub is, how to get the Blub pet in Minecraft Dungeons 2, which edition includes it and whether Blub fights.'),
+  head: () => pageHead('/pets/blub', 'Blub Pet in Minecraft Dungeons 2: How to Get It', 'Learn what Blub is, how to get the Blub pet in Minecraft Dungeons 2, which edition includes it, whether Blub fights, and related Deluxe Edition rewards.'),
   component: Page,
 });
 

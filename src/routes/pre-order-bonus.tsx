@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/pre-order-bonus')({
-  head: () => pageHead('/pre-order-bonus', 'Minecraft Dungeons 2 Pre-Order Bonus: All Rewards', 'See every verified Minecraft Dungeons 2 pre-order reward and how the former promotion worked.'),
+  head: () => pageHead('/pre-order-bonus', 'Minecraft Dungeons 2 Pre-Order Bonus: All Rewards', 'See every verified Minecraft Dungeons 2 pre-order reward, how the former promotion worked, redemption requirements and current availability.'),
   component: Page,
 });
 

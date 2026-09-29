@@ -3,7 +3,7 @@ import { Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-she
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/trailers')({
-  head: () => pageHead('/trailers', 'Minecraft Dungeons 2 Trailers: Official Videos', 'Official Minecraft Dungeons 2 trailers and gameplay videos with notes on what each reveal actually confirms.'),
+  head: () => pageHead('/trailers', 'Minecraft Dungeons 2 Trailers: Official Videos', 'Official Minecraft Dungeons 2 trailers and gameplay videos with notes on what each reveal actually confirms versus still-unverified community claims.'),
   component: Page,
 });
 

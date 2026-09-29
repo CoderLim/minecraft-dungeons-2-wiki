@@ -9,7 +9,7 @@ const council = [
 ] as const;
 
 export const Route = createFileRoute('/characters/')({
-  head: () => pageHead('/characters', 'Minecraft Dungeons 2 Characters & NPCs', 'Minecraft Dungeons 2 character hub covering the Illager High Council, story characters and verified NPCs.'),
+  head: () => pageHead('/characters', 'Minecraft Dungeons 2 Characters & NPCs', 'Minecraft Dungeons 2 character hub covering the Illager High Council, story characters, verified NPCs and pages that still lack confirmed details.'),
   component: Page,
 });
 
