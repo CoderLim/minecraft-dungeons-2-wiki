@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/crossplay')({
@@ -18,6 +18,15 @@ function Page() {
         { label: 'Xbox cross-platform multiplayer', value: 'Explicitly listed by Xbox Store' },
         { label: 'Mixed local + online', value: 'Confirmed in developer explanation' },
       ]} />
+      <Section title="Co-op in action">
+        <OfficialImage
+          src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/screenshots/d2_systems_coop4.jpg"
+          alt="Four Minecraft Dungeons II heroes standing together in a colorful co-op scene"
+          caption="Official co-op screenshot showing a four-hero party."
+          sourceLabel="Minecraft.net"
+          sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-gameplay-systems"
+        />
+      </Section>
       <Section title="Is Minecraft Dungeons 2 cross-platform?"><p>The Xbox Store lists both Xbox cross-platform multiplayer and Xbox cross-platform co-op for Minecraft Dungeons II. That directly supports cross-platform play across the Xbox/PC ecosystem.</p></Section>
       <Section title="Can local and online players mix?"><p>Yes in the demonstrated design: the developers describe filling a couch group locally and then bringing in another player online when there is an open slot.</p></Section>
       <Section title="What about every possible platform pair?"><p>The Xbox listing is strong evidence for Xbox/PC cross-platform capabilities, but this wiki does not automatically claim every PlayStation/Switch/Xbox/PC pairing until those platform combinations are documented by current first-party sources.</p></Section>
