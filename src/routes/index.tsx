@@ -23,11 +23,6 @@ function Home() {
     '@type': 'WebSite',
     name: 'Minecraft Dungeons 2 Wiki',
     url: 'https://minecraftdungeons2wiki.online/',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://minecraftdungeons2wiki.online/search?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
-    },
   };
 
   return (
