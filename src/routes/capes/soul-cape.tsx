@@ -3,7 +3,7 @@ import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/compon
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/capes/soul-cape')({
-  head: () => pageHead('/capes/soul-cape', 'Soul Cape in Minecraft Dungeons 2: Deluxe Edition Reward', 'Soul Cape availability in Minecraft Dungeons 2, Deluxe Edition relationship, related cosmetic rewards and current verification status.'),
+  head: () => pageHead('/capes/soul-cape', 'Soul Cape in Minecraft Dungeons 2: Deluxe Edition Reward', 'Soul Cape availability in Minecraft Dungeons 2, Deluxe Edition relationship, related cosmetic rewards and current verification status.', { noindex: true }),
   component: Page,
 });
 
