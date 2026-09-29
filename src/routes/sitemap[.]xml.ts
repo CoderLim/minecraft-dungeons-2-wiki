@@ -4,7 +4,12 @@ import { SITE } from '@/lib/site';
 const paths = [
   '/',
   '/release-date',
+  '/price',
+  '/editions',
+  '/pre-order',
+  '/pre-order-bonus',
   '/gameplay',
+  '/trailers',
   '/the-sift',
   '/crossplay',
   '/gear',
@@ -20,6 +25,10 @@ const paths = [
   '/note-block',
   '/note-block-code',
   '/redeem-code',
+  '/platforms/steam',
+  '/platforms/xbox',
+  '/platforms/switch',
+  '/platforms/switch-2',
 ];
 
 export const Route = createFileRoute('/sitemap.xml')({
