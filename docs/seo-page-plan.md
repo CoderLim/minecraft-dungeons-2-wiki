@@ -1,7 +1,7 @@
 # SEO Page Plan
 
 Planning date: 2026-09-29  
-Domain: `minecraftdungeons2wiki.online`
+Domain: `minecraftdungeons2wiki.com`
 
 Rule: one page per **distinct intent/entity**, not one page per literal query variation.
 

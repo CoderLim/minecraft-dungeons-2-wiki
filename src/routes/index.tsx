@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { Compass, Gamepad2, PackageOpen, Shield, Skull, Sparkles } from 'lucide-react';
 
 import { pageHead } from '@/lib/seo';
+import { SITE } from '@/lib/site';
 import { SiteFooter, SiteHeader, EvidenceBadge } from '@/components/wiki-shell';
 
 const quickLinks = [
@@ -22,8 +23,8 @@ function Home() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Minecraft Dungeons 2 Wiki',
-    url: 'https://minecraftdungeons2wiki.online/',
+    name: SITE.name,
+    url: `${SITE.url}/`,
   };
 
   return (

@@ -1,11 +1,21 @@
+// Cloudflare Workers deploy config — TEMPLATE.
+// auto-launch / deploy-cloudflare copies this to wrangler.jsonc (gitignored).
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "minecraft-dungeons-2-wiki",
   "compatibility_flags": ["nodejs_compat"],
   "observability": { "enabled": true },
   "vars": {
-    "VITE_APP_URL": "https://minecraftdungeons2wiki.online",
+    "VITE_APP_URL": "https://minecraftdungeons2wiki.com",
     "VITE_APP_NAME": "Minecraft Dungeons 2 Wiki",
     "VITE_APP_DESCRIPTION": "Unofficial source-audited Minecraft Dungeons II wiki with verified guides, gear, bosses, capes, platforms and launch updates."
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "minecraft-dungeons-2-wiki-db",
+      "database_id": "REPLACE_WITH_OUTPUT_OF_WRANGLER_D1_CREATE",
+      "migrations_dir": "drizzle"
+    }
+  ]
 }

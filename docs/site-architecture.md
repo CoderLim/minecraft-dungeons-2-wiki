@@ -1,6 +1,6 @@
 # Site Architecture
 
-Domain: `minecraftdungeons2wiki.online`  
+Domain: `minecraftdungeons2wiki.com`  
 Planning date: 2026-09-29
 
 ## Core principle

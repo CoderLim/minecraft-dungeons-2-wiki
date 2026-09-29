@@ -1,7 +1,7 @@
 # P0 Launch Checklist
 
 Completed: 2026-09-29  
-Target domain: https://minecraftdungeons2wiki.online
+Target domain: https://minecraftdungeons2wiki.com
 
 P0 scope is intentionally frozen here. P1/P2 database expansion is deferred until more launch gameplay data is captured.
 

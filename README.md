@@ -2,7 +2,7 @@
 
 Unofficial, source-audited wiki for **Minecraft Dungeons II**.
 
-- Planned domain: **https://minecraftdungeons2wiki.online**
+- Domain: **https://minecraftdungeons2wiki.com**
 - Stack: TanStack Start + React 19 + TypeScript + Tailwind CSS 4 + Cloudflare Workers
 - Baseline: adapted from `CoderLim/wow-forever-wiki`
 - Content rule: official/first-party and direct gameplay evidence first; community claims are labeled and never silently promoted to fact.
