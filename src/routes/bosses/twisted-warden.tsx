@@ -3,13 +3,13 @@ import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/compon
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/bosses/twisted-warden')({
-  head: () => pageHead('/bosses/twisted-warden', 'Twisted Warden - Minecraft Dungeons 2 Boss Guide', 'Verified Twisted Warden information with encounter context, official media and clearly marked unknown attacks and drops.'),
+  head: () => pageHead('/bosses/twisted-warden', 'Minecraft Dungeons 2 Warden Boss: Twisted Warden Guide', 'Verified Twisted Warden information with encounter context, official media and clearly marked unknown attacks and drops.'),
   component: Page,
 });
 
 function Page() {
   return (
-    <WikiPage eyebrow="Boss" title="Twisted Warden" description="Twisted Warden is an officially revealed Minecraft Dungeons II encounter associated with Deep Dark reveal material. The page is published because the entity is confirmed, while granular attacks, phases and loot remain partial.">
+    <WikiPage eyebrow="Boss" title="Minecraft Dungeons 2 Warden Boss: Twisted Warden" description="Twisted Warden is an officially revealed Minecraft Dungeons II encounter associated with Deep Dark reveal material. The page is published because the entity is confirmed, while granular attacks, phases and loot remain partial.">
       <FactGrid items={[
         { label: 'Entity status', value: 'Officially revealed' },
         { label: 'Reveal context', value: 'Deep Dark / portal-related footage and official event material' },
@@ -25,6 +25,7 @@ function Page() {
           sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-gameplay-systems"
         />
       </Section>
+      <Section title="Is the Minecraft Dungeons 2 Warden the Twisted Warden?"><p>The named boss shown in official Dungeons II preview coverage is the Twisted Warden, described by Xbox Wire as a supersized and extra-powerful take on Minecraft's Warden. This page is the canonical guide for both “minecraft dungeons 2 warden” and “twisted warden” searches.</p></Section>
       <Section title="Encounter context"><p>Official reveal coverage places Twisted Warden in the sequel's Deep Dark-related material. This wiki will add the exact quest/location chain only after the launch map and quest log are captured.</p></Section>
       <Section title="Attacks and phases"><p>Not yet documented as a complete mechanic list. Trailer or recap descriptions are not enough to infer phase thresholds, hitboxes or cooldowns.</p></Section>
       <Section title="Loot"><p>Unknown in the current evidence set. Any fan-wiki drop list remains discovery material rather than a confirmed table.</p></Section>
