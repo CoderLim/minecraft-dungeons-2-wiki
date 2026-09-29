@@ -72,6 +72,12 @@ export function WikiPage({
       <SiteHeader />
       <main className="wiki-grid">
         <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
+          <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
+            <Link to="/" className="hover:text-white">Wiki</Link>
+            {eyebrow ? <><span aria-hidden="true">/</span><span>{eyebrow}</span></> : null}
+            <span aria-hidden="true">/</span>
+            <span className="text-white">{title}</span>
+          </nav>
           {eyebrow ? <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--emerald)]">{eyebrow}</p> : null}
           <h1 className="mt-3 max-w-4xl text-4xl font-black tracking-[-0.04em] md:text-6xl">{title}</h1>
           <p className="mt-5 max-w-3xl text-base leading-7 text-[var(--muted)] md:text-lg">{description}</p>
