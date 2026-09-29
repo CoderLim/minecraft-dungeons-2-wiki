@@ -1,5 +1,5 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/pre-order-bonus')({
@@ -9,11 +9,19 @@ export const Route = createFileRoute('/pre-order-bonus')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Launch promotion" title="Minecraft Dungeons 2 Pre-Order Bonus" description="This page is a historical record of confirmed Minecraft Dungeons II pre-order rewards. It does not add reward names from unsourced retailer pages or community lists.">
-      <Section title="Verified rewards"><p>The Twisted Cape is confirmed in official promotional material. Other launch cosmetics are documented on their own pages when their acquisition route is clear.</p></Section>
-      <Section title="Pre-order vs Deluxe"><p>Deluxe rewards such as Soul Cape and Blub are not automatically pre-order bonuses. Keeping these categories separate prevents a common launch-week error in comparison pages.</p></Section>
-      <Section title="Current availability"><p>The pre-order period is over. A reward can only be described as currently obtainable if Mojang or a platform store publishes a post-launch path.</p></Section>
-      <SourceList sources={[{ label: 'Official Minecraft Dungeons II capes and promos', href: 'https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos' }]} />
+    <WikiPage eyebrow="Launch promotion" title="Minecraft Dungeons 2 Pre-Order Bonus" description="The official Minecraft Dungeons II pre-order bundle contained two hero skins, the Twisted Cape and the Twisted Chicken pet. The promotion ended when the game launched.">
+      <FactGrid items={[
+        { label: 'Twisted Cape', value: 'Pre-order reward' },
+        { label: 'Twisted Chicken', value: 'Pre-order pet' },
+        { label: 'Hero skins', value: 'Alex and Steve' },
+        { label: 'Availability', value: 'Original pre-order window ended' },
+      ]} />
+      <Section title="All verified pre-order rewards"><p>Mojang's promotion names the Twisted Cape, Twisted Chicken pet and two hero skins featuring Alex and Steve.</p></Section>
+      <Section title="Twisted Cape"><p>The Twisted Cape is also eligible to appear in Minecraft Java and Bedrock after the Dungeons II entitlement is confirmed on the same Microsoft Account.</p></Section>
+      <Section title="Twisted Chicken"><p>The Twisted Chicken is the pet tied to the pre-order bundle. It should not be confused with <Link to="/pets/blub" className="text-[var(--lime)] underline underline-offset-4">Blub</Link>, which belongs to the Deluxe Edition.</p></Section>
+      <Section title="Current availability"><p>The original promotion is over. This wiki will only describe a post-launch acquisition path if Mojang or an official platform store publishes one.</p></Section>
+      <Section title="Redemption"><p>Digital entitlements were confirmed after signing into Dungeons II with the qualifying Microsoft Account. Physical-code copies first use the corresponding Xbox, Nintendo or PlayStation code redemption flow.</p></Section>
+      <SourceList sources={[{ label: 'Official Minecraft Dungeons II Capes & Promos', href: 'https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos' }]} />
     </WikiPage>
   );
 }
