@@ -36,6 +36,8 @@ export const NAV: NavItem[] = [
       { label: 'Artifacts', href: '/artifacts' },
       { label: 'Talismans', href: '/talismans' },
       { label: 'Enchantments', href: '/enchantments' },
+      { label: 'Builds', href: '/builds' },
+      { label: 'Tier List', href: '/tier-list' },
       { label: 'Blacksmith', href: '/blacksmith' },
       { label: 'Echo Shards', href: '/echo-shards' },
     ],
