@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { Gamepad2, KeyRound, ShoppingBag } from 'lucide-react';
 import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
@@ -17,6 +18,24 @@ function Page() {
         { label: 'PlayStation physical-code flow', value: 'PlayStation Store → Redeem Code' },
         { label: 'Promo entitlements', value: 'May require Microsoft Account / platform inventory confirmation' },
       ]} />
+      <Section title="Redemption paths">
+        <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-3">
+          {[
+            { title: 'Xbox', text: 'Redeem the platform code, then confirm the entitlement in-game.', icon: Gamepad2 },
+            { title: 'Nintendo', text: 'Use the Nintendo eShop code flow before checking the reward in-game.', icon: ShoppingBag },
+            { title: 'PlayStation', text: 'Use PlayStation Store → Redeem Code, then verify the item entitlement.', icon: KeyRound },
+          ].map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.title} className="bg-[var(--panel)] p-5">
+                <Icon className="size-6 text-[var(--emerald)]" aria-hidden="true" />
+                <h3 className="mt-4 font-black text-[var(--text)]">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
+              </div>
+            );
+          })}
+        </div>
+      </Section>
       <Section title="Are there active universal Minecraft Dungeons 2 codes?"><p>This wiki does not currently list a universal “working codes” set. A code only appears here when its source, promotion window and redemption context can be verified.</p></Section>
       <Section title="Xbox code redemption"><p>Mojang's physical pre-order instructions direct Xbox players to Xbox's code-redemption flow before confirming the pre-order items inside Minecraft Dungeons II.</p></Section>
       <Section title="Nintendo code redemption"><p>Physical Nintendo codes use Nintendo's eShop code-redemption flow first, then the same in-game confirmation process described by the promotion.</p></Section>
