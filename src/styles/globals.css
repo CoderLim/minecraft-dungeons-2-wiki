@@ -1,0 +1,34 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+  --bg: #0d1114;
+  --panel: #151b1f;
+  --panel-2: #1b2429;
+  --text: #eef5ef;
+  --muted: #a7b4aa;
+  --line: #2a3730;
+  --emerald: #55b878;
+  --lime: #b8d46a;
+  --copper: #c9824b;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(64, 116, 78, .18), transparent 34rem),
+    linear-gradient(180deg, #0b1012 0%, var(--bg) 34rem);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: rgba(184, 212, 106, .25); }
+
+.wiki-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
