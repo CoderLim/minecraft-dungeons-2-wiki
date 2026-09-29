@@ -25,6 +25,7 @@ function Page() {
           sourceHref="https://www.minecraft.net/en-us/about-dungeons-ii"
         />
       </Section>
+      <Section title="When is Minecraft Dungeons 2 coming out?"><p>Minecraft Dungeons II came out on September 29, 2026. If you searched “when does Minecraft Dungeons 2 come out?”, the game is now released; exact store unlock timing can still vary by region and platform.</p></Section>
       <Section title="Is Minecraft Dungeons 2 out now?"><p>Yes. The release date is September 29, 2026. Store unlocks can still differ by platform or region, so this wiki does not invent a universal hour when first-party stores do not state one.</p></Section>
       <Section title="Release time"><p>Where a platform publishes an exact unlock time, it should be recorded here with the storefront and region. A date-only store listing is not converted into a guessed midnight launch time.</p></Section>
       <Section title="Game Pass"><p>Xbox's September Game Pass announcement listed Minecraft Dungeons II for September 29. Edition, cloud and regional availability should continue to be checked against the current Xbox listing.</p></Section>
