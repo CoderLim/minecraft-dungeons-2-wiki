@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/trailers')({
@@ -8,21 +8,21 @@ export const Route = createFileRoute('/trailers')({
 });
 
 const videos = [
-  { title: 'Minecraft Dungeons II Exploration Gameplay', url: 'https://www.youtube.com/watch?v=DE7Z6uIz8Pg', note: 'Best current evidence for armor split, talismans, Blacksmith, Echo Shards, enchantment books, Mini Inventory and Copper Monstrosity.' },
-  { title: 'Extended Gameplay Demo — gamescom 2026', url: 'https://www.youtube.com/watch?v=WkDKJ_i8L-g', note: 'Overlaps the exploration demo and is useful as a cross-check for gameplay systems.' },
-  { title: 'Official Gameplay Trailer', url: 'https://www.youtube.com/watch?v=1tINxp9ZPZA', note: 'Useful for reveal visuals; names and stats still need tooltip/frame verification before entering entity data.' },
+  { id: 'DE7Z6uIz8Pg', title: 'Minecraft Dungeons II Exploration Gameplay', url: 'https://www.youtube.com/watch?v=DE7Z6uIz8Pg', note: 'Primary evidence for armor split, talismans, Blacksmith, Echo Shards, enchantment books, Mini Inventory and Copper Monstrosity.' },
+  { id: 'WkDKJ_i8L-g', title: 'Extended Gameplay Demo — gamescom 2026', url: 'https://www.youtube.com/watch?v=WkDKJ_i8L-g', note: 'Overlaps the exploration demo and is useful as a visual cross-check for gameplay systems.' },
+  { id: '1tINxp9ZPZA', title: 'Official Gameplay Trailer', url: 'https://www.youtube.com/watch?v=1tINxp9ZPZA', note: 'Useful for reveal visuals; item names and stats still require readable tooltips before entering the database.' },
 ] as const;
 
 function Page() {
   return (
     <WikiPage eyebrow="Media" title="Minecraft Dungeons 2 Trailers & Gameplay Videos" description="Official and developer gameplay videos are treated as evidence sources. Spoken claims can establish mechanics; visual-only item names and numeric stats still require frame-level verification.">
       <Section title="Official / developer videos">
-        <div className="space-y-3">
+        <div className="space-y-6">
           {videos.map((video) => (
-            <a key={video.url} href={video.url} target="_blank" rel="noreferrer" className="block border border-[var(--line)] bg-[var(--panel)] p-5 hover:bg-[var(--panel-2)]">
-              <h3 className="font-black text-white">{video.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{video.note}</p>
-            </a>
+            <div key={video.id} className="space-y-3">
+              <VideoEmbed youtubeId={video.id} title={video.title} />
+              <p className="text-sm leading-6 text-[var(--muted)]">{video.note}</p>
+            </div>
           ))}
         </div>
       </Section>
