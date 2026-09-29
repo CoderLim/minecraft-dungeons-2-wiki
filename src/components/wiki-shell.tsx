@@ -221,7 +221,10 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-5 px-4 py-10 text-sm text-[var(--muted)] md:grid-cols-[1fr_auto] md:px-6">
         <div>
           <div className="font-semibold text-[var(--text)]">{SITE.name}</div>
-          <p className="mt-2 max-w-2xl leading-6">Unofficial fan project. Minecraft and related marks belong to Mojang Studios and Microsoft. Facts are separated by evidence level and unresolved fields stay marked as unknown.</p>
+          <p className="mt-2 max-w-3xl leading-6">
+  <strong className="text-[var(--text)]">NOT AN OFFICIAL MINECRAFT WEBSITE. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.</strong>{' '}
+  This independent fan project is responsible for its own content. Minecraft and related marks belong to Mojang Studios and Microsoft.
+</p>
         </div>
         <div className="flex flex-wrap gap-4">
           <Link to="/release-date" className="min-h-10 inline-flex items-center">Release</Link>
