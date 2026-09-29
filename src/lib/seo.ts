@@ -1,6 +1,11 @@
 import { SITE } from './site';
 
-export function pageHead(path: string, title: string, description: string) {
+export function pageHead(
+  path: string,
+  title: string,
+  description: string,
+  options: { noindex?: boolean } = {},
+) {
   const url = new URL(path || '/', SITE.url).href;
   // Prefer compressed square asset (~45KB) over full /logo.png (~500KB)
   const image = new URL('/logo-128.png', SITE.url).href;
@@ -8,6 +13,7 @@ export function pageHead(path: string, title: string, description: string) {
     meta: [
       { title },
       { name: 'description', content: description },
+      ...(options.noindex ? [{ name: 'robots', content: 'noindex,follow' }] : []),
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: title },
       { property: 'og:description', content: description },
