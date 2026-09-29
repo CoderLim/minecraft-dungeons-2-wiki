@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/jump')({
-  head: () => pageHead('/jump', 'How to Jump in Minecraft Dungeons 2 & Use Jump Attacks', 'Minecraft Dungeons 2 jumping guide covering traversal, hidden spaces and jump attacks based on official developer gameplay.'),
+  head: () => pageHead('/jump', 'How to Jump in Minecraft Dungeons 2 & Use Jump Attacks', 'Minecraft Dungeons 2 jumping guide covering traversal, hidden spaces and jump attacks based on official developer gameplay.', { noindex: true }),
   component: Page,
 });
 
