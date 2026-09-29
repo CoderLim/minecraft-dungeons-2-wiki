@@ -3,11 +3,11 @@ import { FactGrid, MediaGrid, OfficialImage, Section, SourceList, WikiPage } fro
 import { pageHead } from '@/lib/seo';
 
 const capes = [
-  { to: '/capes/hero-cape', name: 'Hero Cape', status: 'Former-player reward', note: 'Same Microsoft Account requirement; deadline tracked from official promo.' },
-  { to: '/capes/twisted-cape', name: 'Twisted Cape', status: 'Pre-order reward', note: 'No longer a current pre-order offer after launch.' },
-  { to: '/capes/soul-cape', name: 'Soul Cape', status: 'Deluxe Edition', note: 'Part of the Deluxe cosmetic bundle.' },
-  { to: '/capes/corrupted-creeper-cape', name: 'Corrupted Creeper Cape', status: 'Limited watch promotion', note: 'Twitch/TikTok promotion window has ended.' },
-  { to: '/capes/special-cape', name: 'Special Cape', status: 'Acquisition unknown', note: 'Official appearance exists; unlock method remains unresolved.' },
+  { to: '/capes/hero-cape', name: 'Hero Cape', status: 'Former-player reward', note: 'Same Microsoft Account requirement; deadline tracked from official promo.', image: 'https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_Hero.jpg' },
+  { to: '/capes/twisted-cape', name: 'Twisted Cape', status: 'Pre-order reward', note: 'No longer a current pre-order offer after launch.', image: 'https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_Twisted.jpg' },
+  { to: '/capes/soul-cape', name: 'Soul Cape', status: 'Deluxe Edition', note: 'Part of the Deluxe cosmetic bundle.', image: 'https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_Soul.jpg' },
+  { to: '/capes/corrupted-creeper-cape', name: 'Corrupted Creeper Cape', status: 'Limited watch promotion', note: 'Twitch/TikTok promotion window has ended.', image: 'https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_CorruptedCreeper.jpg' },
+  { to: '/capes/special-cape', name: 'Special Cape', status: 'Acquisition unknown', note: 'Official appearance exists; unlock method remains unresolved.', image: 'https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_Special.jpg' },
 ] as const;
 
 export const Route = createFileRoute('/capes/')({
@@ -46,10 +46,13 @@ function Page() {
       <Section title="Confirmed capes">
         <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2">
           {capes.map((cape) => (
-            <Link key={cape.to} to={cape.to} className="bg-[var(--panel)] p-5 hover:bg-[var(--panel-2)]">
+            <Link key={cape.to} to={cape.to} className="overflow-hidden bg-[var(--panel)] hover:bg-[var(--panel-2)]">
+              <img src={cape.image} alt={`${cape.name} in Minecraft Dungeons II`} loading="lazy" decoding="async" className="aspect-video w-full object-cover" />
+              <div className="p-5">
               <h3 className="font-black text-[var(--text)]">{cape.name}</h3>
               <p className="mt-2 text-xs font-bold uppercase tracking-[.12em] text-[var(--emerald)]">{cape.status}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{cape.note}</p>
+              </div>
             </Link>
           ))}
         </div>
