@@ -30,6 +30,7 @@ const pages = [
   ['/characters', 'Characters', 'Illager High Council and NPC index'],
   ['/characters/supreme-evoker', 'Supreme Evoker', 'Council member and Copper Monstrosity story link'],
   ['/capes', 'Capes', 'Confirmed cape index'],
+  ['/pets/blub', 'Blub', 'Deluxe Edition pet companion'],
   ['/note-block', 'Note Block', 'Story item after Copper Monstrosity'],
   ['/note-block-code', 'Note Block Code', 'Launcher ARG with community-reported solution'],
   ['/trailers', 'Trailers', 'Official and developer video evidence index'],
