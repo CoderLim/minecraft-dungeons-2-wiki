@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { FactGrid, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
+import { FactGrid, MediaGrid, OfficialImage, Section, SourceList, VideoEmbed, WikiPage } from '@/components/wiki-shell';
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/editions')({
@@ -18,6 +18,31 @@ function Page() {
         { label: 'Hero skins', value: 'Valorie, Kellen, Ren and Flores variants' },
         { label: 'DLC', value: 'DLC 1 & 2 as released' },
       ]} />
+      <Section title="Deluxe Edition cosmetics">
+        <MediaGrid>
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Cape_Soul.jpg"
+            alt="Soul Cape from Minecraft Dungeons II Deluxe Edition"
+            caption="Soul Cape, included with the Deluxe Edition."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          />
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Pet_Blub.jpg"
+            alt="Blub pet from Minecraft Dungeons II Deluxe Edition"
+            caption="Blub, the cosmetic pet included with the Deluxe Edition."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          />
+          <OfficialImage
+            src="https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/game-characters/Skin_Fancy.jpg"
+            alt="Four dark-golden hero skins from Minecraft Dungeons II Deluxe Edition"
+            caption="The Deluxe Edition hero-skin variants for Valorie, Kellen, Ren and Flores."
+            sourceLabel="Minecraft.net"
+            sourceHref="https://www.minecraft.net/en-us/article/minecraft-dungeons-ii-capes-promos"
+          />
+        </MediaGrid>
+      </Section>
       <Section title="Official gameplay trailer"><VideoEmbed youtubeId="vBNE3bKMpu8" title="Minecraft Dungeons II official gameplay trailer" /></Section>
       <Section title="Standard Edition"><p>The Standard Edition contains the base Minecraft Dungeons II game. Pricing varies by storefront and region.</p></Section>
       <Section title="Deluxe Edition"><p>Official promotion material identifies Blub, the Soul Cape and four dark-golden variations of Valorie, Kellen, Ren and Flores. The Xbox Deluxe listing also includes DLC 1 &amp; 2 as released.</p></Section>
