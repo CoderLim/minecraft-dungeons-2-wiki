@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/characters/supreme-evoker')({
-  head: () => pageHead('/characters/supreme-evoker', 'Supreme Evoker - Minecraft Dungeons 2', 'Supreme Evoker character page covering Illager High Council membership and the verified Copper Monstrosity story connection.'),
+  head: () => pageHead('/characters/supreme-evoker', 'Supreme Evoker - Minecraft Dungeons 2', 'Supreme Evoker character page covering Illager High Council membership and the verified Copper Monstrosity story connection.', { noindex: true }),
   component: Page,
 });
 
