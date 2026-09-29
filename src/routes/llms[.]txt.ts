@@ -6,9 +6,13 @@ const pages = [
   ['/release-date', 'Release Date', 'Launch date, status and Game Pass'],
   ['/price', 'Price', 'Store-specific Standard and Deluxe pricing'],
   ['/editions', 'Editions', 'Standard vs Deluxe'],
+  ['/pre-order', 'Pre-Order', 'Post-launch pre-order status and former bonuses'],
+  ['/pre-order-bonus', 'Pre-Order Bonus', 'Verified former pre-order rewards'],
   ['/gameplay', 'Gameplay', 'Interconnected world, jumping, gear and co-op'],
+  ['/trailers', 'Trailers', 'Official and developer video evidence index'],
   ['/crossplay', 'Crossplay and Co-op', 'Four-player local/online multiplayer evidence'],
   ['/controls', 'Controls', 'Verified controls and missing platform mappings'],
+  ['/jump', 'Jump', 'Traversal, hidden spaces and jump attacks'],
   ['/inventory', 'Inventory', 'Mini Inventory and co-op equipment management'],
   ['/world', 'World', 'Interconnected exploration and side content'],
   ['/map', 'Map', 'Verified map functions and location-data status'],
@@ -28,13 +32,24 @@ const pages = [
   ['/bosses/copper-monstrosity', 'Copper Monstrosity', 'Story boss and Note Block sequence'],
   ['/bosses/twisted-warden', 'Twisted Warden', 'Officially revealed encounter with partial fields'],
   ['/characters', 'Characters', 'Illager High Council and NPC index'],
+  ['/characters/prime-enchanter', 'Prime Enchanter', 'Illager High Council member'],
+  ['/characters/grand-illusioner', 'Grand Illusioner', 'Illager High Council member'],
   ['/characters/supreme-evoker', 'Supreme Evoker', 'Council member and Copper Monstrosity story link'],
   ['/capes', 'Capes', 'Confirmed cape index'],
+  ['/capes/hero-cape', 'Hero Cape', 'Former-player reward with deadline'],
+  ['/capes/twisted-cape', 'Twisted Cape', 'Former pre-order cape'],
+  ['/capes/soul-cape', 'Soul Cape', 'Deluxe Edition cape'],
+  ['/capes/corrupted-creeper-cape', 'Corrupted Creeper Cape', 'Limited watch-promotion cape'],
+  ['/capes/special-cape', 'Special Cape', 'Appearance revealed; acquisition unresolved'],
   ['/pets/blub', 'Blub', 'Deluxe Edition pet companion'],
   ['/note-block', 'Note Block', 'Story item after Copper Monstrosity'],
   ['/note-block-code', 'Note Block Code', 'Launcher ARG with community-reported solution'],
-  ['/trailers', 'Trailers', 'Official and developer video evidence index'],
-];
+  ['/redeem-code', 'Redeem Code', 'Official promo and platform redemption guide'],
+  ['/platforms/steam', 'Steam', 'PC Steam release, specs and features'],
+  ['/platforms/xbox', 'Xbox', 'Game Pass, editions and multiplayer'],
+  ['/platforms/switch', 'Nintendo Switch', 'Switch release and platform notes'],
+  ['/platforms/switch-2', 'Nintendo Switch 2', 'Switch 2 release and platform notes'],
+] as const;
 
 export const Route = createFileRoute('/llms.txt')({
   server: {
@@ -55,6 +70,11 @@ export const Route = createFileRoute('/llms.txt')({
           '## Core pages',
           '',
           ...pages.map(([path, title, description]) => `- [${title}](${new URL(path, SITE.url).href}): ${description}`),
+          '',
+          '## Machine-readable indexes',
+          '',
+          `- Sitemap: ${SITE.url}/sitemap.xml`,
+          `- Robots: ${SITE.url}/robots.txt`,
           '',
         ].join('\n');
         return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });

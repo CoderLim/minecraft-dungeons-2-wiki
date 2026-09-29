@@ -19,7 +19,7 @@ function Page() {
         <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2">
           {bosses.map((boss) => (
             <Link key={boss.to} to={boss.to} className="bg-[var(--panel)] p-6 hover:bg-[var(--panel-2)]">
-              <h3 className="text-xl font-black text-white">{boss.name}</h3>
+              <h3 className="text-xl font-black text-[var(--text)]">{boss.name}</h3>
               <p className="mt-2 text-xs font-bold uppercase tracking-[.12em] text-[var(--emerald)]">{boss.status}</p>
               <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{boss.detail}</p>
             </Link>
