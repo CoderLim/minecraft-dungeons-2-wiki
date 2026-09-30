@@ -1,9 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
-import { pageHead } from '@/lib/seo';
+import { pageHead, breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from '@/lib/seo';
 
 export const Route = createFileRoute('/capes/hero-cape')({
-  head: () => pageHead('/capes/hero-cape', 'Minecraft Dungeons 2 Hero Cape: How to Get It', 'Hero Cape requirements, December 31, 2026 deadline, same Microsoft Account steps and Java/Bedrock unlock details for Minecraft Dungeons 2 owners.'),
+  head: () => pageHead('/capes/hero-cape', 'Minecraft Dungeons 2 Hero Cape: How to Get It', 'Hero Cape requirements, December 31, 2026 deadline, same Microsoft Account steps and Java/Bedrock unlock details for Minecraft Dungeons 2 owners.', { jsonLd: [
+      webPageJsonLd('/capes/hero-cape', 'How to Get the Hero Cape', 'Play Minecraft Dungeons I, then log into Minecraft Dungeons II before December 31, 2026 on the same Microsoft Account.'),
+      breadcrumbJsonLd([{ name: 'Wiki', path: '/' }, { name: 'Capes', path: '/capes' }, { name: 'Hero Cape', path: '/capes/hero-cape' }]),
+      faqJsonLd([
+        { question: 'How do you get the Hero Cape in Minecraft Dungeons 2?', answer: 'Play Minecraft Dungeons I, then log into Minecraft Dungeons II before December 31, 2026 using the same Microsoft Account.' },
+        { question: 'Does the Hero Cape unlock in Java and Bedrock?', answer: 'After the cape appears in Dungeons II, log into Minecraft Java and/or Bedrock with the same Microsoft Account to unlock it there as well.' },
+        { question: 'What is the Hero Cape deadline?', answer: 'The published deadline is December 31, 2026.' },
+      ]),
+    ] }),
   component: Page,
 });
 

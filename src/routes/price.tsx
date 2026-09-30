@@ -1,9 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
-import { pageHead } from '@/lib/seo';
+import { pageHead, breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from '@/lib/seo';
 
 export const Route = createFileRoute('/price')({
-  head: () => pageHead('/price', 'Minecraft Dungeons 2 Price: Standard, Deluxe & Game Pass', 'Compare Minecraft Dungeons 2 Standard and Deluxe pricing, included content and Game Pass availability using first-party store data.'),
+  head: () => pageHead('/price', 'Minecraft Dungeons 2 Price: Standard, Deluxe & Game Pass', 'Compare Minecraft Dungeons 2 Standard and Deluxe pricing, included content and Game Pass availability using first-party store data.', { jsonLd: [
+      webPageJsonLd('/price', 'Minecraft Dungeons 2 Price', 'Compare Standard and Deluxe pricing with Game Pass availability using first-party store data.'),
+      breadcrumbJsonLd([{ name: 'Wiki', path: '/' }, { name: 'Price', path: '/price' }]),
+      faqJsonLd([
+        { question: 'How much does Minecraft Dungeons 2 cost?', answer: 'The U.S. Xbox listing recorded Standard at $29.99 and Deluxe at $49.99. Other regions and storefronts can differ, so always check the current platform store.' },
+        { question: 'Is Minecraft Dungeons 2 on Game Pass?', answer: 'Launch-day Game Pass availability was announced for eligible plans; confirm the current Xbox listing for your region.' },
+      ]),
+    ] }),
   component: Page,
 });
 

@@ -1,62 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { SITE } from '@/lib/site';
 
-const pages = [
-  ['/', 'Minecraft Dungeons 2 Wiki', 'Source-audited home and topic hubs'],
-  ['/release-date', 'Release Date', 'Launch date, status and Game Pass'],
-  ['/price', 'Price', 'Store-specific Standard and Deluxe pricing'],
-  ['/editions', 'Editions', 'Standard vs Deluxe'],
-  ['/pre-order', 'Pre-Order', 'Post-launch pre-order status and former bonuses'],
-  ['/pre-order-bonus', 'Pre-Order Bonus', 'Verified former pre-order rewards'],
-  ['/gameplay', 'Gameplay', 'Interconnected world, jumping, gear and co-op'],
-  ['/builds', 'Builds', 'Source-backed launch-week build ideas and synergies'],
-  ['/tier-list', 'Tier List', 'Provisional launch-week enchantment rankings'],
-  ['/trailers', 'Trailers', 'Official and developer video evidence index'],
-  ['/crossplay', 'Crossplay and Co-op', 'Four-player local/online multiplayer evidence'],
-  ['/controls', 'Controls', 'Verified controls and missing platform mappings'],
-  ['/jump', 'Jump', 'Traversal, hidden spaces and jump attacks'],
-  ['/inventory', 'Inventory', 'Mini Inventory and co-op equipment management'],
-  ['/world', 'World', 'Interconnected exploration and side content'],
-  ['/map', 'Map', 'Verified map functions and location-data status'],
-  ['/the-sift', 'The Sift', 'New dimension and verified reveal details'],
-  ['/dungeons', 'Dungeons', 'Procedural dungeon system'],
-  ['/quests', 'Quests', 'Main and side quest structure'],
-  ['/gear', 'Gear', 'Expanded loadout overview'],
-  ['/weapons', 'Weapons', 'Evidence-gated weapon database'],
-  ['/armor', 'Armor', 'Four-piece armor system'],
-  ['/talismans', 'Talismans', 'Passive bonuses and Tasty Bone'],
-  ['/artifacts', 'Artifacts', 'Evidence-gated artifact database'],
-  ['/enchantments', 'Enchantments', 'Enchantment Books and known examples'],
-  ['/blacksmith', 'Blacksmith', 'Power upgrades and effect rerolls'],
-  ['/echo-shards', 'Echo Shards', 'Sources and confirmed uses'],
-  ['/soul-corrupted-mobs', 'Soul-Corrupted Mobs', 'Tough enemy variants and Echo Shards'],
-  ['/bosses', 'Bosses', 'Confirmed boss list, repeatable encounters and mechanics'],
-  ['/bosses/copper-monstrosity', 'Copper Monstrosity', 'Story boss and Note Block sequence'],
-  ['/bosses/twisted-warden', 'Twisted Warden', 'Officially revealed encounter with partial fields'],
-  ['/characters', 'Characters', 'Illager High Council and NPC index'],
-  ['/characters/prime-enchanter', 'Prime Enchanter', 'Illager High Council member'],
-  ['/characters/grand-illusioner', 'Grand Illusioner', 'Illager High Council member'],
-  ['/characters/supreme-evoker', 'Supreme Evoker', 'Council member and Copper Monstrosity story link'],
-  ['/capes', 'Capes', 'Confirmed cape index'],
-  ['/capes/hero-cape', 'Hero Cape', 'Former-player reward with deadline'],
-  ['/capes/twisted-cape', 'Twisted Cape', 'Former pre-order cape'],
-  ['/capes/soul-cape', 'Soul Cape', 'Deluxe Edition cape'],
-  ['/capes/corrupted-creeper-cape', 'Corrupted Creeper Cape', 'Limited watch-promotion cape'],
-  ['/capes/special-cape', 'Special Cape', 'Appearance revealed; acquisition unresolved'],
-  ['/pets/blub', 'Blub', 'Deluxe Edition pet companion'],
-  ['/note-block', 'Note Block', 'Story item after Copper Monstrosity'],
-  ['/note-block-code', 'Note Block Code', 'Launcher ARG with community-reported solution'],
-  ['/redeem-code', 'Redeem Code', 'Official promo and platform redemption guide'],
-  ['/platforms/steam', 'Steam', 'PC Steam release, specs and features'],
-  ['/platforms/xbox', 'Xbox', 'Game Pass, editions and multiplayer'],
-  ['/platforms/switch', 'Nintendo Switch', 'Switch release and platform notes'],
-  ['/platforms/switch-2', 'Nintendo Switch 2', 'Switch 2 release and platform notes'],
-] as const;
+import { allSeoPages } from '@/lib/seo-pages';
+import { SITE } from '@/lib/site';
 
 export const Route = createFileRoute('/llms.txt')({
   server: {
     handlers: {
       GET: () => {
+        const pages = allSeoPages();
+        const indexed = pages.filter((page) => page.index);
+        const held = pages.filter((page) => !page.index);
         const body = [
           `# ${SITE.name}`,
           '',
@@ -69,9 +22,19 @@ export const Route = createFileRoute('/llms.txt')({
           '- Community-only claims are labeled and never silently promoted to fact.',
           '- Unknown fields remain unknown instead of being guessed.',
           '',
-          '## Core pages',
+          '## Indexable pages',
           '',
-          ...pages.map(([path, title, description]) => `- [${title}](${new URL(path, SITE.url).href}): ${description}`),
+          ...indexed.map(
+            (page) =>
+              `- [${page.title}](${new URL(page.path, SITE.url).href}): ${page.blurb}`,
+          ),
+          '',
+          '## Held / noindex until databases deepen',
+          '',
+          ...held.map(
+            (page) =>
+              `- [${page.title}](${new URL(page.path, SITE.url).href}): ${page.blurb}`,
+          ),
           '',
           '## Machine-readable indexes',
           '',
@@ -79,7 +42,9 @@ export const Route = createFileRoute('/llms.txt')({
           `- Robots: ${SITE.url}/robots.txt`,
           '',
         ].join('\n');
-        return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+        return new Response(body, {
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+        });
       },
     },
   },

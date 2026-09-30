@@ -37,7 +37,11 @@ function Home() {
       datePublished: '2026-09-29',
       publisher: { '@type': 'Organization', name: 'Xbox Game Studios' },
       developer: { '@type': 'Organization', name: 'Mojang Studios' },
-      url: 'https://www.minecraft.net/en-us/about-dungeons-ii',
+      url: `${SITE.url}/`,
+      sameAs: [
+        'https://www.minecraft.net/en-us/about-dungeons-ii',
+        'https://store.steampowered.com/app/1912410/Minecraft_Dungeons_II/',
+      ],
     },
     {
       '@context': 'https://schema.org',

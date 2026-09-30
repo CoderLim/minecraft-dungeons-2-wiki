@@ -3,7 +3,7 @@ import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/compon
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/capes/special-cape')({
-  head: () => pageHead('/capes/special-cape', 'Minecraft Dungeons 2 Special Cape: What We Know', 'Officially revealed Minecraft Dungeons 2 Special Cape appearance, acquisition status, verification gaps and related cosmetic reward updates.', { noindex: true }),
+  head: () => pageHead('/capes/special-cape', 'Minecraft Dungeons 2 Special Cape: What We Know', 'Officially revealed Minecraft Dungeons 2 Special Cape appearance, acquisition status, verification gaps and related cosmetic reward updates.'),
   component: Page,
 });
 

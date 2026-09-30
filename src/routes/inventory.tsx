@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/inventory')({
-  head: () => pageHead('/inventory', 'Minecraft Dungeons 2 Inventory & Mini Inventory Guide', 'Minecraft Dungeons 2 inventory guide covering Mini Inventory, D-pad Up in the demonstrated controller layout and co-op gear management.', { noindex: true }),
+  head: () => pageHead('/inventory', 'Minecraft Dungeons 2 Inventory & Mini Inventory Guide', 'Minecraft Dungeons 2 inventory guide covering Mini Inventory, D-pad Up in the demonstrated controller layout and co-op gear management.'),
   component: Page,
 });
 

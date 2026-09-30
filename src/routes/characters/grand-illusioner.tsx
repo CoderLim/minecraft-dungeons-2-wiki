@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/characters/grand-illusioner')({
-  head: () => pageHead('/characters/grand-illusioner', 'Grand Illusioner - Minecraft Dungeons 2', 'Grand Illusioner character page covering confirmed Illager High Council membership, verified story information and current unknown fields.', { noindex: true }),
+  head: () => pageHead('/characters/grand-illusioner', 'Grand Illusioner - Minecraft Dungeons 2', 'Grand Illusioner character page covering confirmed Illager High Council membership, verified story information and current unknown fields.'),
   component: Page,
 });
 

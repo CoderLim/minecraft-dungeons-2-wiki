@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/gear')({
-  head: () => pageHead('/gear', 'Minecraft Dungeons 2 Gear: Armor, Talismans & Enchants', 'Verified Minecraft Dungeons 2 gear systems: expanded slots, four-piece armor, talismans, Blacksmith upgrades, Echo Shards and enchantment books.', { noindex: true }),
+  head: () => pageHead('/gear', 'Minecraft Dungeons 2 Gear: Armor, Talismans & Enchants', 'Verified Minecraft Dungeons 2 gear systems: expanded slots, four-piece armor, talismans, Blacksmith upgrades, Echo Shards and enchantment books.'),
   component: Page,
 });
 

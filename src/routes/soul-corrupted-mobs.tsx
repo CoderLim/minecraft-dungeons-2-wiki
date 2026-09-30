@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/soul-corrupted-mobs')({
-  head: () => pageHead('/soul-corrupted-mobs', 'Soul-Corrupted Mobs in Minecraft Dungeons 2', 'Minecraft Dungeons 2 Soul-Corrupted mobs explained: difficulty, Echo Shard drops and the current verified variant status.', { noindex: true }),
+  head: () => pageHead('/soul-corrupted-mobs', 'Soul-Corrupted Mobs in Minecraft Dungeons 2', 'Minecraft Dungeons 2 Soul-Corrupted mobs explained: difficulty, Echo Shard drops and the current verified variant status.'),
   component: Page,
 });
 

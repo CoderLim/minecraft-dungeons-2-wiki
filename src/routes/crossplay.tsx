@@ -1,9 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
-import { pageHead } from '@/lib/seo';
+import { pageHead, breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from '@/lib/seo';
 
 export const Route = createFileRoute('/crossplay')({
-  head: () => pageHead('/crossplay', 'Is Minecraft Dungeons 2 Cross-Platform? Crossplay Guide', 'Minecraft Dungeons 2 crossplay and multiplayer guide covering couch co-op, online play, mixed local/online groups and player count.'),
+  head: () => pageHead('/crossplay', 'Is Minecraft Dungeons 2 Cross-Platform? Crossplay Guide', 'Minecraft Dungeons 2 crossplay and multiplayer guide covering couch co-op, online play, mixed local/online groups and player count.', { jsonLd: [
+      webPageJsonLd('/crossplay', 'Minecraft Dungeons 2 Crossplay & Co-op', 'Cross-platform co-op details for Minecraft Dungeons II, including couch, online and mixed groups.'),
+      breadcrumbJsonLd([{ name: 'Wiki', path: '/' }, { name: 'Crossplay', path: '/crossplay' }]),
+      faqJsonLd([
+        { question: 'Is Minecraft Dungeons 2 cross-platform?', answer: 'The Xbox Store lists Xbox cross-platform multiplayer and cross-platform co-op for Minecraft Dungeons II, supporting cross-play across the Xbox/PC ecosystem.' },
+        { question: 'How many players can play Minecraft Dungeons 2 together?', answer: 'Up to four players can play together in co-op.' },
+        { question: 'Can local and online players mix in Minecraft Dungeons 2?', answer: 'Yes in the demonstrated design: a couch group can fill local seats and then invite another player online into an open slot.' },
+      ]),
+    ] }),
   component: Page,
 });
 

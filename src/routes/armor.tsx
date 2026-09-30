@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/armor')({
-  head: () => pageHead('/armor', 'Minecraft Dungeons 2 Armor: Helmet, Chest, Legs & Boots', 'Minecraft Dungeons 2 armor guide covering the four armor slots, gear effects, upgrades and the current verified armor database status.', { noindex: true }),
+  head: () => pageHead('/armor', 'Minecraft Dungeons 2 Armor: Helmet, Chest, Legs & Boots', 'Minecraft Dungeons 2 armor guide covering the four armor slots, gear effects, upgrades and the current verified armor database status.'),
   component: Page,
 });
 

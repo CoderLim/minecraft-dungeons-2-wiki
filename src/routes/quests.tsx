@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/quests')({
-  head: () => pageHead('/quests', 'Minecraft Dungeons 2 Quests: Main & Side Quests', 'Minecraft Dungeons 2 quest guide covering main quests, side quests, quest UI and the current verified quest-data status.', { noindex: true }),
+  head: () => pageHead('/quests', 'Minecraft Dungeons 2 Quests: Main & Side Quests', 'Minecraft Dungeons 2 quest guide covering main quests, side quests, quest UI and the current verified quest-data status.'),
   component: Page,
 });
 

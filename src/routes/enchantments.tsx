@@ -3,7 +3,7 @@ import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell
 import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/enchantments')({
-  head: () => pageHead('/enchantments', 'Minecraft Dungeons 2 Enchantments & Enchantment Books', 'Minecraft Dungeons 2 enchantment guide covering collectible enchantment books, reusable applications and confirmed examples like Inner Mines.', { noindex: true }),
+  head: () => pageHead('/enchantments', 'Minecraft Dungeons 2 Enchantments & Enchantment Books', 'Minecraft Dungeons 2 enchantment guide covering collectible enchantment books, reusable applications and confirmed examples like Inner Mines.'),
   component: Page,
 });
 
