@@ -15,9 +15,13 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
 body {
   margin: 0;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 20% 0%, rgba(64, 116, 78, .18), transparent 34rem),
     linear-gradient(180deg, #0b1012 0%, var(--bg) 34rem);

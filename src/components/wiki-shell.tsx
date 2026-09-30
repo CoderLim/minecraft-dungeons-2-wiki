@@ -68,10 +68,13 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 text-sm text-[var(--muted)] lg:flex" aria-label="Primary">
-          {NAV.map((item) => {
+          {NAV.map((item, index) => {
             if (item.children?.length) {
               const groupActive = isGroupActive(pathname, item);
               const wide = item.children.length > 6;
+              // Right-align trailing menus so wide panels don't spill past the viewport
+              // (visibility:hidden absolute menus still expand scrollWidth).
+              const alignEnd = index >= NAV.length - 2;
               return (
                 <div key={item.label} className="group relative">
                   {item.href ? (
@@ -96,7 +99,7 @@ export function SiteHeader() {
                     </button>
                   )}
                   <div
-                    className={`invisible absolute top-full left-1/2 z-50 -translate-x-1/2 pt-2 opacity-0 transition-[opacity,visibility] group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100 ${wide ? 'w-[420px]' : 'w-56'}`}
+                    className={`invisible absolute top-full z-50 pt-2 opacity-0 transition-[opacity,visibility] group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100 ${alignEnd ? 'right-0' : 'left-0'} ${wide ? 'w-[min(420px,calc(100vw-2rem))]' : 'w-56'}`}
                   >
                     <div
                       role="menu"
