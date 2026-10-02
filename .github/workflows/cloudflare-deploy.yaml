@@ -35,6 +35,20 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Cloudflare build
+        run: pnpm cf:build
+
+      - name: Check current live site
+        shell: bash
+        run: |
+          STATUS="$(curl -sS -o /tmp/steam-deck.html -w '%{http_code}' https://minecraftdungeons2wiki.com/steam-deck || true)"
+          echo "steam-deck HTTP=$STATUS"
+          if [ "$STATUS" = "200" ] && grep -q "Minecraft Dungeons 2 on Steam Deck" /tmp/steam-deck.html; then
+            echo "LIVE_HAS_OCT2_UPDATE=yes"
+          else
+            echo "LIVE_HAS_OCT2_UPDATE=no"
+          fi
+
       - name: Check Cloudflare credentials
         shell: bash
         run: |
@@ -66,9 +80,6 @@ jobs:
 
       - name: Check existing Worker deployment
         run: npx wrangler deployments list --name minecraft-dungeons-2-wiki
-
-      - name: Cloudflare build
-        run: pnpm cf:build
 
       - name: Deploy
         if: ${{ (github.event_name == 'workflow_dispatch' && inputs.deploy == true) || contains(github.event.head_commit.message, '[deploy-cf]') }}
