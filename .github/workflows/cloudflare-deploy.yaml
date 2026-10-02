@@ -53,9 +53,7 @@ jobs:
             echo "Existing D1 database minecraft-dungeons-2-wiki-db was not found."
             exit 1
           fi
-          node -e "const fs=require('fs');const p='wrangler.jsonc';let s=fs.readFileSync(p,'utf8');s=s.replace('REPLACE_WITH_OUTPUT_OF_WRANGLER_D1_CREATE', process.env.DB_ID);fs.writeFileSync(p,s)"             DB_ID="$DB_ID"
-        env:
-          DB_ID: ''
+          sed -i "s/REPLACE_WITH_OUTPUT_OF_WRANGLER_D1_CREATE/$DB_ID/" wrangler.jsonc
 
       - name: Prepare production env
         shell: bash
