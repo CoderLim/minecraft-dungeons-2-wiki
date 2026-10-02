@@ -97,6 +97,7 @@ export const NAV: NavItem[] = [
       { label: 'Pre-order bonus', href: '/pre-order-bonus' },
       { label: 'Redeem code', href: '/redeem-code' },
       { label: 'Steam', href: '/platforms/steam' },
+      { label: 'Steam Deck', href: '/steam-deck' },
       { label: 'Xbox', href: '/platforms/xbox' },
       { label: 'Switch', href: '/platforms/switch' },
       { label: 'Switch 2', href: '/platforms/switch-2' },
