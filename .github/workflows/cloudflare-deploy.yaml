@@ -1,0 +1,77 @@
+name: Cloudflare Workers Deploy
+
+on:
+  push:
+    branches: ['main']
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Deploy to Cloudflare Workers'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-production
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN || secrets.CF_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || secrets.CF_ACCOUNT_ID }}
+      ENV_PRODUCTION: ${{ secrets.ENV_PRODUCTION }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check Cloudflare credentials
+        shell: bash
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "Cloudflare API token secret is missing (expected CLOUDFLARE_API_TOKEN or CF_API_TOKEN)."
+            exit 1
+          fi
+          npx wrangler whoami
+
+      - name: Materialize production config
+        shell: bash
+        run: |
+          cp wrangler.example.jsonc wrangler.jsonc
+          DB_ID="$(npx wrangler d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const rows=JSON.parse(s);const db=rows.find(x=>x.name==='minecraft-dungeons-2-wiki-db');if(!db)process.exit(2);process.stdout.write(db.uuid||db.id||'')})")"
+          if [ -z "$DB_ID" ]; then
+            echo "Existing D1 database minecraft-dungeons-2-wiki-db was not found."
+            exit 1
+          fi
+          node -e "const fs=require('fs');const p='wrangler.jsonc';let s=fs.readFileSync(p,'utf8');s=s.replace('REPLACE_WITH_OUTPUT_OF_WRANGLER_D1_CREATE', process.env.DB_ID);fs.writeFileSync(p,s)"             DB_ID="$DB_ID"
+        env:
+          DB_ID: ''
+
+      - name: Prepare production env
+        shell: bash
+        run: |
+          if [ -n "$ENV_PRODUCTION" ]; then
+            printf '%s\n' "$ENV_PRODUCTION" > .env.production
+          else
+            printf '%s\n' 'VITE_APP_URL=https://minecraftdungeons2wiki.com' 'VITE_APP_NAME=Minecraft Dungeons 2 Wiki' > .env.production
+          fi
+
+      - name: Check existing Worker deployment
+        run: npx wrangler deployments list --name minecraft-dungeons-2-wiki
+
+      - name: Cloudflare build
+        run: pnpm cf:build
+
+      - name: Deploy
+        if: ${{ (github.event_name == 'workflow_dispatch' && inputs.deploy == true) || contains(github.event.head_commit.message, '[deploy-cf]') }}
+        run: pnpm cf:deploy
