@@ -9,7 +9,7 @@ export const Route = createFileRoute('/capes/twisted-cape')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Cape" title="Twisted Cape" description="The Twisted Cape is an official Minecraft Dungeons II pre-order reward. Because the game has launched, the original acquisition method is historical unless Mojang reissues it.">
+    <WikiPage breadcrumbs={[{ label: 'Capes', to: '/capes' }]} eyebrow="Cape" title="Twisted Cape" description="The Twisted Cape is an official Minecraft Dungeons II pre-order reward. Because the game has launched, the original acquisition method is historical unless Mojang reissues it.">
       <FactGrid items={[
         { label: 'Reward type', value: 'Pre-order cosmetic' },
         { label: 'Availability', value: 'Original pre-order window ended' },

@@ -9,7 +9,7 @@ export const Route = createFileRoute('/inventory')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Interface" title="Minecraft Dungeons 2 Inventory" description="The sequel adds a Mini Inventory designed for multiplayer flow. In the demonstrated controller setup it opens with D-pad Up, allowing players to manage equipment without forcing the whole couch group through one inventory screen at a time.">
+    <WikiPage breadcrumbs={[{ label: 'Gameplay', to: '/gameplay' }]} eyebrow="Interface" title="Minecraft Dungeons 2 Inventory" description="The sequel adds a Mini Inventory designed for multiplayer flow. In the demonstrated controller setup it opens with D-pad Up, allowing players to manage equipment without forcing the whole couch group through one inventory screen at a time.">
       <FactGrid items={[
         { label: 'Mini Inventory', value: 'Confirmed' },
         { label: 'Shown controller input', value: 'D-pad Up' },

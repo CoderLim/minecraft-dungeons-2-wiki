@@ -9,7 +9,7 @@ export const Route = createFileRoute('/characters/grand-illusioner')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Character" title="Grand Illusioner" description="Grand Illusioner is one of the three officially named members of the Illager High Council. Detailed abilities and encounter data remain evidence-gated.">
+    <WikiPage breadcrumbs={[{ label: 'Characters', to: '/characters' }]} eyebrow="Character" title="Grand Illusioner" description="Grand Illusioner is one of the three officially named members of the Illager High Council. Detailed abilities and encounter data remain evidence-gated.">
       <FactGrid items={[
         { label: 'Faction / group', value: 'Illager High Council' },
         { label: 'Status', value: 'Officially named character' },

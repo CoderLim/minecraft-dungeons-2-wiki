@@ -32,7 +32,7 @@ export const Route = createFileRoute('/bosses/')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Enemies" title="Minecraft Dungeons 2 Bosses" description="This launch-week boss guide only lists encounters supported by Mojang, Xbox hands-on coverage or direct developer gameplay. It is a confirmed boss list, not a claim that every hidden or late-game boss has already been discovered.">
+    <WikiPage breadcrumbs={[{ label: 'Enemies', to: '/enemies' }]} eyebrow="Enemies" title="Minecraft Dungeons 2 Bosses" description="This launch-week boss guide only lists encounters supported by Mojang, Xbox hands-on coverage or direct developer gameplay. It is a confirmed boss list, not a claim that every hidden or late-game boss has already been discovered.">
       <FactGrid items={[
         { label: 'Confirmed named encounters', value: 'Copper Monstrosity, Twisted Warden, Witch' },
         { label: 'Repeatable bosses', value: 'Boss Totems can reactivate some encounters' },

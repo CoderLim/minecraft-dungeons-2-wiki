@@ -9,7 +9,7 @@ export const Route = createFileRoute('/capes/soul-cape')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Cape" title="Soul Cape" description="The Soul Cape is part of the Minecraft Dungeons II Deluxe Edition cosmetic package.">
+    <WikiPage breadcrumbs={[{ label: 'Capes', to: '/capes' }]} eyebrow="Cape" title="Soul Cape" description="The Soul Cape is part of the Minecraft Dungeons II Deluxe Edition cosmetic package.">
       <FactGrid items={[
         { label: 'Edition', value: 'Deluxe Edition' },
         { label: 'Type', value: 'Cape cosmetic' },

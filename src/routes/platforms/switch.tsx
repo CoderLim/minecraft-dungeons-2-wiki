@@ -9,7 +9,7 @@ export const Route = createFileRoute('/platforms/switch')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Platform" title="Minecraft Dungeons 2 on Nintendo Switch" description="Nintendo's store listing confirms the Switch version and up-to-four-player local/online multiplayer. File-size values are intentionally not frozen here because launch storefront pages have shown inconsistent numbers.">
+    <WikiPage breadcrumbs={[{ label: 'Platforms', to: '/platforms' }]} eyebrow="Platform" title="Minecraft Dungeons 2 on Nintendo Switch" description="Nintendo's store listing confirms the Switch version and up-to-four-player local/online multiplayer. File-size values are intentionally not frozen here because launch storefront pages have shown inconsistent numbers.">
       <FactGrid items={[
         { label: 'Platform', value: 'Nintendo Switch' },
         { label: 'Local players', value: '1–4 in Nintendo listing' },

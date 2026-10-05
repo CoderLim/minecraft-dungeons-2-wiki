@@ -9,7 +9,7 @@ export const Route = createFileRoute('/platforms/xbox')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Platform" title="Minecraft Dungeons 2 on Xbox" description="Xbox is both a storefront source and a major first-party publishing source for Minecraft Dungeons II. Launch material confirms the September 29 release and Game Pass availability announcement.">
+    <WikiPage breadcrumbs={[{ label: 'Platforms', to: '/platforms' }]} eyebrow="Platform" title="Minecraft Dungeons 2 on Xbox" description="Xbox is both a storefront source and a major first-party publishing source for Minecraft Dungeons II. Launch material confirms the September 29 release and Game Pass availability announcement.">
       <FactGrid items={[
         { label: 'Release', value: 'Sep 29, 2026' },
         { label: 'Game Pass', value: 'Announced for launch-day availability on eligible plans' },

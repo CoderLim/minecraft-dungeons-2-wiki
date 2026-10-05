@@ -9,7 +9,7 @@ export const Route = createFileRoute('/characters/prime-enchanter')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Character" title="Prime Enchanter" description="Prime Enchanter is one of the three officially named members of the Illager High Council. This page publishes the confirmed identity now and leaves unrevealed encounter details open.">
+    <WikiPage breadcrumbs={[{ label: 'Characters', to: '/characters' }]} eyebrow="Character" title="Prime Enchanter" description="Prime Enchanter is one of the three officially named members of the Illager High Council. This page publishes the confirmed identity now and leaves unrevealed encounter details open.">
       <FactGrid items={[
         { label: 'Faction / group', value: 'Illager High Council' },
         { label: 'Status', value: 'Officially named character' },

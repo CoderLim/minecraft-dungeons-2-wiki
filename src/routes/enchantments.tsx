@@ -9,7 +9,7 @@ export const Route = createFileRoute('/enchantments')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Gear" title="Minecraft Dungeons 2 Enchantments" description="Enchantments are no longer simply baked into a dropped item. Developer gameplay describes collecting Enchantment Books in the world and applying them repeatedly to suitable gear.">
+    <WikiPage breadcrumbs={[{ label: 'Gear', to: '/gear' }]} eyebrow="Gear" title="Minecraft Dungeons 2 Enchantments" description="Enchantments are no longer simply baked into a dropped item. Developer gameplay describes collecting Enchantment Books in the world and applying them repeatedly to suitable gear.">
       <FactGrid items={[
         { label: 'Acquisition', value: 'Collect Enchantment Books' },
         { label: 'Application', value: 'Apply to compatible gear' },

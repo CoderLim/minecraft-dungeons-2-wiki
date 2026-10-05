@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 
 import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { findOfficialFact } from '@/lib/official-facts';
-import { breadcrumbJsonLd, faqJsonLd, pageHead, webPageJsonLd } from '@/lib/seo';
+import { faqJsonLd, pageHead, webPageJsonLd } from '@/lib/seo';
 
 const steamDeck = findOfficialFact('steam-deck-playable-2026-10-01');
 const emeraldCap = findOfficialFact('emerald-cap-99999-2026-10-01');
@@ -20,10 +20,6 @@ export const Route = createFileRoute('/steam-deck')({
             'Minecraft Dungeons 2 on Steam Deck',
             'Current official Steam Deck status, known limitations and the October 1 Minecraft Dungeons II update.',
           ),
-          breadcrumbJsonLd([
-            { name: 'Wiki', path: '/' },
-            { name: 'Steam Deck', path: '/steam-deck' },
-          ]),
           faqJsonLd([
             {
               question: 'Does Minecraft Dungeons 2 work on Steam Deck?',
@@ -50,6 +46,7 @@ export const Route = createFileRoute('/steam-deck')({
 function Page() {
   return (
     <WikiPage
+      breadcrumbs={[{ label: 'Platforms', to: '/platforms' }]}
       eyebrow="Platform update"
       title="Minecraft Dungeons 2 on Steam Deck"
       description="Minecraft Dungeons II should now be playable on Steam Deck after the October 1, 2026 Steam update. Mojang has not called the game fully Steam Deck Verified yet and warns that some issues can remain."

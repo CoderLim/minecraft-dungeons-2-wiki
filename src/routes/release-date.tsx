@@ -1,12 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
-import { pageHead, breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from '@/lib/seo';
+import { pageHead, faqJsonLd, webPageJsonLd } from '@/lib/seo';
 
 export const Route = createFileRoute('/release-date')({
   head: () => pageHead('/release-date', 'Minecraft Dungeons 2 Release Date & Release Time', 'Minecraft Dungeons 2 release date, launch status, platforms, Game Pass availability and verified release-time notes for every supported storefront.', { jsonLd: [
       webPageJsonLd('/release-date', 'Minecraft Dungeons 2 Release Date', 'Minecraft Dungeons II launched on September 29, 2026.'),
-      breadcrumbJsonLd([{ name: 'Wiki', path: '/' }, { name: 'Release Date', path: '/release-date' }]),
-      faqJsonLd([
+          faqJsonLd([
         { question: 'When did Minecraft Dungeons 2 release?', answer: 'Minecraft Dungeons II released on September 29, 2026.' },
         { question: 'Is Minecraft Dungeons 2 out now?', answer: 'Yes. The release date is September 29, 2026. Exact store unlock timing can still vary by platform or region.' },
         { question: 'Is Minecraft Dungeons 2 on Game Pass?', answer: 'Xbox announced Minecraft Dungeons II for launch-day Game Pass availability; check the current Xbox listing for plan and regional details.' },
@@ -17,7 +16,7 @@ export const Route = createFileRoute('/release-date')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Launch guide" title="Minecraft Dungeons 2 Release Date" description="Minecraft Dungeons II launched on September 29, 2026. This page tracks launch status separately from platform-specific unlock timing so regional storefront differences are not flattened into a single unsupported time.">
+    <WikiPage breadcrumbs={[{ label: 'Game Info', to: '/game-info' }]} eyebrow="Launch guide" title="Minecraft Dungeons 2 Release Date" description="Minecraft Dungeons II launched on September 29, 2026. This page tracks launch status separately from platform-specific unlock timing so regional storefront differences are not flattened into a single unsupported time.">
       <FactGrid items={[
         { label: 'Release date', value: 'September 29, 2026' },
         { label: 'Status', value: 'Released' },

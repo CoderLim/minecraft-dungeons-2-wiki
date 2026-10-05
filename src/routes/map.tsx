@@ -9,7 +9,7 @@ export const Route = createFileRoute('/map')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="World map" title="Minecraft Dungeons 2 Map" description="Official material shows a world map with quest/location information, and developer gameplay confirms side-quest indicators. The full annotated map is still waiting on a high-resolution launch capture, so this page avoids inventing region boundaries or node names.">
+    <WikiPage breadcrumbs={[{ label: 'World', to: '/world' }]} eyebrow="World map" title="Minecraft Dungeons 2 Map" description="Official material shows a world map with quest/location information, and developer gameplay confirms side-quest indicators. The full annotated map is still waiting on a high-resolution launch capture, so this page avoids inventing region boundaries or node names.">
       <FactGrid items={[
         { label: 'World structure', value: 'Interconnected' },
         { label: 'Side quests', value: 'Indicators shown on map' },

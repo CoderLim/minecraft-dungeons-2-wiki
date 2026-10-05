@@ -9,7 +9,7 @@ export const Route = createFileRoute('/weapons')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Gear database" title="Minecraft Dungeons 2 Weapons" description="Weapons are a core part of the expanded 12-slot loadout, but this wiki does not yet claim a complete weapon list. Named weapons only enter the database when their in-game tooltip or first-party material is readable.">
+    <WikiPage breadcrumbs={[{ label: 'Gear', to: '/gear' }]} eyebrow="Gear database" title="Minecraft Dungeons 2 Weapons" description="Weapons are a core part of the expanded 12-slot loadout, but this wiki does not yet claim a complete weapon list. Named weapons only enter the database when their in-game tooltip or first-party material is readable.">
       <FactGrid items={[
         { label: 'Melee', value: 'Core weapon category' },
         { label: 'Ranged', value: 'Core weapon category' },

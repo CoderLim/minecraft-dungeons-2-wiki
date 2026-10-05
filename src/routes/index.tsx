@@ -6,13 +6,31 @@ import { findOfficialFact } from '@/lib/official-facts';
 import { pageHead } from '@/lib/seo';
 import { SITE } from '@/lib/site';
 
-const quickLinks = [
-  { to: '/the-sift', title: 'The Sift', text: 'New dimension, rifts, regions and verified reveal details.', icon: Compass },
-  { to: '/gear', title: 'Gear', text: '12 combat slots, four armor pieces, talismans and enchantment books.', icon: PackageOpen },
-  { to: '/bosses', title: 'Bosses', text: 'Verified boss index with unknown fields left explicitly unresolved.', icon: Skull },
-  { to: '/capes', title: 'Capes', text: 'Hero, Twisted, Soul, Corrupted Creeper and the still-mysterious Special Cape.', icon: Sparkles },
-  { to: '/gameplay', title: 'Gameplay', text: 'Jump attacks, interconnected exploration, procedural dungeons and merchants.', icon: Gamepad2 },
-  { to: '/crossplay', title: 'Crossplay & Co-op', text: 'Crossplay, mixed couch/online co-op, party codes and matchmaking.', icon: Shield },
+const exploreLinks = [
+  { to: '/world', title: 'World', text: 'Interconnected regions, dungeons, quests, the map and The Sift.', icon: Compass },
+  { to: '/gear', title: 'Gear', text: 'Weapons, four-piece armor, talismans, artifacts and enchantments.', icon: PackageOpen },
+  { to: '/enemies', title: 'Enemies', text: 'Bosses, Soul-Corrupted mobs and evidence-gated enemy coverage.', icon: Skull },
+  { to: '/builds', title: 'Builds', text: 'Source-backed buildcraft, synergies and provisional tiering.', icon: Shield },
+  { to: '/gameplay', title: 'Gameplay', text: 'Combat, jumping, co-op, inventory, merchants and progression systems.', icon: Gamepad2 },
+  { to: '/guides', title: 'Guides', text: 'Task-focused routes for co-op, builds, controls, exploration and more.', icon: Sparkles },
+] as const;
+
+const databaseLinks = [
+  ['/armor', 'Armor'],
+  ['/talismans', 'Talismans'],
+  ['/enchantments', 'Enchantments'],
+  ['/bosses', 'Bosses'],
+  ['/characters', 'Characters'],
+  ['/capes', 'Capes'],
+] as const;
+
+const popularLinks = [
+  ['/the-sift', 'The Sift'],
+  ['/bosses/copper-monstrosity', 'Copper Monstrosity'],
+  ['/bosses/twisted-warden', 'Twisted Warden'],
+  ['/crossplay', 'Crossplay & Co-op'],
+  ['/builds', 'Builds'],
+  ['/steam-deck', 'Steam Deck'],
 ] as const;
 
 const steamDeck = findOfficialFact('steam-deck-playable-2026-10-01');
@@ -22,8 +40,8 @@ export const Route = createFileRoute('/')({
   head: () =>
     pageHead(
       '/',
-      'Minecraft Dungeons 2 Wiki: Guides, Gear, Bosses & The Sift',
-      'Source-audited Minecraft Dungeons 2 wiki with verified guides for The Sift, gear, bosses, capes, platforms, co-op and official post-launch updates.',
+      'Minecraft Dungeons 2 Wiki: Gear, Bosses, Builds & Guides',
+      'Source-audited Minecraft Dungeons 2 wiki with structured hubs for world exploration, gear, enemies, builds, gameplay systems, guides, platforms and verified updates.',
     ),
   component: Home,
 });
@@ -86,29 +104,28 @@ function Home() {
             <div className="flex flex-wrap items-center gap-3">
               <EvidenceBadge level="Official confirmed" />
               <span className="text-xs uppercase tracking-[.14em] text-[var(--muted)]">
-                Launch-week wiki · updated Oct 2, 2026
+                Database-first · source audited
               </span>
             </div>
             <h1 className="mt-6 text-5xl font-black tracking-[-0.055em] md:text-7xl">
               Minecraft Dungeons 2 Wiki
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--muted)]">
-              A source-audited guide and database for Minecraft Dungeons II. Official statements and direct
-              gameplay evidence take priority; community-only claims are labeled, and missing values stay
-              unknown instead of being invented.
+              A structured, evidence-first knowledge base for Minecraft Dungeons II. Browse world exploration,
+              gear, enemies, builds and gameplay systems without mixing verified facts with unconfirmed guesses.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                to="/the-sift"
+                to="/world"
                 className="border border-[var(--emerald)] bg-[var(--emerald)]/10 px-5 py-3 text-sm font-bold text-[var(--lime)]"
               >
-                Explore The Sift
+                Explore the wiki
               </Link>
               <Link
-                to="/gameplay"
+                to="/gear"
                 className="border border-[var(--line)] bg-[var(--panel)] px-5 py-3 text-sm font-bold"
               >
-                Gameplay systems
+                Browse gear
               </Link>
             </div>
           </div>
@@ -137,19 +154,70 @@ function Home() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 pb-20 md:px-6">
+          <div className="mb-6">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">Explore the wiki</p>
+            <h2 className="mt-2 text-3xl font-black">Browse by knowledge area</h2>
+          </div>
+          <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2 lg:grid-cols-3">
+            {exploreLinks.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link key={item.to} to={item.to} className="group bg-[var(--panel)] p-6 hover:bg-[var(--panel-2)]">
+                  <Icon className="mb-5 size-6 text-[var(--emerald)]" aria-hidden="true" />
+                  <h3 className="text-xl font-black group-hover:text-[var(--lime)]">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
+                  <span className="mt-5 inline-block text-xs font-bold uppercase tracking-[.14em] text-[var(--emerald)]">
+                    Browse →
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-20 md:px-6 lg:grid-cols-2">
+          <div className="border border-[var(--line)] bg-[var(--panel)] p-6">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">Databases</p>
+            <h2 className="mt-2 text-2xl font-black">Verified collections</h2>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {databaseLinks.map(([to, label]) => (
+                <Link key={to} to={to} className="border border-[var(--line)] px-3 py-2 text-sm font-semibold hover:border-[var(--emerald)] hover:text-[var(--lime)]">
+                  {label}
+                </Link>
+              ))}
+            </div>
+            <p className="mt-5 text-sm leading-6 text-[var(--muted)]">
+              Incomplete item families stay evidence-gated instead of being padded with placeholder entities.
+            </p>
+          </div>
+
+          <div className="border border-[var(--line)] bg-[var(--panel)] p-6">
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">Popular</p>
+            <h2 className="mt-2 text-2xl font-black">Useful entry points</h2>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {popularLinks.map(([to, label]) => (
+                <Link key={to} to={to} className="border border-[var(--line)] px-3 py-2 text-sm font-semibold hover:border-[var(--emerald)] hover:text-[var(--lime)]">
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-20 md:px-6">
           <div className="border border-[var(--emerald)]/50 bg-[var(--emerald)]/5 p-6 md:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">
-                  Latest official update · Oct 1
+                  Latest verified update · Oct 1
                 </p>
                 <h2 className="mt-2 text-3xl font-black">Steam Deck playable + Emerald cap raised</h2>
               </div>
               <Link
-                to="/steam-deck"
+                to="/updates"
                 className="border border-[var(--emerald)] bg-[var(--panel)] px-4 py-2 text-sm font-bold text-[var(--lime)]"
               >
-                Steam Deck guide →
+                View updates →
               </Link>
             </div>
             <div className="mt-6 grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2">
@@ -166,55 +234,43 @@ function Home() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 pb-20 md:px-6">
-          <div className="mb-6 flex items-end justify-between gap-4">
+          <div className="grid gap-6 md:grid-cols-2">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">Start here</p>
-              <h2 className="mt-2 text-3xl font-black">Verified topic hubs</h2>
+              <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">Guides</p>
+              <h2 className="mt-2 text-3xl font-black">Solve a gameplay task</h2>
+              <div className="mt-5 flex flex-wrap gap-3 text-sm font-semibold">
+                {[
+                  ['/guides', 'All guides'],
+                  ['/builds', 'Builds'],
+                  ['/tier-list', 'Tier list'],
+                  ['/crossplay', 'Crossplay & co-op'],
+                  ['/controls', 'Controls'],
+                  ['/the-sift', 'The Sift'],
+                ].map(([to, label]) => (
+                  <Link key={to} to={to} className="border border-[var(--line)] bg-[var(--panel)] px-4 py-2 hover:border-[var(--emerald)] hover:text-[var(--lime)]">
+                    {label}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2 lg:grid-cols-3">
-            {quickLinks.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link key={item.to} to={item.to} className="group bg-[var(--panel)] p-6 hover:bg-[var(--panel-2)]">
-                  <Icon className="mb-5 size-6 text-[var(--emerald)]" aria-hidden="true" />
-                  <h3 className="text-xl font-black group-hover:text-[var(--lime)]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
-                  <span className="mt-5 inline-block text-xs font-bold uppercase tracking-[.14em] text-[var(--emerald)]">
-                    Open guide →
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-4 pb-16 md:px-6">
-          <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">Launch guides</p>
-          <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold">
-            {[
-              ['/release-date', 'Release date'],
-              ['/price', 'Price'],
-              ['/editions', 'Standard vs Deluxe'],
-              ['/pre-order', 'Pre-order'],
-              ['/trailers', 'Trailers'],
-              ['/builds', 'Builds'],
-              ['/tier-list', 'Tier list'],
-              ['/bosses', 'Bosses'],
-              ['/platforms/steam', 'Steam'],
-              ['/steam-deck', 'Steam Deck'],
-              ['/platforms/xbox', 'Xbox'],
-              ['/platforms/switch', 'Switch'],
-              ['/platforms/switch-2', 'Switch 2'],
-            ].map(([to, label]) => (
-              <Link
-                key={to}
-                to={to}
-                className="border border-[var(--line)] bg-[var(--panel)] px-4 py-2 hover:border-[var(--emerald)] hover:text-[var(--lime)]"
-              >
-                {label}
-              </Link>
-            ))}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">Game info</p>
+              <h2 className="mt-2 text-3xl font-black">Release and platform details</h2>
+              <div className="mt-5 flex flex-wrap gap-3 text-sm font-semibold">
+                {[
+                  ['/release-date', 'Release date'],
+                  ['/price', 'Price'],
+                  ['/editions', 'Editions'],
+                  ['/platforms', 'Platforms'],
+                  ['/steam-deck', 'Steam Deck'],
+                  ['/trailers', 'Trailers'],
+                ].map(([to, label]) => (
+                  <Link key={to} to={to} className="border border-[var(--line)] bg-[var(--panel)] px-4 py-2 hover:border-[var(--emerald)] hover:text-[var(--lime)]">
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -237,29 +293,6 @@ function Home() {
                 <h3 className="font-black">How many players can play?</h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--muted)]">Solo or co-op with up to four players.</p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-4 pb-20 md:px-6">
-          <div className="grid gap-6 border-y border-[var(--line)] py-10 md:grid-cols-3">
-            <div>
-              <div className="text-3xl font-black">12</div>
-              <p className="mt-2 text-sm text-[var(--muted)]">
-                combat gear slots confirmed in the sequel's expanded loadout system.
-              </p>
-            </div>
-            <div>
-              <div className="text-3xl font-black">4 players</div>
-              <p className="mt-2 text-sm text-[var(--muted)]">
-                couch, online and mixed co-op are documented by Mojang.
-              </p>
-            </div>
-            <div>
-              <div className="text-3xl font-black">Evidence first</div>
-              <p className="mt-2 text-sm text-[var(--muted)]">
-                official, gameplay-observed, community-reported and pending claims stay separated.
-              </p>
             </div>
           </div>
         </section>

@@ -9,7 +9,7 @@ export const Route = createFileRoute('/gameplay')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Systems guide" title="Minecraft Dungeons 2 Gameplay" description="The sequel keeps action-RPG combat but substantially changes exploration and buildcraft: the world is interconnected, armor is split across four slots, talismans add passive specialization, enchantment books are collected separately, and jump attacks add vertical combat and traversal.">
+    <WikiPage breadcrumbs={[]} eyebrow="Systems guide" title="Minecraft Dungeons 2 Gameplay" description="The sequel keeps action-RPG combat but substantially changes exploration and buildcraft: the world is interconnected, armor is split across four slots, talismans add passive specialization, enchantment books are collected separately, and jump attacks add vertical combat and traversal.">
       <FactGrid items={[
         { label: 'Genre', value: 'Action RPG' },
         { label: 'Co-op', value: 'Up to 4 players' },

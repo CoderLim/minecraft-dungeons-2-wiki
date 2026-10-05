@@ -9,7 +9,7 @@ export const Route = createFileRoute('/bosses/copper-monstrosity')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Boss" title="Copper Monstrosity" description="Copper Monstrosity is explicitly identified in developer gameplay as a major story boss. The demonstrated party encounters it while searching for Supreme Evoker, then picks up a story-important Note Block after the fight." level="Gameplay observed">
+    <WikiPage breadcrumbs={[{ label: 'Enemies', to: '/enemies' }, { label: 'Bosses', to: '/bosses' }]} eyebrow="Boss" title="Copper Monstrosity" description="Copper Monstrosity is explicitly identified in developer gameplay as a major story boss. The demonstrated party encounters it while searching for Supreme Evoker, then picks up a story-important Note Block after the fight." level="Gameplay observed">
       <FactGrid items={[
         { label: 'Type', value: 'Story boss' },
         { label: 'Story target before encounter', value: 'Supreme Evoker' },

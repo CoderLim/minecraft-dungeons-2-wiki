@@ -9,7 +9,7 @@ export const Route = createFileRoute('/soul-corrupted-mobs')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Enemies" title="Soul-Corrupted Mobs" description="Soul-Corrupted mobs are described in developer gameplay as tougher enemy variants that can drop Echo Shards. Individual variants are not listed until their in-game names can be read directly.">
+    <WikiPage breadcrumbs={[{ label: 'Enemies', to: '/enemies' }]} eyebrow="Enemies" title="Soul-Corrupted Mobs" description="Soul-Corrupted mobs are described in developer gameplay as tougher enemy variants that can drop Echo Shards. Individual variants are not listed until their in-game names can be read directly.">
       <FactGrid items={[
         { label: 'Type', value: 'Enhanced/tough enemy variants' },
         { label: 'Reward', value: 'Can drop Echo Shards' },

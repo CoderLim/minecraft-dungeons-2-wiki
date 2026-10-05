@@ -9,7 +9,7 @@ export const Route = createFileRoute('/talismans')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Gear" title="Minecraft Dungeons 2 Talismans" description="Talismans are a new gear category that provides passive bonuses. Some talismans are described as gaining experience and becoming stronger, adding another progression layer to a loadout.">
+    <WikiPage breadcrumbs={[{ label: 'Gear', to: '/gear' }]} eyebrow="Gear" title="Minecraft Dungeons 2 Talismans" description="Talismans are a new gear category that provides passive bonuses. Some talismans are described as gaining experience and becoming stronger, adding another progression layer to a loadout.">
       <FactGrid items={[
         { label: 'Category', value: 'New gear type' },
         { label: 'Function', value: 'Passive playstyle bonuses' },

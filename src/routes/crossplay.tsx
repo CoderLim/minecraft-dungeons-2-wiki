@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 
 import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { findOfficialFact } from '@/lib/official-facts';
-import { breadcrumbJsonLd, faqJsonLd, pageHead, webPageJsonLd } from '@/lib/seo';
+import { faqJsonLd, pageHead, webPageJsonLd } from '@/lib/seo';
 
 const maxPlayers = findOfficialFact('multiplayer-four-players-2026-09-29');
 const mixedCoop = findOfficialFact('mixed-local-online-coop-2026-09-29');
@@ -25,10 +25,6 @@ export const Route = createFileRoute('/crossplay')({
             'Minecraft Dungeons 2 Crossplay & Multiplayer',
             'Officially documented crossplay, mixed co-op, party codes, matchmaking and cross-platform hero progression in Minecraft Dungeons II.',
           ),
-          breadcrumbJsonLd([
-            { name: 'Wiki', path: '/' },
-            { name: 'Crossplay', path: '/crossplay' },
-          ]),
           faqJsonLd([
             {
               question: 'Is Minecraft Dungeons 2 cross-platform?',
@@ -59,6 +55,7 @@ export const Route = createFileRoute('/crossplay')({
 function Page() {
   return (
     <WikiPage
+      breadcrumbs={[{ label: 'Gameplay', to: '/gameplay' }]}
       eyebrow="Multiplayer"
       title="Minecraft Dungeons 2 Crossplay & Multiplayer"
       description="Yes. Mojang’s official co-op deep dive confirms crossplay, mixed couch-and-online co-op, party codes, online hero data, matchmaking and dedicated servers. This page keeps crossplay and cross-platform progression separate because they solve different problems."
