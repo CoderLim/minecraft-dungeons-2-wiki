@@ -19,6 +19,7 @@ export const Route = createFileRoute('/capes/corrupted-creeper-cape')({
 function Page() {
   return (
     <WikiPage
+      breadcrumbs={[{ label: 'Capes', to: '/capes' }]}
       eyebrow="Cape"
       title="Corrupted Creeper Cape"
       description="The Corrupted Creeper Cape is a Minecraft Dungeons II promotional reward. A September 21–26 watch-time campaign has ended, but Mojang’s current official page says the cape can appear through events and promotional activities and tells players to watch for future opportunities."
