@@ -9,7 +9,7 @@ export const Route = createFileRoute('/pre-order-bonus')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Launch promotion" title="Minecraft Dungeons 2 Pre-Order Bonus" description="The official Minecraft Dungeons II pre-order bundle contained two hero skins, the Twisted Cape and the Twisted Chicken pet. The promotion ended when the game launched.">
+    <WikiPage breadcrumbs={[{ label: 'Game Info', to: '/game-info' }]} eyebrow="Launch promotion" title="Minecraft Dungeons 2 Pre-Order Bonus" description="The official Minecraft Dungeons II pre-order bundle contained two hero skins, the Twisted Cape and the Twisted Chicken pet. The promotion ended when the game launched.">
       <FactGrid items={[
         { label: 'Twisted Cape', value: 'Pre-order reward' },
         { label: 'Twisted Chicken', value: 'Pre-order pet' },
