@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 
 import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { findOfficialFact } from '@/lib/official-facts';
-import { breadcrumbJsonLd, faqJsonLd, pageHead, webPageJsonLd } from '@/lib/seo';
+import { faqJsonLd, pageHead, webPageJsonLd } from '@/lib/seo';
 
 const steamDeck = findOfficialFact('steam-deck-playable-2026-10-01');
 const emeraldCap = findOfficialFact('emerald-cap-99999-2026-10-01');
@@ -19,8 +19,7 @@ export const Route = createFileRoute('/steam-deck')({
             '/steam-deck',
             'Minecraft Dungeons 2 on Steam Deck',
             'Current official Steam Deck status, known limitations and the October 1 Minecraft Dungeons II update.',
-          ),
-          breadcrumbJsonLd([
+          )([
             { name: 'Wiki', path: '/' },
             { name: 'Steam Deck', path: '/steam-deck' },
           ]),
