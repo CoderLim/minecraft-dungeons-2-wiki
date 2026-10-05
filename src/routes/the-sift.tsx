@@ -9,7 +9,7 @@ export const Route = createFileRoute('/the-sift')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="World" title="The Sift in Minecraft Dungeons 2" description="The Sift is a new dimension introduced through Minecraft Dungeons II. Official reveal material confirms that rifts in the interconnected world can transport players there, where new biomes, unique mobs, hazardous blocks and shifting environmental rules change exploration.">
+    <WikiPage breadcrumbs={[{ label: 'World', to: '/world' }]} eyebrow="World" title="The Sift in Minecraft Dungeons 2" description="The Sift is a new dimension introduced through Minecraft Dungeons II. Official reveal material confirms that rifts in the interconnected world can transport players there, where new biomes, unique mobs, hazardous blocks and shifting environmental rules change exploration.">
       <FactGrid items={[
         { label: 'Type', value: 'New dimension' },
         { label: 'How to reach it', value: 'Enter rifts found throughout the world' },
