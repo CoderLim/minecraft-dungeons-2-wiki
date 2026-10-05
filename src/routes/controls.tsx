@@ -9,7 +9,7 @@ export const Route = createFileRoute('/controls')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Controls" title="Minecraft Dungeons 2 Controls" description="Only controls explicitly shown or stated in first-party gameplay are listed as confirmed. A complete platform-by-platform control chart still needs direct settings-screen captures.">
+    <WikiPage breadcrumbs={[{ label: 'Gameplay', to: '/gameplay' }]} eyebrow="Controls" title="Minecraft Dungeons 2 Controls" description="Only controls explicitly shown or stated in first-party gameplay are listed as confirmed. A complete platform-by-platform control chart still needs direct settings-screen captures.">
       <FactGrid items={[
         { label: 'Mini Inventory', value: 'D-pad Up in the demonstrated controller setup' },
         { label: 'Jump', value: 'New sequel mechanic; exact per-platform binding still needs capture' },
