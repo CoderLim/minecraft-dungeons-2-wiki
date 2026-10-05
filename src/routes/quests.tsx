@@ -9,7 +9,7 @@ export const Route = createFileRoute('/quests')({
 
 export function Page() {
   return (
-    <WikiPage eyebrow="Quests" title="Minecraft Dungeons 2 Quests" description="Official gameplay material confirms separate Main Quests and Side Quests. This hub publishes the system now, while individual quest pages wait for complete quest-log captures.">
+    <WikiPage breadcrumbs={[{ label: 'World', to: '/world' }]} eyebrow="Quests" title="Minecraft Dungeons 2 Quests" description="Official gameplay material confirms separate Main Quests and Side Quests. This hub publishes the system now, while individual quest pages wait for complete quest-log captures.">
       <FactGrid items={[
         { label: 'Quest types', value: 'Main Quests and Side Quests' },
         { label: 'Map integration', value: 'Side-quest indicators are shown' },
