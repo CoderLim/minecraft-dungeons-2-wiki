@@ -19,10 +19,7 @@ export const Route = createFileRoute('/steam-deck')({
             '/steam-deck',
             'Minecraft Dungeons 2 on Steam Deck',
             'Current official Steam Deck status, known limitations and the October 1 Minecraft Dungeons II update.',
-          )([
-            { name: 'Wiki', path: '/' },
-            { name: 'Steam Deck', path: '/steam-deck' },
-          ]),
+          ),
           faqJsonLd([
             {
               question: 'Does Minecraft Dungeons 2 work on Steam Deck?',
