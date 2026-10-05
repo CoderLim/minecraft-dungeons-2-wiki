@@ -9,7 +9,7 @@ export const Route = createFileRoute('/artifacts')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Gear database" title="Minecraft Dungeons 2 Artifacts" description="Artifacts remain a distinct gear/system category, but the current launch research is not enough to publish a complete artifact catalog. Individual entries require readable names and tooltips.">
+    <WikiPage breadcrumbs={[{ label: 'Gear', to: '/gear' }]} eyebrow="Gear database" title="Minecraft Dungeons 2 Artifacts" description="Artifacts remain a distinct gear/system category, but the current launch research is not enough to publish a complete artifact catalog. Individual entries require readable names and tooltips.">
       <FactGrid items={[
         { label: 'Database status', value: 'Partial / capture pending' },
         { label: 'Required evidence', value: 'Readable item name and tooltip' },
