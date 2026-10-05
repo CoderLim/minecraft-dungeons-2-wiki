@@ -24,11 +24,7 @@ export const Route = createFileRoute('/crossplay')({
             '/crossplay',
             'Minecraft Dungeons 2 Crossplay & Multiplayer',
             'Officially documented crossplay, mixed co-op, party codes, matchmaking and cross-platform hero progression in Minecraft Dungeons II.',
-          )([
-            { name: 'Wiki', path: '/' },
-            { name: 'Gameplay', path: '/gameplay' },
-            { name: 'Crossplay', path: '/crossplay' },
-          ]),
+          ),
           faqJsonLd([
             {
               question: 'Is Minecraft Dungeons 2 cross-platform?',
