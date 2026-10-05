@@ -9,7 +9,7 @@ export const Route = createFileRoute('/dungeons')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="World" title="Minecraft Dungeons 2 Dungeons" description="Procedurally generated dungeons are confirmed as optional exploration content outside the core quest line. The current evidence is strong enough for the system page, but not yet for a claimed complete dungeon list.">
+    <WikiPage breadcrumbs={[{ label: 'World', to: '/world' }]} eyebrow="World" title="Minecraft Dungeons 2 Dungeons" description="Procedurally generated dungeons are confirmed as optional exploration content outside the core quest line. The current evidence is strong enough for the system page, but not yet for a claimed complete dungeon list.">
       <FactGrid items={[
         { label: 'Generation', value: 'Procedurally generated' },
         { label: 'Placement', value: 'Found while exploring the interconnected world' },
