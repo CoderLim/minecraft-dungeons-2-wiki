@@ -9,7 +9,7 @@ export const Route = createFileRoute('/platforms/switch-2')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Platform" title="Minecraft Dungeons 2 on Switch 2" description="Minecraft Dungeons II has a Switch 2 storefront presence. Platform-specific performance and file-size claims remain evidence-gated rather than copied from nearby Switch listings.">
+    <WikiPage breadcrumbs={[{ label: 'Platforms', to: '/platforms' }]} eyebrow="Platform" title="Minecraft Dungeons 2 on Switch 2" description="Minecraft Dungeons II has a Switch 2 storefront presence. Platform-specific performance and file-size claims remain evidence-gated rather than copied from nearby Switch listings.">
       <FactGrid items={[
         { label: 'Platform', value: 'Nintendo Switch 2' },
         { label: 'Release', value: 'Sep 29, 2026' },
