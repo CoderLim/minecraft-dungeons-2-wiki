@@ -9,7 +9,7 @@ export const Route = createFileRoute('/characters/supreme-evoker')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Character" title="Supreme Evoker" description="Supreme Evoker is an officially named Illager High Council member and is also explicitly referenced in developer gameplay: the party is looking for Supreme Evoker when it encounters Copper Monstrosity.">
+    <WikiPage breadcrumbs={[{ label: 'Characters', to: '/characters' }]} eyebrow="Character" title="Supreme Evoker" description="Supreme Evoker is an officially named Illager High Council member and is also explicitly referenced in developer gameplay: the party is looking for Supreme Evoker when it encounters Copper Monstrosity.">
       <FactGrid items={[
         { label: 'Faction / group', value: 'Illager High Council' },
         { label: 'Gameplay story link', value: 'Party searches for Supreme Evoker before Copper Monstrosity encounter' },
