@@ -36,7 +36,7 @@ export const Route = createFileRoute('/builds')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Buildcraft" title="Minecraft Dungeons 2 Builds" description="Minecraft Dungeons II has no fixed classes: your build comes from weapons, four armor slots, three artifacts, three talismans and enchantments. These launch-week build ideas only use combinations that have been described in first-party hands-on coverage or a first-hand review.">
+    <WikiPage breadcrumbs={[]} eyebrow="Buildcraft" title="Minecraft Dungeons 2 Builds" description="Minecraft Dungeons II has no fixed classes: your build comes from weapons, four armor slots, three artifacts, three talismans and enchantments. These launch-week build ideas only use combinations that have been described in first-party hands-on coverage or a first-hand review.">
       <FactGrid items={[
         { label: 'Combat slots', value: '12 total' },
         { label: 'Class system', value: 'No fixed classes' },
