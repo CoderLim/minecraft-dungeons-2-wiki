@@ -59,6 +59,7 @@ export const Route = createFileRoute('/capes/')({
 function Page() {
   return (
     <WikiPage
+      breadcrumbs={[]}
       eyebrow="Cosmetics"
       title="Minecraft Dungeons 2 Capes"
       description="This cape index tracks cosmetics that can be tied to official Minecraft Dungeons II material. Minecraft-only rewards promoted through Dungeons II events are listed separately so they are not mistaken for in-game Dungeons II capes."
