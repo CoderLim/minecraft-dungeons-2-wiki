@@ -2,6 +2,7 @@ import { useEffect, useId, useState, type ReactNode } from 'react';
 import { Link, useRouterState } from '@tanstack/react-router';
 import { ChevronDown } from 'lucide-react';
 
+import { LAST_VERIFIED_BY_PATH } from '@/lib/page-verification';
 import { NAV, SITE, type NavItem } from '@/lib/site';
 
 export type EvidenceLevel = 'Official confirmed' | 'Gameplay observed' | 'Community reported' | 'Verification pending';
@@ -263,6 +264,7 @@ export function WikiPage({
   children: ReactNode;
 }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const verifiedAt = lastVerified ?? LAST_VERIFIED_BY_PATH[pathname];
   const visibleBreadcrumbs = breadcrumbs ?? (eyebrow ? [{ label: eyebrow }] : []);
   const structuredBreadcrumbs =
     breadcrumbs === undefined
@@ -315,7 +317,7 @@ export function WikiPage({
           <p className="mt-5 max-w-3xl text-base leading-7 text-[var(--muted)] md:text-lg">{description}</p>
           <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-[var(--muted)]">
             <EvidenceBadge level={level} />
-            {lastVerified ? <span>Last verified: {lastVerified}</span> : null}
+            {verifiedAt ? <span>Last verified: {verifiedAt}</span> : null}
           </div>
           <div className="mt-10 space-y-10">{children}</div>
         </section>
