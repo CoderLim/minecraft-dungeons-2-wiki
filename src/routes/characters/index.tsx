@@ -15,7 +15,7 @@ export const Route = createFileRoute('/characters/')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Characters" title="Minecraft Dungeons 2 Characters" description="Character pages are split by named story entities and NPCs. Official material confirms the three members of the Illager High Council; broader NPC coverage will expand from quest and town captures.">
+    <WikiPage breadcrumbs={[]} eyebrow="Characters" title="Minecraft Dungeons 2 Characters" description="Character pages are split by named story entities and NPCs. Official material confirms the three members of the Illager High Council; broader NPC coverage will expand from quest and town captures.">
       <Section title="Illager High Council">
         <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-3">
           {council.map((member) => (
