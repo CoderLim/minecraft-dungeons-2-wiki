@@ -9,7 +9,7 @@ export const Route = createFileRoute('/armor')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Gear" title="Minecraft Dungeons 2 Armor" description="The sequel replaces the first game's single armor slot with four separate pieces: helmet, chestplate, leggings and boots. This page documents the system without pretending the complete item roster is already known.">
+    <WikiPage breadcrumbs={[{ label: 'Gear', to: '/gear' }]} eyebrow="Gear" title="Minecraft Dungeons 2 Armor" description="The sequel replaces the first game's single armor slot with four separate pieces: helmet, chestplate, leggings and boots. This page documents the system without pretending the complete item roster is already known.">
       <FactGrid items={[
         { label: 'Helmet', value: 'Separate armor slot' },
         { label: 'Chestplate', value: 'Separate armor slot' },
