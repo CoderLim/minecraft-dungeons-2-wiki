@@ -9,7 +9,7 @@ export const Route = createFileRoute('/capes/special-cape')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Cape" title="Minecraft Dungeons 2 Special Cape" description="Official promo material shows a Special Cape, but the current evidence set does not establish its acquisition method. The missing field is intentionally left unresolved." level="Verification pending">
+    <WikiPage breadcrumbs={[{ label: 'Capes', to: '/capes' }]} eyebrow="Cape" title="Minecraft Dungeons 2 Special Cape" description="Official promo material shows a Special Cape, but the current evidence set does not establish its acquisition method. The missing field is intentionally left unresolved." level="Verification pending">
       <FactGrid items={[
         { label: 'Appearance', value: 'Officially revealed' },
         { label: 'Acquisition', value: 'Unknown / not yet verified' },
