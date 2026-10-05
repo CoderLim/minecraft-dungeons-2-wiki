@@ -9,7 +9,7 @@ export const Route = createFileRoute('/pre-order')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Launch promotion" title="Minecraft Dungeons 2 Pre-Order" description="Minecraft Dungeons II launched on September 29, 2026, so the original pre-order offer is now historical. Mojang's official promotion listed two hero skins, the Twisted Cape and the Twisted Chicken pet as the pre-order rewards.">
+    <WikiPage breadcrumbs={[{ label: 'Game Info', to: '/game-info' }]} eyebrow="Launch promotion" title="Minecraft Dungeons 2 Pre-Order" description="Minecraft Dungeons II launched on September 29, 2026, so the original pre-order offer is now historical. Mojang's official promotion listed two hero skins, the Twisted Cape and the Twisted Chicken pet as the pre-order rewards.">
       <FactGrid items={[
         { label: 'Current status', value: 'Pre-order period ended' },
         { label: 'Reward', value: 'Twisted Cape' },
