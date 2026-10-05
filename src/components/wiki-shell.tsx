@@ -230,36 +230,83 @@ export function SiteFooter() {
 </p>
         </div>
         <div className="flex flex-wrap gap-4">
-          <Link to="/release-date" className="min-h-10 inline-flex items-center">Release</Link>
-          <Link to="/capes" className="min-h-10 inline-flex items-center">Capes</Link>
-          <Link to="/bosses" className="min-h-10 inline-flex items-center">Bosses</Link>
+          <Link to="/world" className="min-h-10 inline-flex items-center">World</Link>
+          <Link to="/gear" className="min-h-10 inline-flex items-center">Gear</Link>
+          <Link to="/enemies" className="min-h-10 inline-flex items-center">Enemies</Link>
+          <Link to="/guides" className="min-h-10 inline-flex items-center">Guides</Link>
         </div>
       </div>
     </footer>
   );
 }
 
+export type BreadcrumbItem = {
+  label: string;
+  to?: string;
+};
+
 export function WikiPage({
   eyebrow,
   title,
   description,
   level = 'Official confirmed',
+  breadcrumbs,
+  lastVerified,
   children,
 }: {
   eyebrow?: string;
   title: string;
   description: string;
   level?: EvidenceLevel;
+  breadcrumbs?: BreadcrumbItem[];
+  lastVerified?: string;
   children: ReactNode;
 }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const visibleBreadcrumbs = breadcrumbs ?? (eyebrow ? [{ label: eyebrow }] : []);
+  const structuredBreadcrumbs =
+    breadcrumbs === undefined
+      ? null
+      : [
+          { label: 'Wiki', to: '/' },
+          ...breadcrumbs.filter((item): item is BreadcrumbItem & { to: string } => Boolean(item.to)),
+          { label: title, to: pathname },
+        ];
+
   return (
     <>
       <SiteHeader />
       <main className="wiki-grid">
+        {structuredBreadcrumbs ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: structuredBreadcrumbs.map((item, index) => ({
+                  '@type': 'ListItem',
+                  position: index + 1,
+                  name: item.label,
+                  item: new URL(item.to, SITE.url).href,
+                })),
+              }),
+            }}
+          />
+        ) : null}
         <section className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
           <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
             <Link to="/" className="hover:text-[var(--text)]">Wiki</Link>
-            {eyebrow ? <><span aria-hidden="true">/</span><span>{eyebrow}</span></> : null}
+            {visibleBreadcrumbs.map((item) => (
+              <span key={`${item.label}-${item.to ?? 'label'}`} className="contents">
+                <span aria-hidden="true">/</span>
+                {item.to ? (
+                  <Link to={item.to} className="hover:text-[var(--text)]">{item.label}</Link>
+                ) : (
+                  <span>{item.label}</span>
+                )}
+              </span>
+            ))}
             <span aria-hidden="true">/</span>
             <span className="text-[var(--text)]">{title}</span>
           </nav>
@@ -268,13 +315,33 @@ export function WikiPage({
           <p className="mt-5 max-w-3xl text-base leading-7 text-[var(--muted)] md:text-lg">{description}</p>
           <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-[var(--muted)]">
             <EvidenceBadge level={level} />
-            <span>Last verified: Sep 29, 2026</span>
+            {lastVerified ? <span>Last verified: {lastVerified}</span> : null}
           </div>
           <div className="mt-10 space-y-10">{children}</div>
         </section>
       </main>
       <SiteFooter />
     </>
+  );
+}
+
+export function WikiCardGrid({
+  items,
+}: {
+  items: { href: string; title: string; description: string; meta?: string }[];
+}) {
+  return (
+    <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2">
+      {items.map((item) => (
+        <Link key={item.href} to={item.href} className="group bg-[var(--panel)] p-5 hover:bg-[var(--panel-2)]">
+          {item.meta ? (
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--emerald)]">{item.meta}</p>
+          ) : null}
+          <h3 className="mt-2 text-lg font-black text-[var(--text)] group-hover:text-[var(--lime)]">{item.title}</h3>
+          <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.description}</p>
+        </Link>
+      ))}
+    </div>
   );
 }
 
