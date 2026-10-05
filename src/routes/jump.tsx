@@ -9,7 +9,7 @@ export const Route = createFileRoute('/jump')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Movement" title="Jumping in Minecraft Dungeons 2" description="Jumping is a new sequel mechanic used both for traversal and combat. Developer gameplay explicitly calls out jump attacks and the ability to reach spaces that would not have been accessible in the first game.">
+    <WikiPage breadcrumbs={[{ label: 'Gameplay', to: '/gameplay' }]} eyebrow="Movement" title="Jumping in Minecraft Dungeons 2" description="Jumping is a new sequel mechanic used both for traversal and combat. Developer gameplay explicitly calls out jump attacks and the ability to reach spaces that would not have been accessible in the first game.">
       <FactGrid items={[
         { label: 'New in sequel', value: 'Yes' },
         { label: 'Traversal use', value: 'Reach elevated/hidden spaces' },
