@@ -9,7 +9,7 @@ export const Route = createFileRoute('/gear')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Gear database" title="Minecraft Dungeons 2 Gear" description="Minecraft Dungeons II expands the loadout to 12 combat gear slots. The wiki treats weapons, four armor pieces, talismans, artifacts and enchantments as separate data families so each can grow into a verified database.">
+    <WikiPage breadcrumbs={[]} eyebrow="Gear database" title="Minecraft Dungeons 2 Gear" description="Minecraft Dungeons II expands the loadout to 12 combat gear slots. The wiki treats weapons, four armor pieces, talismans, artifacts and enchantments as separate data families so each can grow into a verified database.">
       <FactGrid items={[
         { label: 'Combat slots', value: '12 confirmed' },
         { label: 'Armor slots', value: 'Helmet, chestplate, leggings, boots' },
