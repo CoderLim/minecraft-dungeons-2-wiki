@@ -9,7 +9,7 @@ export const Route = createFileRoute('/world')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="World" title="Minecraft Dungeons 2 World" description="Minecraft Dungeons II replaces the first game's mission-table structure with a larger interconnected world. Official and developer gameplay confirms side-quest markers, procedural dungeon entrances and navigation aids, while the full launch location list is still being captured.">
+    <WikiPage breadcrumbs={[]} eyebrow="World" title="Minecraft Dungeons 2 World" description="Minecraft Dungeons II replaces the first game's mission-table structure with a larger interconnected world. Official and developer gameplay confirms side-quest markers, procedural dungeon entrances and navigation aids, while the full launch location list is still being captured.">
       <FactGrid items={[
         { label: 'Structure', value: 'Large interconnected world' },
         { label: 'Side quests', value: 'Shown on the map' },
