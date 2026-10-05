@@ -46,6 +46,7 @@ export const Route = createFileRoute('/steam-deck')({
 function Page() {
   return (
     <WikiPage
+      breadcrumbs={[{ label: 'Platforms', to: '/platforms' }]}
       eyebrow="Platform update"
       title="Minecraft Dungeons 2 on Steam Deck"
       description="Minecraft Dungeons II should now be playable on Steam Deck after the October 1, 2026 Steam update. Mojang has not called the game fully Steam Deck Verified yet and warns that some issues can remain."
