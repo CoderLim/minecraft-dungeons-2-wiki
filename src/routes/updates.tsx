@@ -24,7 +24,6 @@ function Page() {
       eyebrow="Change history"
       title="Minecraft Dungeons 2 Verified Updates"
       description="This is a durable change log for facts that affect the wiki, not a general news feed. Entries are added when an official update, event or platform change alters information players may need."
-      lastVerified="Oct 2, 2026"
     >
       <Section title="October 1, 2026">
         <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2">
