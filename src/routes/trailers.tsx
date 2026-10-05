@@ -15,7 +15,7 @@ const videos = [
 
 function Page() {
   return (
-    <WikiPage eyebrow="Media" title="Minecraft Dungeons 2 Trailers & Gameplay Videos" description="Official and developer gameplay videos are treated as evidence sources. Spoken claims can establish mechanics; visual-only item names and numeric stats still require frame-level verification.">
+    <WikiPage breadcrumbs={[{ label: 'Game Info', to: '/game-info' }]} eyebrow="Media" title="Minecraft Dungeons 2 Trailers & Gameplay Videos" description="Official and developer gameplay videos are treated as evidence sources. Spoken claims can establish mechanics; visual-only item names and numeric stats still require frame-level verification.">
       <Section title="Official / developer videos">
         <div className="space-y-6">
           {videos.map((video) => (
