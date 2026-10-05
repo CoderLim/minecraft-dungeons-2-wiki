@@ -32,7 +32,7 @@ export const Route = createFileRoute('/tier-list')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Editorial ranking" title="Minecraft Dungeons 2 Tier List" description="This is a provisional launch-week ranking of confirmed enchantments and build tools, not an official Mojang tier list. Rankings are based on versatility, survivability, synergy potential and how well the effect is documented in first-party material.">
+    <WikiPage breadcrumbs={[{ label: 'Builds', to: '/builds' }]} eyebrow="Editorial ranking" title="Minecraft Dungeons 2 Tier List" description="This is a provisional launch-week ranking of confirmed enchantments and build tools, not an official Mojang tier list. Rankings are based on versatility, survivability, synergy potential and how well the effect is documented in first-party material.">
       <FactGrid items={[
         { label: 'Scope', value: 'Confirmed enchantments / build tools only' },
         { label: 'Updated', value: 'Launch week · Sep 30, 2026' },
