@@ -10,7 +10,7 @@ export const Route = createFileRoute('/redeem-code')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Codes & promotions" title="Minecraft Dungeons 2 Redeem Codes" description="Minecraft Dungeons II uses several different reward flows: platform purchase codes, account entitlements and time-limited promotion rewards. This page only lists redemption methods supported by Mojang or a platform store.">
+    <WikiPage breadcrumbs={[{ label: 'Game Info', to: '/game-info' }]} eyebrow="Codes & promotions" title="Minecraft Dungeons 2 Redeem Codes" description="Minecraft Dungeons II uses several different reward flows: platform purchase codes, account entitlements and time-limited promotion rewards. This page only lists redemption methods supported by Mojang or a platform store.">
       <FactGrid items={[
         { label: 'Universal free code list', value: 'No verified list published here' },
         { label: 'Xbox physical-code flow', value: 'Xbox redeem page' },
