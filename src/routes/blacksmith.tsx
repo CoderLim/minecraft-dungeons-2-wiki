@@ -9,7 +9,7 @@ export const Route = createFileRoute('/blacksmith')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Merchant" title="Blacksmith in Minecraft Dungeons 2" description="The Blacksmith helps preserve useful drops instead of forcing constant replacement: lower item-power gear can be brought upward, and random effects can be rerolled using Echo Shards.">
+    <WikiPage breadcrumbs={[{ label: 'Gear', to: '/gear' }]} eyebrow="Merchant" title="Blacksmith in Minecraft Dungeons 2" description="The Blacksmith helps preserve useful drops instead of forcing constant replacement: lower item-power gear can be brought upward, and random effects can be rerolled using Echo Shards.">
       <FactGrid items={[
         { label: 'Role', value: 'Gear upgrading / refinement' },
         { label: 'Power upgrades', value: 'Can raise lower item-power gear' },
