@@ -9,7 +9,7 @@ export const Route = createFileRoute('/editions')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Buying guide" title="Minecraft Dungeons 2 Editions" description="Minecraft Dungeons II is sold in Standard and Deluxe configurations. The Deluxe Edition adds the Soul Cape, Blub pet, four dark-golden hero skins and DLC 1 & 2 as released. Historical pre-order bonuses are separate.">
+    <WikiPage breadcrumbs={[{ label: 'Game Info', to: '/game-info' }]} eyebrow="Buying guide" title="Minecraft Dungeons 2 Editions" description="Minecraft Dungeons II is sold in Standard and Deluxe configurations. The Deluxe Edition adds the Soul Cape, Blub pet, four dark-golden hero skins and DLC 1 & 2 as released. Historical pre-order bonuses are separate.">
       <FactGrid items={[
         { label: 'Standard', value: 'Base game' },
         { label: 'Deluxe', value: 'Base game + Deluxe bundle' },
