@@ -9,7 +9,7 @@ export const Route = createFileRoute('/bosses/twisted-warden')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Boss" title="Minecraft Dungeons 2 Warden Boss: Twisted Warden" description="Twisted Warden is an officially revealed Minecraft Dungeons II encounter associated with Deep Dark reveal material. The page is published because the entity is confirmed, while granular attacks, phases and loot remain partial.">
+    <WikiPage breadcrumbs={[{ label: 'Enemies', to: '/enemies' }, { label: 'Bosses', to: '/bosses' }]} eyebrow="Boss" title="Minecraft Dungeons 2 Warden Boss: Twisted Warden" description="Twisted Warden is an officially revealed Minecraft Dungeons II encounter associated with Deep Dark reveal material. The page is published because the entity is confirmed, while granular attacks, phases and loot remain partial.">
       <FactGrid items={[
         { label: 'Entity status', value: 'Officially revealed' },
         { label: 'Encounter context', value: 'Dungeon / cave sequence in official Xbox hands-on' },
