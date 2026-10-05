@@ -264,7 +264,8 @@ export function WikiPage({
   children: ReactNode;
 }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
-  const verifiedAt = lastVerified ?? LAST_VERIFIED_BY_PATH[pathname];
+  const verificationPath = pathname === '/' ? pathname : pathname.replace(/\/+$/, '');
+  const verifiedAt = lastVerified ?? LAST_VERIFIED_BY_PATH[verificationPath];
   const visibleBreadcrumbs = breadcrumbs ?? (eyebrow ? [{ label: eyebrow }] : []);
   const structuredBreadcrumbs =
     breadcrumbs === undefined
