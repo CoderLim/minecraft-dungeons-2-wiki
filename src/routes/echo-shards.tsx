@@ -9,7 +9,7 @@ export const Route = createFileRoute('/echo-shards')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Currency" title="Echo Shards in Minecraft Dungeons 2" description="Echo Shards are a confirmed progression currency used in gear refinement and merchant progression. Developer gameplay names procedural dungeons and Soul-Corrupted mobs as acquisition routes.">
+    <WikiPage breadcrumbs={[{ label: 'Gear', to: '/gear' }]} eyebrow="Currency" title="Echo Shards in Minecraft Dungeons 2" description="Echo Shards are a confirmed progression currency used in gear refinement and merchant progression. Developer gameplay names procedural dungeons and Soul-Corrupted mobs as acquisition routes.">
       <FactGrid items={[
         { label: 'Source', value: 'Procedural dungeon activity' },
         { label: 'Source', value: 'Soul-Corrupted mobs' },
