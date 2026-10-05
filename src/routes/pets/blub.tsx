@@ -9,7 +9,7 @@ export const Route = createFileRoute('/pets/blub')({
 
 function Page() {
   return (
-    <WikiPage eyebrow="Pet" title="Blub in Minecraft Dungeons 2" description="Blub is an official Minecraft Dungeons II pet companion included with the Deluxe Edition. Mojang describes Blub as a cosmetic companion that does not fight battles.">
+    <WikiPage breadcrumbs={[{ label: 'Capes & Cosmetics', to: '/capes' }]} eyebrow="Pet" title="Blub in Minecraft Dungeons 2" description="Blub is an official Minecraft Dungeons II pet companion included with the Deluxe Edition. Mojang describes Blub as a cosmetic companion that does not fight battles.">
       <FactGrid items={[
         { label: 'Type', value: 'Pet companion' },
         { label: 'How to get', value: 'Minecraft Dungeons II Deluxe Edition' },
