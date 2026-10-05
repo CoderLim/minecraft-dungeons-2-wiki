@@ -27,6 +27,7 @@ export const Route = createFileRoute('/crossplay')({
           ),
           breadcrumbJsonLd([
             { name: 'Wiki', path: '/' },
+            { name: 'Gameplay', path: '/gameplay' },
             { name: 'Crossplay', path: '/crossplay' },
           ]),
           faqJsonLd([
@@ -59,6 +60,7 @@ export const Route = createFileRoute('/crossplay')({
 function Page() {
   return (
     <WikiPage
+      breadcrumbs={[{ label: 'Gameplay', to: '/gameplay' }]}
       eyebrow="Multiplayer"
       title="Minecraft Dungeons 2 Crossplay & Multiplayer"
       description="Yes. Mojang’s official co-op deep dive confirms crossplay, mixed couch-and-online co-op, party codes, online hero data, matchmaking and dedicated servers. This page keeps crossplay and cross-platform progression separate because they solve different problems."
