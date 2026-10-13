@@ -1,3 +1,4 @@
+# One-time translation provider quality check; not used at request time.
 import json
 import urllib.parse
 import urllib.request
