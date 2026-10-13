@@ -123,3 +123,16 @@ export function getUiCopy(pathname: string) {
 export function uiLabel(copy: ReturnType<typeof getUiCopy>, label: string): string {
   return copy.labels[label] ?? label;
 }
+
+
+export const NOT_FOUND_COPY: Record<Locale, { title: string; back: string }> = {
+  en: { title: 'Page not found', back: 'Back to the wiki' },
+  'zh-cn': { title: '页面不存在', back: '返回百科首页' },
+  'zh-tw': { title: '找不到頁面', back: '返回百科首頁' },
+  ja: { title: 'ページが見つかりません', back: 'Wikiのトップに戻る' },
+  ko: { title: '페이지를 찾을 수 없습니다', back: '위키 홈으로 돌아가기' },
+  de: { title: 'Seite nicht gefunden', back: 'Zurück zum Wiki' },
+  fr: { title: 'Page introuvable', back: 'Retour au wiki' },
+  es: { title: 'Página no encontrada', back: 'Volver al wiki' },
+  'pt-br': { title: 'Página não encontrada', back: 'Voltar à wiki' },
+};
