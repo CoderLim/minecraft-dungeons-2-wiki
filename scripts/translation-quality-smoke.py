@@ -29,7 +29,7 @@ for mode in ("repeat_q", "newline_q"):
     if mode=="repeat_q":
         params.extend(("q", item) for item in samples)
     else:
-        params.append(("q", "\\n\\n".join(samples)))
+        params.append(("q", "\n\n".join(samples)))
     url="https://translate.googleapis.com/translate_a/single?"+urllib.parse.urlencode(params)
     try:
         req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
