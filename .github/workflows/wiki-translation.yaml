@@ -1,0 +1,64 @@
+name: Generate wiki translations
+
+on:
+  push:
+    branches: ['feat/wiki-nine-language-foundation']
+    paths:
+      - 'scripts/generate-localizations.py'
+      - '.github/workflows/wiki-translation.yaml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wiki-locale-generator
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'scripts/translation-requirements.txt'
+
+      - run: pip install -r scripts/translation-requirements.txt
+
+      - name: Download English source pages and generate complete translations
+        run: python -u scripts/generate-localizations.py
+
+      - name: Verify locale and page coverage
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          pages = json.loads(Path('src/data/i18n-pages.json').read_text())
+          paths = re.findall(r"path: '([^']+)'", Path('src/lib/seo-pages.ts').read_text())
+          expected = {'zh-cn', 'zh-tw', 'ja', 'ko', 'de', 'fr', 'es', 'pt-br'}
+          assert set(pages) == expected, (set(pages), expected)
+          for locale in expected:
+              assert set(pages[locale]) == set(paths), (locale, len(pages[locale]), len(paths))
+              for path, page in pages[locale].items():
+                  assert page['title'] and page['description'] and '<h1' in page['html']
+          print('All locales and pages translated:', len(expected) * len(paths))
+          PY
+
+      - name: Commit generated localized content to feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/i18n-pages.json
+          if git diff --cached --quiet; then
+            echo "No changes in localized content."
+          else
+            git commit -m "feat(i18n): populate complete eight-locale page translations"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
