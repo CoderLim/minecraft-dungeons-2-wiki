@@ -9,6 +9,7 @@
  * - Sep 29: launch/source-audit content that has not had a later fact re-check.
  * - Oct 2: pages re-checked when the Oct 1 official facts were integrated.
  * - Oct 5: new P0 hubs or pages explicitly re-checked during the mature-wiki pass.
+ * - Oct 13: official hotfix and cape promotion terms re-checked on the updated pages.
  */
 export const LAST_VERIFIED_BY_PATH: Readonly<Record<string, string>> = {
   '/world': 'Sep 29, 2026',
@@ -43,7 +44,7 @@ export const LAST_VERIFIED_BY_PATH: Readonly<Record<string, string>> = {
   '/builds': 'Sep 29, 2026',
   '/tier-list': 'Sep 29, 2026',
 
-  '/capes': 'Oct 2, 2026',
+  '/capes': 'Oct 13, 2026',
   '/capes/hero-cape': 'Sep 29, 2026',
   '/capes/twisted-cape': 'Sep 29, 2026',
   '/capes/soul-cape': 'Sep 29, 2026',
@@ -73,5 +74,5 @@ export const LAST_VERIFIED_BY_PATH: Readonly<Record<string, string>> = {
   '/trailers': 'Sep 29, 2026',
 
   '/guides': 'Oct 5, 2026',
-  '/updates': 'Oct 5, 2026',
+  '/updates': 'Oct 13, 2026',
 };

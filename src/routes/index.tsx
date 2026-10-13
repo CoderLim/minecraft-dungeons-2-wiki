@@ -33,8 +33,7 @@ const popularLinks = [
   ['/steam-deck', 'Steam Deck'],
 ] as const;
 
-const steamDeck = findOfficialFact('steam-deck-playable-2026-10-01');
-const emeraldCap = findOfficialFact('emerald-cap-99999-2026-10-01');
+const hotfix = findOfficialFact('hotfix-1-1-2-0-2026-10-07');
 
 export const Route = createFileRoute('/')({
   head: () =>
@@ -209,9 +208,9 @@ function Home() {
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">
-                  Latest verified update · Oct 1
+                  Latest verified update · Oct 7
                 </p>
-                <h2 className="mt-2 text-3xl font-black">Steam Deck playable + Emerald cap raised</h2>
+                <h2 className="mt-2 text-3xl font-black">Hotfix 1.1.2.0: Crash and Ultra graphics fixes</h2>
               </div>
               <Link
                 to="/updates"
@@ -222,12 +221,15 @@ function Home() {
             </div>
             <div className="mt-6 grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2">
               <div className="bg-[var(--panel)] p-5">
-                <h3 className="font-black">Steam Deck</h3>
-                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{steamDeck.claim}</p>
+                <h3 className="font-black">Stability fixes</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{hotfix.claim}</p>
               </div>
               <div className="bg-[var(--panel)] p-5">
-                <h3 className="font-black">Emeralds</h3>
-                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{emeraldCap.claim}</p>
+                <h3 className="font-black">Platform rollout</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
+                  Mojang announced the October 7 hotfix on Steam first, with Windows and Xbox Series X|S to follow.
+                  Check the official notes and your platform for current availability.
+                </p>
               </div>
             </div>
           </div>
