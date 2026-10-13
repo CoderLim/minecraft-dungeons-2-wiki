@@ -20,6 +20,20 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Build Cloudflare SSR application
         run: pnpm cf:build
+      - name: Preview translated copy from representative pages
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          const pages = JSON.parse(fs.readFileSync('src/data/i18n-pages.json', 'utf8'));
+          if (Object.keys(pages).length !== 8) process.exit(0);
+          for (const [locale, articles] of Object.entries(pages)) {
+            for (const path of ['/armor', '/crossplay', '/capes']) {
+              const article = articles[path];
+              const text = article.html.replace(/<[^>]*>/g, ' ').replace(/\\s+/g, ' ').trim().slice(0, 260);
+              console.log(JSON.stringify({ locale, path, title: article.title, excerpt: text }));
+            }
+          }
+          JS
       - name: Validate fully generated translations
         run: |
           if [ "$(wc -c < src/data/i18n-pages.json)" -gt 1024 ]; then
