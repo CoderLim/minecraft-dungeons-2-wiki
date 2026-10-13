@@ -1,4 +1,3 @@
-import pagesJson from '@/data/i18n-pages.json';
 import { getReviewedTranslation } from '@/lib/verified-translations';
 
 import { isTranslatedLocale, LOCALES } from '@/lib/locales';
@@ -11,8 +10,6 @@ type LocalizedPage = {
   html: string;
 };
 
-type LocalizedManifest = Record<string, Record<string, LocalizedPage>>;
-const localizedPages = pagesJson as LocalizedManifest;
 
 export function getLocalizedPage(locale: string, path: string): LocalizedPage | undefined {
   if (!isTranslatedLocale(locale)) return undefined;
