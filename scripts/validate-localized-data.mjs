@@ -32,6 +32,7 @@ for (const locale of locales) {
     assert.ok(article?.html?.includes('<h1'), `Missing localized h1: ${locale}${path}`);
     assert.ok(!/<script\b/i.test(article.html), `Script in SSR snapshot: ${locale}${path}`);
     assert.ok(!/data-localization-path/.test(article.html), `Unconverted relative link: ${locale}${path}`);
+    assert.ok(article.html.includes(`href="/${locale}/`), `Missing localized internal navigation: ${locale}${path}`);
     assert.ok(article.html.length >= 350, `Suspiciously short localized page: ${locale}${path}`);
     if (languageSignals[locale]) {
       assert.ok(languageSignals[locale].test(article.html), `Target-language content missing: ${locale}${path}`);
