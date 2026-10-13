@@ -115,20 +115,21 @@ def translate_with_names(value, engine, lang, cache):
     key = (lang, value)
     if key in cache:
         return cache[key]
-    # Protect game proper nouns with line-separated placeholders to reduce name drift.
-    matches = []
-    def substitute(m):
-        matches.append(m.group(0))
-        return f" ZZZNAME{len(matches) - 1}ZZZ "
-    masked = TERM_RE.sub(substitute, value)
-    try:
-        translated = engine.translate(masked)
-    except Exception as error:
-        raise RuntimeError(f"Translation failure ({lang}): {value[:80]}") from error
-    for i, term in enumerate(matches):
-        translated = re.sub(r"ZZZ\s*NAME\s*" + str(i) + r"\s*ZZZ", term, translated, flags=re.I)
-    if "ZZZNAME" in translated.upper():
-        raise RuntimeError(f"Unresolved protected name in translated string ({lang}): {translated[:80]}")
+    # Translate around protected proper nouns instead of feeding sentinel tokens
+    # to the model: Argos may modify or partially delete artificial markers.
+    parts = re.split("(" + TERM_RE.pattern + ")", value)
+    translated_parts = []
+    for part in parts:
+        if not part:
+            continue
+        if part in KEEP_NAMES or not re.search(r"[a-zA-Z]{2}", part):
+            translated_parts.append(part)
+            continue
+        try:
+            translated_parts.append(engine.translate(part))
+        except Exception as error:
+            raise RuntimeError(f"Translation failure ({lang}): {part[:80]}") from error
+    translated = "".join(translated_parts)
     # Retain formatting of all-whitespace prefix/suffix.
     prefix = re.match(r"^\s*", value).group(0)
     suffix = re.search(r"\s*$", value).group(0)
