@@ -10,6 +10,12 @@ const source = fs.readFileSync('src/lib/seo-pages.ts', 'utf8');
 const paths = [...source.matchAll(/path: '([^']+)'/g)].map((m) => m[1]);
 const locales = ['zh-cn', 'zh-tw', 'ja', 'ko', 'de', 'fr', 'es', 'pt-br'];
 const translations = JSON.parse(fs.readFileSync('src/data/i18n-pages.json', 'utf8'));
+const languageSignals = {
+  'zh-cn': /[\\u4e00-\\u9fff]/,
+  'zh-tw': /[\\u4e00-\\u9fff]/,
+  ja: /[\\u3040-\\u30ff]/,
+  ko: /[\\uac00-\\ud7af]/,
+};
 
 assert.ok(paths.length >= 50, 'Expected full wiki route inventory');
 assert.equal(paths.length, new Set(paths).size, 'Duplicate SEO route');
@@ -27,6 +33,9 @@ for (const locale of locales) {
     assert.ok(!/<script\b/i.test(article.html), `Script in SSR snapshot: ${locale}${path}`);
     assert.ok(!/data-localization-path/.test(article.html), `Unconverted relative link: ${locale}${path}`);
     assert.ok(article.html.length >= 350, `Suspiciously short localized page: ${locale}${path}`);
+    if (languageSignals[locale]) {
+      assert.ok(languageSignals[locale].test(article.html), `Target-language content missing: ${locale}${path}`);
+    }
     checked++;
   }
 }
