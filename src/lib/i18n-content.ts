@@ -1,4 +1,5 @@
 import pagesJson from '@/data/i18n-pages.json';
+import { getReviewedTranslation } from '@/lib/verified-translations';
 
 import { isTranslatedLocale, LOCALES } from '@/lib/locales';
 import { SEO_PAGES } from '@/lib/seo-pages';
@@ -15,7 +16,7 @@ const localizedPages = pagesJson as LocalizedManifest;
 
 export function getLocalizedPage(locale: string, path: string): LocalizedPage | undefined {
   if (!isTranslatedLocale(locale)) return undefined;
-  return localizedPages[locale]?.[path];
+  return getReviewedTranslation(locale, path) ?? localizedPages[locale]?.[path];
 }
 
 export function isLocalizationComplete(): boolean {
