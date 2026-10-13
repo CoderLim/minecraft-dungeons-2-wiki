@@ -3,7 +3,8 @@ import { Compass, Gamepad2, PackageOpen, Shield, Skull, Sparkles } from 'lucide-
 
 import { EvidenceBadge, SiteFooter, SiteHeader } from '@/components/wiki-shell';
 import { findOfficialFact } from '@/lib/official-facts';
-import { pageHead } from '@/lib/seo';
+import { absoluteUrl, pageHead } from '@/lib/seo';
+import { TRANSLATED_LOCALES } from '@/lib/locales';
 import { SITE } from '@/lib/site';
 
 const exploreLinks = [
@@ -36,12 +37,26 @@ const popularLinks = [
 const hotfix = findOfficialFact('hotfix-1-1-2-0-2026-10-07');
 
 export const Route = createFileRoute('/')({
-  head: () =>
-    pageHead(
+  head: () => {
+    const head = pageHead(
       '/',
       'Minecraft Dungeons 2 Wiki: Gear, Bosses, Builds & Guides',
       'Source-audited Minecraft Dungeons 2 wiki with structured hubs for world exploration, gear, enemies, builds, gameplay systems, guides, platforms and verified updates.',
-    ),
+    );
+    return {
+      ...head,
+      links: [
+        ...head.links,
+        { rel: 'alternate', hrefLang: 'en', href: absoluteUrl('/') },
+        ...TRANSLATED_LOCALES.map((locale) => ({
+          rel: 'alternate',
+          hrefLang: locale.languageTag,
+          href: absoluteUrl(`/${locale.code}/`),
+        })),
+        { rel: 'alternate', hrefLang: 'x-default', href: absoluteUrl('/') },
+      ],
+    };
+  },
   component: Home,
 });
 
