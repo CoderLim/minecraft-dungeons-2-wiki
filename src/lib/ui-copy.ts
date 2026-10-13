@@ -4,13 +4,13 @@ import { LOCALES, type Locale } from '@/lib/locales';
  * UI-only translations. Gameplay article copy is stored separately in
  * generated locale snapshots, so nav copy cannot silently fall back to English.
  */
-export const UI_COPY: Record<Locale, { labels: Record<string, string>; disclaimer: string; language: string }> = {
+export const UI_COPY: Record<Locale, { labels: Record<string, string>; disclaimer: string; language: string; tagline: string }> = {
   en: {
-    labels: {}, language: 'Language',
+    labels: {}, language: 'Language', tagline: 'Unofficial · Source audited',
     disclaimer: 'NOT AN OFFICIAL MINECRAFT WEBSITE. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT. This independent fan project is responsible for its own content. Minecraft and related marks belong to Mojang Studios and Microsoft.',
   },
   'zh-cn': {
-    language: '语言',
+    language: '语言', tagline: '非官方 · 资料已核验',
     labels: {
       World:'世界', Overview:'概览', Map:'地图', Dungeons:'地下城', Quests:'任务', Gear:'装备', Weapons:'武器', Armor:'护甲',
       Artifacts:'神器', Talismans:'护符', Enchantments:'附魔', Blacksmith:'铁匠', Enemies:'敌人', Bosses:'首领',
@@ -22,7 +22,7 @@ export const UI_COPY: Record<Locale, { labels: Record<string, string>; disclaime
     disclaimer:'本网站并非 Minecraft 官方网站，也未获得 Mojang 或 Microsoft 的认可或授权，与其没有关联。本网站为独立粉丝项目，内容由本站自行负责。Minecraft 及相关商标归 Mojang Studios 和 Microsoft 所有。',
   },
   'zh-tw': {
-    language:'語言',
+    language:'語言', tagline:'非官方 · 資料已查證',
     labels:{
       World:'世界', Overview:'概覽', Map:'地圖', Dungeons:'地城', Quests:'任務', Gear:'裝備', Weapons:'武器', Armor:'護甲',
       Artifacts:'神器', Talismans:'護符', Enchantments:'附魔', Blacksmith:'鐵匠', Enemies:'敵人', Bosses:'首領',
@@ -34,7 +34,7 @@ export const UI_COPY: Record<Locale, { labels: Record<string, string>; disclaime
     disclaimer:'本網站並非 Minecraft 官方網站，也未經 Mojang 或 Microsoft 核准或授權，與其沒有關聯。本網站為獨立粉絲專案，內容由本站自行負責。Minecraft 及相關商標均屬 Mojang Studios 和 Microsoft。',
   },
   ja: {
-    language:'言語',
+    language:'言語', tagline:'非公式・出典確認済み',
     labels:{
       World:'ワールド', Overview:'概要', Map:'マップ', Dungeons:'ダンジョン', Quests:'クエスト', Gear:'装備', Weapons:'武器',
       Armor:'防具', Artifacts:'アーティファクト', Talismans:'タリスマン', Enchantments:'エンチャント', Blacksmith:'鍛冶屋',
@@ -47,7 +47,7 @@ export const UI_COPY: Record<Locale, { labels: Record<string, string>; disclaime
     disclaimer:'これは公式 Minecraft ウェブサイトではありません。Mojang または Microsoft の承認・提携を受けていません。この独立したファンサイトは掲載内容に責任を負います。Minecraft と関連する商標は Mojang Studios および Microsoft に帰属します。',
   },
   ko: {
-    language:'언어',
+    language:'언어', tagline:'비공식 · 출처 검증',
     labels:{
       World:'세계', Overview:'개요', Map:'지도', Dungeons:'던전', Quests:'퀘스트', Gear:'장비', Weapons:'무기',
       Armor:'방어구', Artifacts:'유물', Talismans:'부적', Enchantments:'마법 부여', Blacksmith:'대장장이',
@@ -60,7 +60,7 @@ export const UI_COPY: Record<Locale, { labels: Record<string, string>; disclaime
     disclaimer:'이 사이트는 공식 Minecraft 웹사이트가 아니며 Mojang 또는 Microsoft의 승인이나 제휴를 받지 않았습니다. 독립 팬 프로젝트로서 자체 콘텐츠에 책임을 집니다. Minecraft 및 관련 상표는 Mojang Studios와 Microsoft에 귀속됩니다.',
   },
   de: {
-    language:'Sprache',
+    language:'Sprache', tagline:'Inoffiziell · Quellengeprüft',
     labels:{
       World:'Welt', Overview:'Übersicht', Map:'Karte', Dungeons:'Dungeons', Quests:'Quests', Gear:'Ausrüstung',
       Weapons:'Waffen', Armor:'Rüstung', Artifacts:'Artefakte', Talismans:'Talismane',
@@ -74,7 +74,7 @@ export const UI_COPY: Record<Locale, { labels: Record<string, string>; disclaime
     disclaimer:'DIES IST KEINE OFFIZIELLE MINECRAFT-WEBSITE. Sie ist weder von Mojang noch von Microsoft genehmigt oder mit ihnen verbunden. Für die Inhalte ist dieses unabhängige Fanprojekt selbst verantwortlich. Minecraft und zugehörige Marken gehören Mojang Studios und Microsoft.',
   },
   fr: {
-    language:'Langue',
+    language:'Langue', tagline:'Non officiel · Sources vérifiées',
     labels:{
       World:'Monde', Overview:'Présentation', Map:'Carte', Dungeons:'Donjons', Quests:'Quêtes', Gear:'Équipement',
       Weapons:'Armes', Armor:'Armures', Artifacts:'Artefacts', Talismans:'Talismans', Enchantments:'Enchantements',
@@ -87,7 +87,7 @@ export const UI_COPY: Record<Locale, { labels: Record<string, string>; disclaime
     disclaimer:'CE SITE N’EST PAS UN SITE OFFICIEL DE MINECRAFT. Il n’est ni approuvé par Mojang ou Microsoft, ni associé à ces entreprises. Ce projet indépendant de fans est responsable de son propre contenu. Minecraft et les marques associées appartiennent à Mojang Studios et Microsoft.',
   },
   es: {
-    language:'Idioma',
+    language:'Idioma', tagline:'No oficial · Fuentes verificadas',
     labels:{
       World:'Mundo', Overview:'Resumen', Map:'Mapa', Dungeons:'Mazmorras', Quests:'Misiones', Gear:'Equipo',
       Weapons:'Armas', Armor:'Armaduras', Artifacts:'Artefactos', Talismans:'Talismanes', Enchantments:'Encantamientos',
@@ -100,7 +100,7 @@ export const UI_COPY: Record<Locale, { labels: Record<string, string>; disclaime
     disclaimer:'ESTE NO ES UN SITIO OFICIAL DE MINECRAFT. No cuenta con la aprobación de Mojang ni Microsoft y no está asociado con ellas. Este proyecto independiente de fans es responsable de su contenido. Minecraft y sus marcas relacionadas pertenecen a Mojang Studios y Microsoft.',
   },
   'pt-br': {
-    language:'Idioma',
+    language:'Idioma', tagline:'Não oficial · Fontes verificadas',
     labels:{
       World:'Mundo', Overview:'Visão geral', Map:'Mapa', Dungeons:'Masmorras', Quests:'Missões', Gear:'Equipamentos',
       Weapons:'Armas', Armor:'Armaduras', Artifacts:'Artefatos', Talismans:'Talismãs', Enchantments:'Encantamentos',
