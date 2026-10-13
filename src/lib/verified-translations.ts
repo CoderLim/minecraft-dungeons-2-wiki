@@ -3,6 +3,7 @@
  * Keep proper names as published by Mojang when a verified localized term is unavailable.
  */
 import { getReviewedCrossplay } from './verified-crossplay';
+import { getReviewedUpdates } from './verified-updates';
 
 export type ReviewedArticle = { title: string; description: string; html: string };
 type LocaleCopy = {
@@ -90,6 +91,7 @@ const sourceLinks = [
 
 export function getReviewedTranslation(locale: string, path: string): ReviewedArticle | undefined {
   if (path === '/crossplay') return getReviewedCrossplay(locale);
+  if (path === '/updates') return getReviewedUpdates(locale);
   if (path !== '/armor') return undefined;
   const copy = armor[locale];
   if (!copy) return undefined;
