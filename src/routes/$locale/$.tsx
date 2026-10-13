@@ -9,12 +9,12 @@ export const Route = createFileRoute('/$locale/$')({
     if (!isTranslatedLocale(params.locale)) throw notFound();
   },
   loader: ({ params }) => {
-    const path = '/' + (params._splat ?? '').replace(/^\\/+|\\/+$/g, '');
+    const path = '/' + (params._splat ?? '').split('/').filter(Boolean).join('/');
     if (path === '/' || !getLocalizedPage(params.locale, path)) throw notFound();
     return { path };
   },
   head: ({ params }) => {
-    const path = '/' + (params._splat ?? '').replace(/^\\/+|\\/+$/g, '');
+    const path = '/' + (params._splat ?? '').split('/').filter(Boolean).join('/');
     return localizedHead(params.locale, path);
   },
   component: Page,
