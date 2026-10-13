@@ -11,10 +11,10 @@ const paths = [...source.matchAll(/path: '([^']+)'/g)].map((m) => m[1]);
 const locales = ['zh-cn', 'zh-tw', 'ja', 'ko', 'de', 'fr', 'es', 'pt-br'];
 const translations = JSON.parse(fs.readFileSync('src/data/i18n-pages.json', 'utf8'));
 const languageSignals = {
-  'zh-cn': /[\\u4e00-\\u9fff]/,
-  'zh-tw': /[\\u4e00-\\u9fff]/,
-  ja: /[\\u3040-\\u30ff]/,
-  ko: /[\\uac00-\\ud7af]/,
+  'zh-cn': /[\u4e00-\u9fff]/,
+  'zh-tw': /[\u4e00-\u9fff]/,
+  ja: /[\u3040-\u30ff]/,
+  ko: /[\uac00-\ud7af]/,
 };
 
 assert.ok(paths.length >= 50, 'Expected full wiki route inventory');
