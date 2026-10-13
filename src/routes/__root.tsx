@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
 import type { ReactNode } from 'react';
+import { useRouterState } from '@tanstack/react-router';
 import {
   createRootRoute,
   HeadContent,
@@ -10,6 +11,7 @@ import { createServerFn } from '@tanstack/react-start';
 
 import { loadAnalyticsConfig } from '@/lib/analytics-config';
 import { SITE } from '@/lib/site';
+import { LOCALES } from '@/lib/locales';
 import '@/styles/globals.css';
 
 const getAnalyticsConfigs = createServerFn().handler(async () => loadAnalyticsConfig());
@@ -101,8 +103,11 @@ export const Route = createRootRoute({
 });
 
 function RootDocument({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const locale = pathname.split('/')[1];
+  const lang = LOCALES.find((item) => item.code === locale)?.languageTag ?? 'en';
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head><HeadContent /></head>
       <body>
         {children}
