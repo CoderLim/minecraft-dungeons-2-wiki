@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { indexablePaths } from '@/lib/seo-pages';
+import { TRANSLATED_LOCALES } from '@/lib/locales';
 import { SITE } from '@/lib/site';
 
 export const Route = createFileRoute('/sitemap.xml')({
@@ -13,6 +14,9 @@ export const Route = createFileRoute('/sitemap.xml')({
           ...indexablePaths().map(
             (path) =>
               `  <url><loc>${new URL(path, SITE.url).href}</loc></url>`,
+          ),
+          ...TRANSLATED_LOCALES.map(
+            (locale) => `  <url><loc>${new URL(`/${locale.code}/`, SITE.url).href}</loc></url>`,
           ),
           '</urlset>',
           '',
