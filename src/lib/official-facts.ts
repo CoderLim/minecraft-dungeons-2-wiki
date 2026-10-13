@@ -9,6 +9,17 @@ export type OfficialFact = {
 };
 
 export const OFFICIAL_FACTS = {
+  'hotfix-1-1-2-0-2026-10-07': {
+    id: 'hotfix-1-1-2-0-2026-10-07',
+    claim:
+      'Minecraft Dungeons II 1.1.2.0 fixes multiple client and server crashes, a Lightning Slam/TNT crash involving the Prime Enchanter, an online-exit crash, and blurry visuals at Ultra graphics quality.',
+    publishedAt: '2026-10-07',
+    sourceLabel: 'Minecraft Dungeons II 1.1.2.0 Hotfix — Minecraft Feedback',
+    sourceUrl:
+      'https://feedback.minecraft.net/hc/en-us/articles/49427995539981-Minecraft-Dungeons-II-1-1-2-0-Hotfix',
+    status: 'confirmed',
+    note: 'Mojang announced Steam first, with Windows and Xbox Series X|S to follow; do not infer rollout completion on any other platform.',
+  },
   'steam-deck-playable-2026-10-01': {
     id: 'steam-deck-playable-2026-10-01',
     claim:

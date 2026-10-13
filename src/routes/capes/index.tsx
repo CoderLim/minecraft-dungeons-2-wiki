@@ -71,7 +71,7 @@ function Page() {
           { label: 'Soul Cape', value: 'Verified Deluxe Edition reward' },
           { label: 'Corrupted Creeper', value: 'Promotional; future opportunities possible' },
           { label: 'Special Cape', value: 'Appearance revealed; acquisition unresolved' },
-          { label: 'Aurora Cape', value: 'Minecraft only; active watch promo through Oct 14' },
+          { label: 'Aurora Cape', value: 'Minecraft only; watch by Oct 14, redeem by Oct 31' },
         ]}
       />
 
@@ -121,12 +121,21 @@ function Page() {
         </div>
       </Section>
 
-      <Section title="Active Aurora Cape watch promotion — Minecraft only">
+      <Section title="Aurora Cape watch promotion — Minecraft only">
         <p>{auroraPromo.claim}</p>
         <p className="mt-4">
           The official requirements are at least 3 minutes on an eligible TikTok Game Rewards livestream or at
           least 15 minutes on an eligible Twitch livestream during the promotion window. This cape is for
           Minecraft Java/Bedrock and should not be counted as a Dungeons II in-game cape.
+        </p>
+        <p className="mt-4">
+          <strong className="text-[var(--text)]">Watch deadline:</strong> October 14, 2026 at 11:59 PM PST,
+          as specified by Mojang. <strong className="text-[var(--text)]">Code redemption deadline:</strong>{' '}
+          October 31, 2026 at{' '}
+          <a href="https://www.minecraft.net/redeem" target="_blank" rel="noreferrer" className="text-[var(--lime)] underline underline-offset-4">
+            minecraft.net/redeem
+          </a>
+          . Codes are limited, and completing the watch challenge does not add a cape to Dungeons II.
         </p>
       </Section>
 
