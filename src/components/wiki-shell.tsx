@@ -3,6 +3,7 @@ import { Link, useRouterState } from '@tanstack/react-router';
 import { ChevronDown } from 'lucide-react';
 
 import { LAST_VERIFIED_BY_PATH } from '@/lib/page-verification';
+import { LOCALES } from '@/lib/locales';
 import { NAV, SITE, type NavItem } from '@/lib/site';
 
 export type EvidenceLevel = 'Official confirmed' | 'Gameplay observed' | 'Community reported' | 'Verification pending';
@@ -140,6 +141,25 @@ export function SiteHeader() {
             );
           })}
         </nav>
+
+        <details className="group/language relative shrink-0">
+          <summary className="flex min-h-10 cursor-pointer list-none items-center gap-1 border border-[var(--line)] px-2 text-xs font-semibold text-[var(--text)] [&::-webkit-details-marker]:hidden" aria-label="Choose language">
+            <span>Language</span>
+            <ChevronDown className="size-3.5" aria-hidden="true" />
+          </summary>
+          <div className="absolute right-0 top-full z-50 mt-2 max-h-[70vh] w-48 overflow-auto border border-[var(--line)] bg-[var(--panel)] p-2 shadow-lg">
+            {LOCALES.map((item) => (
+              <a
+                key={item.code}
+                href={item.code === 'en' ? '/' : `/${item.code}/`}
+                hrefLang={item.languageTag}
+                className="block px-3 py-2 text-sm hover:bg-[var(--panel-2)] hover:text-[var(--lime)]"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </details>
 
         <button
           type="button"
