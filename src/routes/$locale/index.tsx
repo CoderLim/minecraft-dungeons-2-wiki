@@ -1,6 +1,8 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router';
 
 import { SiteFooter, SiteHeader } from '@/components/wiki-shell';
+import { LocalizedArticle } from '@/components/localized-article';
+import { getLocalizedPage, localizedHead } from '@/lib/i18n-content';
 import { isTranslatedLocale, LOCALES, type NonEnglishLocale } from '@/lib/locales';
 import { absoluteUrl, pageHead } from '@/lib/seo';
 
@@ -158,6 +160,7 @@ export const Route = createFileRoute('/$locale/')({
   },
   head: ({ params }) => {
     const locale = params.locale;
+    if (getLocalizedPage(locale, '/')) return localizedHead(locale, '/');
     if (!isTranslatedLocale(locale)) return pageHead('/', 'Page not found', '', { noindex: true });
     const t = translations[locale];
     const lang = LOCALES.find((item) => item.code === locale)!.languageTag;
@@ -183,6 +186,7 @@ export const Route = createFileRoute('/$locale/')({
 function LocalizedHome() {
   const { locale } = Route.useParams();
   if (!isTranslatedLocale(locale)) return null;
+  if (getLocalizedPage(locale, '/')) return <LocalizedArticle locale={locale} path="/" />;
   const t = translations[locale];
   const areas = [
     { title: t.world, description: t.worldDescription, path: '/world' },
