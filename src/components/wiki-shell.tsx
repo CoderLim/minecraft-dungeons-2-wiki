@@ -79,7 +79,7 @@ export function SiteHeader() {
           />
           <div className="min-w-0">
             <div className="truncate font-black tracking-tight">{SITE.name}</div>
-            <div className="text-[10px] uppercase tracking-[0.16em] text-[var(--muted)]">Unofficial · Source audited</div>
+            <div className="text-[10px] uppercase tracking-[0.16em] text-[var(--muted)]">{ui.tagline}</div>
           </div>
         </Link>
 
