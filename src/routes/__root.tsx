@@ -12,6 +12,7 @@ import { createServerFn } from '@tanstack/react-start';
 import { loadAnalyticsConfig } from '@/lib/analytics-config';
 import { SITE } from '@/lib/site';
 import { LOCALES } from '@/lib/locales';
+import { getUiCopy, NOT_FOUND_COPY } from '@/lib/ui-copy';
 import '@/styles/globals.css';
 
 const getAnalyticsConfigs = createServerFn().handler(async () => loadAnalyticsConfig());
@@ -91,15 +92,7 @@ export const Route = createRootRoute({
   },
   component: () => <Outlet />,
   shellComponent: RootDocument,
-  notFoundComponent: () => (
-    <main className="grid min-h-screen place-items-center bg-[var(--bg)] px-6 text-center">
-      <div>
-        <p className="text-sm font-bold uppercase tracking-[.18em] text-[var(--emerald)]">404</p>
-        <h1 className="mt-3 text-4xl font-black">Page not found</h1>
-        <a className="mt-6 inline-block text-[var(--lime)] underline underline-offset-4" href="/">Back to the wiki</a>
-      </div>
-    </main>
-  ),
+  notFoundComponent: LocalizedNotFound,
 });
 
 function RootDocument({ children }: { children: ReactNode }) {
@@ -114,5 +107,25 @@ function RootDocument({ children }: { children: ReactNode }) {
         <Scripts />
       </body>
     </html>
+  );
+}
+
+function LocalizedNotFound() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const { locale } = getUiCopy(pathname);
+  const copy = NOT_FOUND_COPY[locale];
+  return (
+    <main className="grid min-h-screen place-items-center bg-[var(--bg)] px-6 text-center">
+      <div>
+        <p className="text-sm font-bold uppercase tracking-[.18em] text-[var(--emerald)]">404</p>
+        <h1 className="mt-3 text-4xl font-black">{copy.title}</h1>
+        <a
+          className="mt-6 inline-block text-[var(--lime)] underline underline-offset-4"
+          href={locale === 'en' ? '/' : `/${locale}/`}
+        >
+          {copy.back}
+        </a>
+      </div>
+    </main>
   );
 }

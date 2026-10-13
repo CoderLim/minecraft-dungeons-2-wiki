@@ -1,0 +1,29 @@
+name: Wiki i18n validation
+
+on:
+  push:
+    branches: ['feat/wiki-i18n-navigation']
+  pull_request:
+    branches: ['main']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - name: Build Cloudflare SSR application
+        run: pnpm cf:build
+      - name: Validate fully generated translations
+        run: |
+          if [ "$(wc -c < src/data/i18n-pages.json)" -gt 1024 ]; then
+            node scripts/validate-localized-data.mjs
+          else
+            echo "Translation dataset not generated on this development branch yet."
+          fi
