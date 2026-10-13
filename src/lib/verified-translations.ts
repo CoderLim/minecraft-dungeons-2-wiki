@@ -2,7 +2,9 @@
  * Human-reviewed article translations. These take precedence over bulk machine output.
  * Keep proper names as published by Mojang when a verified localized term is unavailable.
  */
-type ReviewedArticle = { title: string; description: string; html: string };
+import { getReviewedCrossplay } from './verified-crossplay';
+
+export type ReviewedArticle = { title: string; description: string; html: string };
 type LocaleCopy = {
   title: string; description: string; intro: string;
   facts: [string, string][];
@@ -87,6 +89,7 @@ const sourceLinks = [
 ] as const;
 
 export function getReviewedTranslation(locale: string, path: string): ReviewedArticle | undefined {
+  if (path === '/crossplay') return getReviewedCrossplay(locale);
   if (path !== '/armor') return undefined;
   const copy = armor[locale];
   if (!copy) return undefined;
