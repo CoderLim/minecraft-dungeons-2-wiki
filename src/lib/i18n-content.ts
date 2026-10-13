@@ -16,14 +16,16 @@ const localizedPages = pagesJson as LocalizedManifest;
 
 export function getLocalizedPage(locale: string, path: string): LocalizedPage | undefined {
   if (!isTranslatedLocale(locale)) return undefined;
-  return getReviewedTranslation(locale, path) ?? localizedPages[locale]?.[path];
+  // Raw machine output is retained for editorial comparison, not publication.
+  // Never expose it as a translated page until its full article is reviewed.
+  return getReviewedTranslation(locale, path);
 }
 
 export function isLocalizationComplete(): boolean {
   return LOCALES.every(
     (locale) =>
       locale.code === 'en' ||
-      SEO_PAGES.every((page) => Boolean(getLocalizedPage(locale.code, page.path)?.html)),
+      SEO_PAGES.every((page) => page.path === '/' || Boolean(getLocalizedPage(locale.code, page.path)?.html)),
   );
 }
 
