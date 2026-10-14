@@ -1,5 +1,6 @@
 import pagesJson from '@/data/i18n-pages.json';
 import { getReviewedTranslation } from '@/lib/verified-translations';
+import { polishTranslation } from '@/lib/translation-edits';
 
 import { isTranslatedLocale, LOCALES } from '@/lib/locales';
 import { SEO_PAGES } from '@/lib/seo-pages';
@@ -13,13 +14,21 @@ type LocalizedPage = {
 
 
 const staticPages = pagesJson as Record<string, Record<string, LocalizedPage>>;
+const polishedCache = new Map<string, LocalizedPage>();
 
 export function getLocalizedPage(locale: string, path: string): LocalizedPage | undefined {
   if (!isTranslatedLocale(locale)) return undefined;
   // The home route has editorially written React content in all nine languages.
   if (path === '/') return undefined;
-  // Human-edited guides take priority over complete contextual MT versions.
-  return getReviewedTranslation(locale, path) ?? staticPages[locale]?.[path];
+  const key = `${locale}:${path}`;
+  const cached = polishedCache.get(key);
+  if (cached) return cached;
+  // Human-edited guides take priority over contextual machine-assisted versions.
+  const content = getReviewedTranslation(locale, path) ?? staticPages[locale]?.[path];
+  if (!content) return undefined;
+  const polished = polishTranslation(locale, path, content);
+  polishedCache.set(key, polished);
+  return polished;
 }
 
 export function isLocalizationComplete(): boolean {
