@@ -41,3 +41,26 @@ for (const locale of locales) {
   }
 }
 console.log(`i18n validation passed: ${locales.length} locales × ${paths.length} routes = ${checked} localized pages`);
+
+const qualityTerms = {
+  'zh-cn': ['海角', '敦煌二号', '播客'], 'zh-tw': ['海角', '敦煌二號', '岬'],
+  ja: ['岬', '2018年10月13日'], ko: ['팟캐스트', '기갑'],
+  de: ['Getriebe'], fr: [], es: [], 'pt-br': [],
+};
+for (const [locale, pages] of Object.entries(translations)) {
+  for (const path of ['/release-date', '/capes', '/gear', '/bosses', '/builds', '/crossplay', '/tier-list', '/updates']) {
+    const page = pages[path];
+    if (!page) continue;
+    const excerpt = page.html.replace(/<[^>]+>/g, ' ').replace(/&[^;]+;/g, ' ')
+      .replace(/\s+/g, ' ').slice(0, 290);
+    console.log(JSON.stringify({ type: 'editorial_sample', locale, path, title: page.title, excerpt }));
+  }
+  for (const [path, page] of Object.entries(pages)) {
+    for (const bad of qualityTerms[locale] || []) {
+      if (page.title.includes(bad)) {
+        throw new Error(`Unacceptable literal mistranslation in title: ${locale} ${path} ${bad}`);
+      }
+    }
+  }
+}
+console.log('Editorial sample printout and critical term checks passed');
