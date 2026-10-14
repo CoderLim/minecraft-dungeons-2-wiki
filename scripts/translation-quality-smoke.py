@@ -38,3 +38,15 @@ for mode in ("repeat_q", "newline_q"):
         print(json.dumps({"batch_mode":mode,"result":data[0]},ensure_ascii=False),flush=True)
     except Exception as e:
         print(json.dumps({"batch_mode":mode,"error":str(e)}),flush=True)
+
+# Validate batching and name preservation before generating all language pages.
+sample="The Minecraft Dungeons II Hero Cape is a cosmetic reward. The Prime Enchanter has several attacks. Do not confuse gear with mechanical gears."
+for method in ("post","get"):
+  params={"client":"gtx","sl":"en","tl":"zh-CN","dt":"t","q":sample}
+  try:
+    data=urllib.parse.urlencode(params).encode()
+    req=urllib.request.Request("https://translate.googleapis.com/translate_a/single"+("?" + urllib.parse.urlencode(params) if method=="get" else ""),data=(data if method=="post" else None),headers={"User-Agent":"Mozilla/5.0"})
+    with urllib.request.urlopen(req,timeout=20) as resp: payload=json.load(resp)
+    print(json.dumps({"method":method,"sample":"".join(x[0] for x in payload[0])},ensure_ascii=False),flush=True)
+  except Exception as exc:
+    print(json.dumps({"method":method,"error":str(exc)},ensure_ascii=False),flush=True)
