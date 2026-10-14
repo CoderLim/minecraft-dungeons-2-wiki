@@ -1,4 +1,6 @@
 import { SITE } from './site';
+import { LOCALES } from './locales';
+import { SEO_PAGES } from './seo-pages';
 
 export type PageHeadOptions = {
   noindex?: boolean;
@@ -21,6 +23,21 @@ export function pageHead(
   options: PageHeadOptions = {},
 ) {
   const url = absoluteUrl(path);
+  const normalizedPath = path === '/' ? '/' : path.replace(/\/+$/, '');
+  // Only alternate indexed canonical English routes; localized pages supply
+  // their own reciprocal links in localizedHead.
+  const englishIndexable = SEO_PAGES.some((item) => item.path === normalizedPath && item.index);
+  const englishAlternates = englishIndexable
+    ? [
+        { rel: 'alternate', hrefLang: 'en', href: absoluteUrl(normalizedPath) },
+        ...LOCALES.filter((locale) => locale.code !== 'en').map((locale) => ({
+          rel: 'alternate',
+          hrefLang: locale.languageTag,
+          href: absoluteUrl(normalizedPath === '/' ? `/${locale.code}/` : `/${locale.code}${normalizedPath}`),
+        })),
+        { rel: 'alternate', hrefLang: 'x-default', href: absoluteUrl(normalizedPath) },
+      ]
+    : [];
   const imagePath = options.image ?? '/og.png';
   const image = imagePath.startsWith('http') ? imagePath : absoluteUrl(imagePath);
   const imageWidth = String(options.imageWidth ?? 1200);
@@ -50,7 +67,7 @@ export function pageHead(
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: image },
     ],
-    links: [{ rel: 'canonical', href: url }],
+    links: [{ rel: 'canonical', href: url }, ...(options.noindex ? [] : englishAlternates)],
     scripts: jsonLdItems.map((item) => ({
       type: 'application/ld+json',
       children: JSON.stringify(item),
