@@ -68,7 +68,7 @@ export function localizedSitemapPaths(): string[] {
   return SEO_PAGES.filter((page) => page.index)
     .flatMap(({ path }) =>
       LOCALES.filter(
-        (language) => language.code !== 'en' && Boolean(getLocalizedPage(language.code, path)),
+        (language) => language.code !== 'en' && (path === '/' || Boolean(getLocalizedPage(language.code, path))),
       ).map((language) => (path === '/' ? `/${language.code}/` : `/${language.code}${path}`)),
     );
 }
