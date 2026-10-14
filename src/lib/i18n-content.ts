@@ -1,3 +1,4 @@
+import pagesJson from '@/data/i18n-pages.json';
 import { getReviewedTranslation } from '@/lib/verified-translations';
 
 import { isTranslatedLocale, LOCALES } from '@/lib/locales';
@@ -11,11 +12,14 @@ type LocalizedPage = {
 };
 
 
+const staticPages = pagesJson as Record<string, Record<string, LocalizedPage>>;
+
 export function getLocalizedPage(locale: string, path: string): LocalizedPage | undefined {
   if (!isTranslatedLocale(locale)) return undefined;
-  // Raw machine output is retained for editorial comparison, not publication.
-  // Never expose it as a translated page until its full article is reviewed.
-  return getReviewedTranslation(locale, path);
+  // The home route has editorially written React content in all nine languages.
+  if (path === '/') return undefined;
+  // Human-edited guides take priority over complete contextual MT versions.
+  return getReviewedTranslation(locale, path) ?? staticPages[locale]?.[path];
 }
 
 export function isLocalizationComplete(): boolean {
@@ -40,7 +44,7 @@ export function localizedHead(locale: string, path: string) {
       ...head.links,
       { rel: 'alternate', hrefLang: 'en', href: absoluteUrl(path) },
       ...LOCALES.filter(
-        (language) => language.code !== 'en' && Boolean(getLocalizedPage(language.code, path)),
+        (language) => language.code !== 'en' && (path === '/' || Boolean(getLocalizedPage(language.code, path))),
       ).map((language) => ({
         rel: 'alternate',
         hrefLang: language.languageTag,
