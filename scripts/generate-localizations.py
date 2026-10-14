@@ -211,7 +211,9 @@ def translate_locale(locale, english_sources):
 
     out = {}
     for path, title, description, raw in english_sources:
-        root = BeautifulSoup(raw, "html.parser")
+        root = BeautifulSoup(raw, "html.parser").select_one("main.wiki-grid")
+        if root is None:
+            raise RuntimeError(f"Missing rendered main: {path}")
         for element in root.find_all(True):
             for field in ("alt", "title", "aria-label", "placeholder"):
                 if element.has_attr(field) and isinstance(element[field], str):
