@@ -1,0 +1,69 @@
+name: Production nine-language smoke
+
+on:
+  push:
+    branches: ['main']
+    paths: ['.github/workflows/i18n-production-smoke.yaml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Check translated route responses and SEO tags
+        run: |
+          python3 - <<'PY'
+          import re, time, urllib.request
+          base='https://minecraftdungeons2wiki.com'
+          pages={
+              '/zh-cn/':'zh-Hans',
+              '/zh-tw/':'zh-Hant',
+              '/ja/':'ja',
+              '/ko/':'ko',
+              '/de/':'de',
+              '/fr/':'fr',
+              '/es/':'es',
+              '/pt-br/':'pt-BR',
+              '/zh-cn/armor':'zh-Hans',
+              '/zh-tw/capes':'zh-Hant',
+              '/ja/crossplay':'ja',
+              '/ko/bosses':'ko',
+              '/de/gear':'de',
+              '/fr/builds':'fr',
+              '/es/updates':'es',
+              '/pt-br/release-date':'pt-BR',
+          }
+          for path,lang in pages.items():
+              text=None
+              err=None
+              for attempt in range(8):
+                  try:
+                      req=urllib.request.Request(base+path,headers={'User-Agent':'Wiki-i18n-smoke/1.0','Cache-Control':'no-cache'})
+                      with urllib.request.urlopen(req,timeout=30) as resp:
+                          if resp.status != 200: raise ValueError('HTTP '+str(resp.status))
+                          text=resp.read().decode('utf-8')
+                      if not re.search(r'<html[^>]+lang=["\']'+re.escape(lang)+r'["\']',text,re.I):
+                          raise AssertionError('Missing html lang '+lang)
+                      if '<h1' not in text.lower():
+                          raise AssertionError('Missing SSR H1')
+                      if 'hreflang=' not in text.lower():
+                          raise AssertionError('Missing hreflang alternates')
+                      if 'rel="canonical"' not in text.lower():
+                          raise AssertionError('Missing canonical')
+                      break
+                  except Exception as exc:
+                      err=exc
+                      time.sleep(6)
+              if text is None or err and attempt==7:
+                  raise RuntimeError(f'FAIL {path}: {err}')
+              print('PASS',path,lang,'bytes',len(text))
+          req=urllib.request.Request(base+'/sitemap.xml',headers={'User-Agent':'Wiki-i18n-smoke/1.0'})
+          with urllib.request.urlopen(req,timeout=30) as resp: sitemap=resp.read().decode('utf-8')
+          for url in ['/zh-cn/', '/zh-cn/armor', '/ja/crossplay', '/pt-br/updates']:
+              if base+url not in sitemap: raise AssertionError('Missing sitemap URL '+url)
+          print('PASS sitemap localized URLs')
+          PY
