@@ -1,5 +1,3 @@
-import translatedPages from '@/data/i18n-pages.json';
-import { TRANSLATED_LOCALES } from '@/lib/locales';
 import { SITE } from './site';
 import { LOCALES } from './locales';
 import { SEO_PAGES } from './seo-pages';
@@ -69,22 +67,7 @@ export function pageHead(
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: image },
     ],
-    links: [
-      { rel: 'canonical', href: url },
-      ...(!options.noindex && path.startsWith('/') && !TRANSLATED_LOCALES.some((l) => path.startsWith(`/${l.code}/`))
-        ? [
-            { rel: 'alternate', hrefLang: 'en', href: url },
-            ...TRANSLATED_LOCALES.filter(
-              (l) => Boolean((translatedPages as Record<string, Record<string, unknown>>)[l.code]?.[path]),
-            ).map((l) => ({
-              rel: 'alternate',
-              hrefLang: l.languageTag,
-              href: absoluteUrl(path === '/' ? `/${l.code}/` : `/${l.code}${path}`),
-            })),
-            { rel: 'alternate', hrefLang: 'x-default', href: url },
-          ]
-        : []),
-    ],
+    links: [{ rel: 'canonical', href: url }, ...(options.noindex ? [] : englishAlternates)],
     scripts: jsonLdItems.map((item) => ({
       type: 'application/ld+json',
       children: JSON.stringify(item),
