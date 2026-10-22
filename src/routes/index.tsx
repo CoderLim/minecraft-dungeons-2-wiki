@@ -33,7 +33,7 @@ const popularLinks = [
   ['/steam-deck', 'Steam Deck'],
 ] as const;
 
-const hotfix = findOfficialFact('hotfix-1-1-2-0-2026-10-07');
+const dominosCollab = findOfficialFact('dominos-collaboration-2026-10-21');
 
 export const Route = createFileRoute('/')({
   head: () =>
@@ -208,27 +208,27 @@ function Home() {
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[.18em] text-[var(--emerald)]">
-                  Latest verified update · Oct 7
+                  Latest verified update · Oct 21
                 </p>
-                <h2 className="mt-2 text-3xl font-black">Hotfix 1.1.2.0: Crash and Ultra graphics fixes</h2>
+                <h2 className="mt-2 text-3xl font-black">Domino's x Minecraft Dungeons II</h2>
               </div>
               <Link
-                to="/updates"
+                to="/dominos-collaboration"
                 className="border border-[var(--emerald)] bg-[var(--panel)] px-4 py-2 text-sm font-bold text-[var(--lime)]"
               >
-                View updates →
+                View collaboration →
               </Link>
             </div>
             <div className="mt-6 grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2">
               <div className="bg-[var(--panel)] p-5">
-                <h3 className="font-black">Stability fixes</h3>
-                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{hotfix.claim}</p>
+                <h3 className="font-black">Three exclusive cosmetics</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{dominosCollab.claim}</p>
               </div>
               <div className="bg-[var(--panel)] p-5">
-                <h3 className="font-black">Platform rollout</h3>
+                <h3 className="font-black">U.S. promotion starts Oct 26</h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-                  Mojang announced the October 7 hotfix on Steam first, with Windows and Xbox Series X|S to follow.
-                  Check the official notes and your platform for current availability.
+                  The U.S. cosmetic promotion runs through January 10, 2027. A separate U.S.-only offer gives
+                  players a chance at one of 20,000 Standard Edition game codes from October 26 to November 4.
                 </p>
               </div>
             </div>
