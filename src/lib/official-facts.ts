@@ -18,7 +18,27 @@ export const OFFICIAL_FACTS = {
     sourceUrl:
       'https://feedback.minecraft.net/hc/en-us/articles/49427995539981-Minecraft-Dungeons-II-1-1-2-0-Hotfix',
     status: 'confirmed',
-    note: 'Mojang announced Steam first, with Windows and Xbox Series X|S to follow; do not infer rollout completion on any other platform.',
+    note: 'The official changelog now states that version 1.1.2.0 is available on Steam, Windows, and Xbox Series X|S; availability on other platforms is not confirmed by this changelog.',
+  },
+  'dominos-collab-2026-10-21': {
+    id: 'dominos-collab-2026-10-21',
+    claim:
+      'Mojang and Domino’s announced Minecraft Dungeons II’s first brand partnership. Starting October 26, qualifying orders in participating markets can unlock one of three exclusive cosmetics: the Domino’s Skin, Slice Slayer Cape, or Cheesy Cube Pet.',
+    publishedAt: '2026-10-21',
+    sourceLabel: 'Minecraft.net — Domino’s x Minecraft Dungeons II',
+    sourceUrl: 'https://www.minecraft.net/en-us/article/dominos-minecraft-dungeons-ii',
+    status: 'confirmed',
+    note: 'Products, timing, eligibility, and distribution vary by country. The U.S. cosmetic promotion runs October 26, 2026 through January 10, 2027.',
+  },
+  'dominos-us-game-giveaway-2026-10-21': {
+    id: 'dominos-us-game-giveaway-2026-10-21',
+    claim:
+      'In the United States, Domino’s is offering a chance to receive one of 20,000 digital Minecraft Dungeons II Standard Edition codes from October 26 through November 4, 2026, with 2,000 copies available each day after an eligible purchase and proof-of-purchase submission.',
+    publishedAt: '2026-10-21',
+    sourceLabel: 'Minecraft.net — Domino’s x Minecraft Dungeons II',
+    sourceUrl: 'https://www.minecraft.net/en-us/article/dominos-minecraft-dungeons-ii',
+    status: 'confirmed',
+    note: 'The game-code promotion is U.S.-only. Codes are for PC and Xbox Series X|S and must be redeemed by December 31, 2027.',
   },
   'steam-deck-playable-2026-10-01': {
     id: 'steam-deck-playable-2026-10-01',
