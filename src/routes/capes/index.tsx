@@ -6,6 +6,7 @@ import { pageHead } from '@/lib/seo';
 
 const corruptedCreeper = findOfficialFact('corrupted-creeper-future-promos-2026-09-29');
 const auroraPromo = findOfficialFact('aurora-cape-watch-promo-2026-09-29');
+const dominosCollab = findOfficialFact('dominos-collab-2026-10-21');
 
 const capes = [
   {
@@ -71,6 +72,7 @@ function Page() {
           { label: 'Soul Cape', value: 'Verified Deluxe Edition reward' },
           { label: 'Corrupted Creeper', value: 'Promotional; future opportunities possible' },
           { label: 'Special Cape', value: 'Appearance revealed; acquisition unresolved' },
+          { label: 'Slice Slayer Cape', value: "Domino's promo; starts Oct 26" },
           { label: 'Aurora Cape', value: 'Minecraft only; watch by Oct 14, redeem by Oct 31' },
         ]}
       />
@@ -119,6 +121,20 @@ function Page() {
             </Link>
           ))}
         </div>
+      </Section>
+
+      <Section title="Slice Slayer Cape — Domino's collaboration">
+        <p>{dominosCollab.claim}</p>
+        <p className="mt-4">
+          The Slice Slayer Cape is one of three exclusive cosmetics in the collaboration and provides no
+          gameplay benefit. In the U.S. promotion, the awarded cosmetic is random.
+        </p>
+        <Link
+          to="/capes/slice-slayer-cape"
+          className="mt-4 inline-block text-sm font-bold text-[var(--lime)] underline underline-offset-4"
+        >
+          Slice Slayer Cape details →
+        </Link>
       </Section>
 
       <Section title="Aurora Cape watch promotion — Minecraft only">
