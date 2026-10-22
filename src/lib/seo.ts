@@ -1,5 +1,5 @@
 import { SITE } from './site';
-import { LOCALES } from './locales';
+import { localeHomePath, LOCALES } from './locales';
 import { SEO_PAGES } from './seo-pages';
 
 export type PageHeadOptions = {
@@ -33,7 +33,9 @@ export function pageHead(
         ...LOCALES.filter((locale) => locale.code !== 'en').map((locale) => ({
           rel: 'alternate',
           hrefLang: locale.languageTag,
-          href: absoluteUrl(normalizedPath === '/' ? `/${locale.code}/` : `/${locale.code}${normalizedPath}`),
+          href: absoluteUrl(
+            normalizedPath === '/' ? localeHomePath(locale.code) : `/${locale.code}${normalizedPath}`,
+          ),
         })),
         { rel: 'alternate', hrefLang: 'x-default', href: absoluteUrl(normalizedPath) },
       ]

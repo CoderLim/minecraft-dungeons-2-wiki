@@ -11,7 +11,7 @@ import { createServerFn } from '@tanstack/react-start';
 
 import { loadAnalyticsConfig } from '@/lib/analytics-config';
 import { SITE } from '@/lib/site';
-import { LOCALES } from '@/lib/locales';
+import { localeHomePath, LOCALES } from '@/lib/locales';
 import { getUiCopy, NOT_FOUND_COPY } from '@/lib/ui-copy';
 import '@/styles/globals.css';
 
@@ -121,7 +121,7 @@ function LocalizedNotFound() {
         <h1 className="mt-3 text-4xl font-black">{copy.title}</h1>
         <a
           className="mt-6 inline-block text-[var(--lime)] underline underline-offset-4"
-          href={locale === 'en' ? '/' : `/${locale}/`}
+          href={localeHomePath(locale)}
         >
           {copy.back}
         </a>

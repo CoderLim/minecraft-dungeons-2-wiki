@@ -2,7 +2,7 @@ import pagesJson from '@/data/i18n-pages.json';
 import { getReviewedTranslation } from '@/lib/verified-translations';
 import { polishTranslation } from '@/lib/translation-edits';
 
-import { isTranslatedLocale, LOCALES } from '@/lib/locales';
+import { isTranslatedLocale, localeHomePath, LOCALES } from '@/lib/locales';
 import { SEO_PAGES } from '@/lib/seo-pages';
 import { absoluteUrl, pageHead } from '@/lib/seo';
 
@@ -43,7 +43,7 @@ export function localizedHead(locale: string, path: string) {
   const page = getLocalizedPage(locale, path);
   if (!page) return pageHead('/', 'Not found', 'No verified translation.', { noindex: true });
   const seoEntry = SEO_PAGES.find((item) => item.path === path);
-  const relativePath = path === '/' ? `/${locale}/` : `/${locale}${path}`;
+  const relativePath = path === '/' ? localeHomePath(locale) : `/${locale}${path}`;
   const head = pageHead(relativePath, page.title, page.description, {
     noindex: seoEntry ? !seoEntry.index : true,
   });
@@ -57,7 +57,7 @@ export function localizedHead(locale: string, path: string) {
       ).map((language) => ({
         rel: 'alternate',
         hrefLang: language.languageTag,
-        href: absoluteUrl(path === '/' ? `/${language.code}/` : `/${language.code}${path}`),
+        href: absoluteUrl(path === '/' ? localeHomePath(language.code) : `/${language.code}${path}`),
       })),
       { rel: 'alternate', hrefLang: 'x-default', href: absoluteUrl(path) },
     ],
@@ -69,6 +69,6 @@ export function localizedSitemapPaths(): string[] {
     .flatMap(({ path }) =>
       LOCALES.filter(
         (language) => language.code !== 'en' && (path === '/' || Boolean(getLocalizedPage(language.code, path))),
-      ).map((language) => (path === '/' ? `/${language.code}/` : `/${language.code}${path}`)),
+      ).map((language) => (path === '/' ? localeHomePath(language.code) : `/${language.code}${path}`)),
     );
 }

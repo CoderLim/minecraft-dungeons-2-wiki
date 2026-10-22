@@ -3,7 +3,7 @@ import { Link, useRouterState } from '@tanstack/react-router';
 import { ChevronDown } from 'lucide-react';
 
 import { LAST_VERIFIED_BY_PATH } from '@/lib/page-verification';
-import { LOCALES } from '@/lib/locales';
+import { localeHomePath, LOCALES } from '@/lib/locales';
 import { getLocalizedPage } from '@/lib/i18n-content';
 import { getUiCopy, uiLabel } from '@/lib/ui-copy';
 import { NAV, SITE, type NavItem } from '@/lib/site';
@@ -42,9 +42,8 @@ export function SiteHeader() {
     : '/' + pathname.split('/').filter(Boolean).slice(1).join('/');
   const localeLink = (locale: string, path: string) => {
     if (locale === 'en') return path;
-    return getLocalizedPage(locale, path)
-      ? `/${locale}${path === '/' ? '/' : path}`
-      : `/${locale}/`;
+    if (path === '/') return localeHomePath(locale);
+    return getLocalizedPage(locale, path) ? `/${locale}${path}` : localeHomePath(locale);
   };
   const routeLink = (path: string) =>
     ui.locale === 'en' ? path : (getLocalizedPage(ui.locale, path) ? localeLink(ui.locale, path) : path);

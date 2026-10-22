@@ -19,3 +19,8 @@ export const TRANSLATED_LOCALES = LOCALES.filter((item) => item.code !== 'en');
 export function isTranslatedLocale(code: string): code is NonEnglishLocale {
   return TRANSLATED_LOCALES.some((item) => item.code === code);
 }
+
+/** Locale home path without trailing slash — matches the live 200 URL (`/de`, not `/de/`). */
+export function localeHomePath(code: string) {
+  return code === 'en' ? '/' : `/${code}`;
+}

@@ -20,14 +20,14 @@ jobs:
           import re, time, urllib.request
           base='https://minecraftdungeons2wiki.com'
           pages={
-              '/zh-cn/':'zh-Hans',
-              '/zh-tw/':'zh-Hant',
-              '/ja/':'ja',
-              '/ko/':'ko',
-              '/de/':'de',
-              '/fr/':'fr',
-              '/es/':'es',
-              '/pt-br/':'pt-BR',
+              '/zh-cn':'zh-Hans',
+              '/zh-tw':'zh-Hant',
+              '/ja':'ja',
+              '/ko':'ko',
+              '/de':'de',
+              '/fr':'fr',
+              '/es':'es',
+              '/pt-br':'pt-BR',
               '/zh-cn/armor':'zh-Hans',
               '/zh-tw/capes':'zh-Hant',
               '/ja/crossplay':'ja',
@@ -69,7 +69,7 @@ jobs:
               print('PASS',path,lang,'bytes',len(text))
           req=urllib.request.Request(base+'/sitemap.xml',headers={'User-Agent':'Wiki-i18n-smoke/1.0'})
           with urllib.request.urlopen(req,timeout=30) as resp: sitemap=resp.read().decode('utf-8')
-          for url in ['/zh-cn/', '/zh-cn/armor', '/ja/crossplay', '/pt-br/updates', '/dominos-collaboration', '/capes/slice-slayer-cape', '/pets/cheesy-cube', '/zh-cn/dominos-collaboration']:
+          for url in ['/zh-cn', '/zh-cn/armor', '/ja/crossplay', '/pt-br/updates', '/dominos-collaboration', '/capes/slice-slayer-cape', '/pets/cheesy-cube', '/zh-cn/dominos-collaboration']:
               if base+url not in sitemap: raise AssertionError('Missing sitemap URL '+url)
           print('PASS sitemap localized URLs')
           PY

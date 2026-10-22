@@ -3,7 +3,7 @@ import { createFileRoute, Link, notFound } from '@tanstack/react-router';
 import { SiteFooter, SiteHeader } from '@/components/wiki-shell';
 import { LocalizedArticle } from '@/components/localized-article';
 import { getLocalizedPage, localizedHead } from '@/lib/i18n-content';
-import { isTranslatedLocale, LOCALES, type NonEnglishLocale } from '@/lib/locales';
+import { isTranslatedLocale, localeHomePath, LOCALES, type NonEnglishLocale } from '@/lib/locales';
 import { absoluteUrl, pageHead } from '@/lib/seo';
 
 type Copy = {
@@ -164,7 +164,7 @@ export const Route = createFileRoute('/$locale/')({
     if (!isTranslatedLocale(locale)) return pageHead('/', 'Page not found', '', { noindex: true });
     const t = translations[locale];
     const lang = LOCALES.find((item) => item.code === locale)!.languageTag;
-    const head = pageHead(`/${locale}/`, t.title, t.description);
+    const head = pageHead(localeHomePath(locale), t.title, t.description);
     return {
       ...head,
       meta: [...head.meta, { name: 'language', content: lang }],
@@ -174,7 +174,7 @@ export const Route = createFileRoute('/$locale/')({
         ...LOCALES.filter((item) => item.code !== 'en').map((item) => ({
           rel: 'alternate',
           hrefLang: item.languageTag,
-          href: absoluteUrl(`/${item.code}/`),
+          href: absoluteUrl(localeHomePath(item.code)),
         })),
         { rel: 'alternate', hrefLang: 'x-default', href: absoluteUrl('/') },
       ],
@@ -205,7 +205,7 @@ function LocalizedHome() {
             {LOCALES.map((item) => (
               <a
                 key={item.code}
-                href={item.code === 'en' ? '/' : `/${item.code}/`}
+                href={localeHomePath(item.code)}
                 hrefLang={item.languageTag}
                 aria-current={item.code === locale ? 'page' : undefined}
                 className={`border px-3 py-2 ${item.code === locale ? 'border-[var(--emerald)] text-[var(--lime)]' : 'border-[var(--line)] text-[var(--muted)]'}`}
