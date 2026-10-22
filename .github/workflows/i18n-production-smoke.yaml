@@ -36,6 +36,12 @@ jobs:
               '/fr/builds':'fr',
               '/es/updates':'es',
               '/pt-br/release-date':'pt-BR',
+              '/dominos-collaboration':'en',
+              '/capes/slice-slayer-cape':'en',
+              '/pets/cheesy-cube':'en',
+              '/zh-cn/dominos-collaboration':'zh-Hans',
+              '/ja/capes/slice-slayer-cape':'ja',
+              '/de/pets/cheesy-cube':'de',
           }
           for path,lang in pages.items():
               text=None
@@ -63,7 +69,7 @@ jobs:
               print('PASS',path,lang,'bytes',len(text))
           req=urllib.request.Request(base+'/sitemap.xml',headers={'User-Agent':'Wiki-i18n-smoke/1.0'})
           with urllib.request.urlopen(req,timeout=30) as resp: sitemap=resp.read().decode('utf-8')
-          for url in ['/zh-cn/', '/zh-cn/armor', '/ja/crossplay', '/pt-br/updates']:
+          for url in ['/zh-cn/', '/zh-cn/armor', '/ja/crossplay', '/pt-br/updates', '/dominos-collaboration', '/capes/slice-slayer-cape', '/pets/cheesy-cube', '/zh-cn/dominos-collaboration']:
               if base+url not in sitemap: raise AssertionError('Missing sitemap URL '+url)
           print('PASS sitemap localized URLs')
           PY
