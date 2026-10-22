@@ -9,6 +9,29 @@ export type OfficialFact = {
 };
 
 export const OFFICIAL_FACTS = {
+  'dominos-collaboration-2026-10-21': {
+    id: 'dominos-collaboration-2026-10-21',
+    claim:
+      "Domino's announced Minecraft Dungeons II's first brand partnership with three exclusive cosmetic in-game items: the Domino's Skin, Domino's Slice Slayer Cape, and Domino's Cheesy Cube Pet. In the U.S. promotion, eligible Domino's Rewards purchases of a Domino made online or in the app from October 26, 2026 through January 10, 2027 award one of the three items at random.",
+    publishedAt: '2026-10-21',
+    sourceLabel: "Domino's — Minecraft Dungeons II collaboration",
+    sourceUrl: 'https://www.dominos.com/minecraft-dungeons-ii',
+    status: 'confirmed',
+    note:
+      'The U.S. promotion requires an eligible online prepaid Domino purchase and Domino’s Rewards membership. Local rules, rewards, products, and timing vary in the broader international rollout.',
+  },
+  'dominos-game-giveaway-2026-10-21': {
+    id: 'dominos-game-giveaway-2026-10-21',
+    claim:
+      "Domino's announced a U.S. giveaway of 20,000 Minecraft Dungeons II Standard Edition digital game codes from October 26 through November 4, 2026, with 2,000 codes available each day. A qualifying Domino purchase and proof-of-purchase submission provide a chance to win; the codes are for PC and Xbox Series X|S.",
+    publishedAt: '2026-10-21',
+    sourceLabel: "Domino's investor relations — Minecraft Dungeons II partnership announcement",
+    sourceUrl:
+      'https://ir.dominos.com/news-releases/news-release-details/building-ultimate-game-night-dominosr-and-minecraft-dungeons-ii',
+    status: 'confirmed',
+    note:
+      'This is a promotional chance to win, not a permanent price change and not a guaranteed free copy with every purchase.',
+  },
   'hotfix-1-1-2-0-2026-10-07': {
     id: 'hotfix-1-1-2-0-2026-10-07',
     claim:
@@ -18,7 +41,8 @@ export const OFFICIAL_FACTS = {
     sourceUrl:
       'https://feedback.minecraft.net/hc/en-us/articles/49427995539981-Minecraft-Dungeons-II-1-1-2-0-Hotfix',
     status: 'confirmed',
-    note: 'Mojang announced Steam first, with Windows and Xbox Series X|S to follow; do not infer rollout completion on any other platform.',
+    note:
+      'The current official changelog states that version 1.1.2.0 is available on Steam, Windows, and Xbox Series X|S. It does not confirm this hotfix on PlayStation 5, Nintendo Switch, or Nintendo Switch 2.',
   },
   'steam-deck-playable-2026-10-01': {
     id: 'steam-deck-playable-2026-10-01',

@@ -88,6 +88,7 @@ export const NAV: NavItem[] = [
       { label: 'Characters', href: '/characters' },
       { label: 'Platforms', href: '/platforms' },
       { label: 'Verified Updates', href: '/updates' },
+      { label: "Domino's Collaboration", href: '/dominos-collaboration' },
       { label: 'Game Info', href: '/game-info' },
       { label: 'Trailers', href: '/trailers' },
     ],

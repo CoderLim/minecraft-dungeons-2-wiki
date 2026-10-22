@@ -1,6 +1,9 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { FactGrid, OfficialImage, Section, SourceList, WikiPage } from '@/components/wiki-shell';
+import { findOfficialFact } from '@/lib/official-facts';
 import { pageHead, faqJsonLd, webPageJsonLd } from '@/lib/seo';
+
+const dominosGiveaway = findOfficialFact('dominos-game-giveaway-2026-10-21');
 
 export const Route = createFileRoute('/price')({
   head: () => pageHead('/price', 'Minecraft Dungeons 2 Price: Standard, Deluxe & Game Pass', 'Compare Minecraft Dungeons 2 Standard and Deluxe pricing, included content and Game Pass availability using first-party store data.', { jsonLd: [
@@ -32,10 +35,22 @@ function Page() {
         />
       </Section>
       <Section title="Standard vs Deluxe"><p>The Standard Edition is the base game. The Deluxe Edition adds cosmetic rewards and DLC-related content identified in official store/promo material. The exact bundle should always be checked against the current platform listing.</p></Section>
+      <Section title="Domino's promotional game-code giveaway">
+        <p>{dominosGiveaway.claim}</p>
+        <p className="mt-4">
+          Domino's describes the Standard Edition code as a $29.99 value. This is a limited U.S. promotional
+          chance to win, not a permanent discount and not a guaranteed free game with every purchase. See the{' '}
+          <Link to="/dominos-collaboration" className="text-[var(--lime)] underline underline-offset-4">
+            full collaboration rules and dates
+          </Link>
+          .
+        </p>
+      </Section>
       <Section title="Why prices are labeled by storefront"><p>Currency, tax and regional pricing differ. A U.S. Xbox price should not be silently reused as a Steam, Nintendo or Taiwan price.</p></Section>
       <SourceList sources={[
         { label: 'Xbox store — Minecraft Dungeons II', href: 'https://www.xbox.com/en-US/games/store/minecraft-dungeons-ii/9nsn56sl5hc0' },
         { label: 'Steam store', href: 'https://store.steampowered.com/app/1912410/Minecraft_Dungeons_II/' },
+        { label: dominosGiveaway.sourceLabel, href: dominosGiveaway.sourceUrl },
       ]} />
     </WikiPage>
   );

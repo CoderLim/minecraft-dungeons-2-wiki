@@ -6,6 +6,7 @@ import { pageHead } from '@/lib/seo';
 
 const corruptedCreeper = findOfficialFact('corrupted-creeper-future-promos-2026-09-29');
 const auroraPromo = findOfficialFact('aurora-cape-watch-promo-2026-09-29');
+const dominosCollaboration = findOfficialFact('dominos-collaboration-2026-10-21');
 
 const capes = [
   {
@@ -71,6 +72,7 @@ function Page() {
           { label: 'Soul Cape', value: 'Verified Deluxe Edition reward' },
           { label: 'Corrupted Creeper', value: 'Promotional; future opportunities possible' },
           { label: 'Special Cape', value: 'Appearance revealed; acquisition unresolved' },
+          { label: 'Slice Slayer Cape', value: "Domino's promo · starts Oct 26" },
           { label: 'Aurora Cape', value: 'Minecraft only; watch by Oct 14, redeem by Oct 31' },
         ]}
       />
@@ -121,6 +123,22 @@ function Page() {
         </div>
       </Section>
 
+      <Section title="New: Domino's Slice Slayer Cape">
+        <p>{dominosCollaboration.claim}</p>
+        <p className="mt-4">
+          The cape is one of three randomly awarded cosmetics in the U.S. promotion, so a qualifying purchase
+          does not guarantee the Slice Slayer specifically. See the{' '}
+          <Link to="/capes/slice-slayer-cape" className="text-[var(--lime)] underline underline-offset-4">
+            Slice Slayer Cape guide
+          </Link>{' '}
+          or the full{' '}
+          <Link to="/dominos-collaboration" className="text-[var(--lime)] underline underline-offset-4">
+            Domino's collaboration guide
+          </Link>
+          .
+        </p>
+      </Section>
+
       <Section title="Aurora Cape watch promotion — Minecraft only">
         <p>{auroraPromo.claim}</p>
         <p className="mt-4">
@@ -155,7 +173,12 @@ function Page() {
         </p>
       </Section>
 
-      <SourceList sources={[{ label: auroraPromo.sourceLabel, href: auroraPromo.sourceUrl }]} />
+      <SourceList
+        sources={[
+          { label: dominosCollaboration.sourceLabel, href: dominosCollaboration.sourceUrl },
+          { label: auroraPromo.sourceLabel, href: auroraPromo.sourceUrl },
+        ]}
+      />
     </WikiPage>
   );
 }
