@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 
 import { FactGrid, Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { findOfficialFact } from '@/lib/official-facts';
-import { breadcrumbJsonLd, faqJsonLd, pageHead, webPageJsonLd } from '@/lib/seo';
+import { faqJsonLd, pageHead, webPageJsonLd } from '@/lib/seo';
 
 const collaboration = findOfficialFact('dominos-collaboration-2026-10-21');
 const giveaway = findOfficialFact('dominos-game-giveaway-2026-10-21');
@@ -20,10 +20,6 @@ export const Route = createFileRoute('/dominos-collaboration')({
             "Minecraft Dungeons 2 x Domino's Collaboration",
             "Officially confirmed Domino's collaboration items, U.S. promotion dates, redemption rules and game-code giveaway.",
           ),
-          breadcrumbJsonLd([
-            { name: 'Wiki', path: '/' },
-            { name: "Domino's Collaboration", path: '/dominos-collaboration' },
-          ]),
           faqJsonLd([
             {
               question: "What are the Domino's x Minecraft Dungeons II in-game items?",
