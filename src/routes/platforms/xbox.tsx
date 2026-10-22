@@ -15,6 +15,7 @@ function Page() {
         { label: 'Game Pass', value: 'Announced for launch-day availability on eligible plans' },
         { label: 'Standard US price', value: '$29.99 in launch research' },
         { label: 'Deluxe US price', value: '$49.99 in launch research' },
+        { label: 'Hotfix 1.1.2.0', value: 'Available on Xbox Series X|S' },
       ]} />
       <Section title="Xbox gameplay visual">
         <OfficialImage
@@ -26,10 +27,17 @@ function Page() {
         />
       </Section>
       <Section title="Game Pass"><p>Xbox's September 2026 Wave 2 announcement lists Minecraft Dungeons II for September 29. Plan names and cloud/console availability should follow the live Xbox listing as subscriptions change over time.</p></Section>
+      <Section title="Version 1.1.2.0">
+        <p>
+          Mojang's current official hotfix page states that version 1.1.2.0 is available on Xbox Series X|S,
+          alongside Steam and Windows. The patch fixes multiple crashes and blurry Ultra-quality visuals.
+        </p>
+      </Section>
       <Section title="Co-op"><p>Developer gameplay confirms up to four players, couch co-op and online multiplayer. A separate crossplay page tracks which claims are explicitly supported versus still platform-specific.</p></Section>
       <SourceList sources={[
         { label: 'Xbox Game Pass September 2026 Wave 2', href: 'https://news.xbox.com/en-us/2026/09/15/xbox-game-pass-september-2026-wave-2/' },
         { label: 'Xbox store', href: 'https://www.xbox.com/en-US/games/store/minecraft-dungeons-ii/9nsn56sl5hc0' },
+        { label: 'Minecraft Dungeons II 1.1.2.0 Hotfix', href: 'https://feedback.minecraft.net/hc/en-us/articles/49427995539981-Minecraft-Dungeons-II-1-1-2-0-Hotfix' },
       ]} />
     </WikiPage>
   );
