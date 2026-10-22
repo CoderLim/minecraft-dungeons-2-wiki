@@ -4,6 +4,8 @@ import { Section, SourceList, WikiPage } from '@/components/wiki-shell';
 import { findOfficialFact } from '@/lib/official-facts';
 import { pageHead } from '@/lib/seo';
 
+const collab = findOfficialFact('dominos-collab-2026-10-21');
+const giveaway = findOfficialFact('dominos-us-game-giveaway-2026-10-21');
 const hotfix = findOfficialFact('hotfix-1-1-2-0-2026-10-07');
 const steamDeck = findOfficialFact('steam-deck-playable-2026-10-01');
 const emeraldCap = findOfficialFact('emerald-cap-99999-2026-10-01');
@@ -26,6 +28,30 @@ function Page() {
       title="Minecraft Dungeons 2 Verified Updates"
       description="This is a durable change log for facts that affect the wiki, not a general news feed. Entries are added when an official update, event or platform change alters information players may need."
     >
+      <Section title="October 21, 2026 — Domino's collaboration announced">
+        <article className="border border-[var(--line)] bg-[var(--panel)] p-5">
+          <p className="text-xs font-bold uppercase tracking-[.14em] text-[var(--emerald)]">
+            Official brand collaboration
+          </p>
+          <h3 className="mt-2 text-xl font-black text-[var(--text)]">
+            Three exclusive cosmetics + U.S. game-code giveaway
+          </h3>
+          <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{collab.claim}</p>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-[var(--muted)]">
+            <li>Domino's Skin — cosmetic character skin.</li>
+            <li>Slice Slayer Cape — pizza-themed cosmetic cape.</li>
+            <li>Cheesy Cube Pet — cosmetic companion with no gameplay benefit.</li>
+            <li>{giveaway.claim}</li>
+          </ul>
+          <Link
+            to="/dominos-collaboration"
+            className="mt-4 inline-block text-sm font-bold text-[var(--lime)] underline underline-offset-4"
+          >
+            Full Domino's collaboration guide →
+          </Link>
+        </article>
+      </Section>
+
       <Section title="October 7, 2026 — Version 1.1.2.0">
         <article className="border border-[var(--line)] bg-[var(--panel)] p-5">
           <p className="text-xs font-bold uppercase tracking-[.14em] text-[var(--emerald)]">
@@ -40,9 +66,9 @@ function Page() {
             <li>Fixed blurry visuals when launching with Ultra graphics quality.</li>
           </ul>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            <strong className="text-[var(--text)]">Rollout:</strong> Mojang announced Steam first, with Windows
-            and Xbox Series X|S to follow. The October 7 announcement does not confirm completion on those
-            platforms or availability elsewhere.
+            <strong className="text-[var(--text)]">Rollout:</strong> The official changelog now states that
+            version 1.1.2.0 is available on Steam, Windows and Xbox Series X|S. The changelog does not confirm
+            availability on PlayStation 5, Nintendo Switch or Nintendo Switch 2.
           </p>
           <a
             href={hotfix.sourceUrl}
@@ -81,6 +107,7 @@ function Page() {
       </Section>
       <SourceList
         sources={[
+          { label: collab.sourceLabel, href: collab.sourceUrl },
           { label: hotfix.sourceLabel, href: hotfix.sourceUrl },
           { label: steamDeck.sourceLabel, href: steamDeck.sourceUrl },
         ]}
